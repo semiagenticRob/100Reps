@@ -1,0 +1,211 @@
+# 100 Reps Project — Canonical State
+# Single source of truth for all rep status, tiers, and metadata.
+# Updated by NanoClaw (rep-update skill) and eventually Paperclip agents.
+
+meta:
+  last_restack: 2026-03-27
+  restack_reason: "Benched STR Intel to focus on Teshuvah + ESH launch"
+  total: 13
+  target: 100
+
+reps:
+  - id: 1
+    name: Pipe Acquisition
+    status: dead
+    tier: dead
+    type: business-acquisition
+    summary: >
+      Pipe/infrastructure business acquisition. Analyzed and assessed. Did not proceed.
+    next_step: "Check in with business broker"
+    due: 2026-04-23
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+    app_store: null
+
+  - id: 2
+    name: Estate Sale Helper
+    status: live
+    tier: active
+    type: mobile-app
+    summary: >
+      Buyer-side app for estate sales. Proximity search, images, payment methods,
+      saved sales. Pro tier: AI image search across all active sales.
+    next_step: "Launch promotion campaign — Reddit, social media, direct outreach"
+    due: null
+    blocker: null
+    last_action: 2026-04-07
+    repo: semiagenticRob/estate-sale-helper
+    app_store: https://apps.apple.com/us/app/estate-sale-helper/id6761272980
+
+  - id: 3
+    name: Stack Tracker
+    status: building
+    tier: bench
+    type: mobile-app
+    summary: >
+      Logging and correlation tool for self-experimenters — supplements, peptides,
+      practices. Captures what you're doing, surfaces what's working over time.
+    next_step: "V1 QA pass — test on physical device"
+    due: null
+    blocker: null
+    last_action: 2026-03-25
+    repo: semiagenticRob/stack-tracker
+    app_store: null
+
+  - id: 4
+    name: Runtime
+    status: idea
+    tier: idea
+    type: mobile-app
+    summary: >
+      Maps training plan against calendar and weather to surface optimal run windows.
+      Tells you when to go, what to wear, how to fuel.
+    next_step: "Revisit — standalone app vs Garmin/Strava integration"
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+    app_store: null
+
+  - id: 5
+    name: Route Mapper
+    status: building
+    tier: bench
+    type: website
+    summary: >
+      Map-first route generation for runners and cyclists. Drop a start point, set
+      distance and toggles, get candidate routes. ORS + Mapbox prototype.
+    next_step: "Continue building — see repo for current state"
+    due: null
+    blocker: null
+    last_action: 2026-03-20
+    repo: semiagenticRob/cardio-route-finder
+    app_store: null
+
+  - id: 6
+    name: Teshuvah Read Along
+    status: building
+    tier: active
+    type: mobile-app
+    summary: >
+      Digital siddur with read-along — highlights Hebrew, transliteration, and English
+      in sync through daily prayers. Audio for pronunciation and melody. Rabbi
+      integration layer (v2) for question routing.
+    next_step: "Adam Moskowitz follow-up; UpStart fiscal sponsorship; NCSY via Rabbi Ross"
+    due: 2026-04-02
+    blocker: null
+    last_action: 2026-03-26
+    repo: semiagenticRob/teshuvah-read-along
+    app_store: null
+
+  - id: 7
+    name: WritersRoom.ai
+    status: idea
+    tier: idea
+    type: service-business
+    summary: >
+      Transcript-to-content-stack service for high-output creators. AI does production;
+      human account manager gives final pass. Voice Profile System is the proprietary
+      client asset.
+    next_step: "Revisit — service business, different execution path"
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+    app_store: null
+
+  - id: 8
+    name: Declutter Truck
+    status: idea
+    tier: idea
+    type: physical-ops
+    summary: >
+      Mobile truck for home decluttering. Flat fee removal with AI-assisted photo
+      cataloging at pickup. Customer consents on-site to donate vs. list for sale.
+    next_step: "Paused"
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+    app_store: null
+
+  - id: 9
+    name: Colorado Totes
+    status: validating
+    tier: bench
+    type: physical-service
+    summary: >
+      Plastic moving tote rental contracted directly with apartment complexes. B2B
+      channel differentiation vs Stack (B2C). Denver market — 16-year vacancy high,
+      ideal window for low-cost move-in amenity pitch.
+    next_step: "Cold-call 10 Denver property managers"
+    due: 2026-04-04
+    blocker: null
+    last_action: 2026-03-25
+    repo: null
+    app_store: null
+
+  - id: 10
+    name: AI Diary
+    status: idea
+    tier: idea
+    type: app
+    summary: >
+      Voice-first personal diary where AI structures spoken input into a markdown
+      vault. Insights engine surfaces themes over time. The diary is the input;
+      the structured vault is the output; the insights engine is the product.
+    next_step: "Do not build until Stack Tracker (Rep 003) is live"
+    due: null
+    blocker: "Blocked on Stack Tracker shipping"
+    last_action: 2026-03-25
+    repo: null
+    app_store: null
+
+  - id: 11
+    name: myvoiceprofile.com
+    status: live
+    tier: validating
+    type: web-service
+    summary: >
+      B2C voice profiling service. Ingests speaker's published content and produces
+      Voice Profile Document (VPD) and Voice Starter Prompt (VSP). Manual fulfillment,
+      24h turnaround. Productized wedge from WritersRoom.ai.
+    next_step: "Enable VOICE100 promo code; set up hello@ email; run first real customer order"
+    due: null
+    blocker: null
+    last_action: 2026-03-27
+    repo: semiagenticRob/myvoiceprofile
+    app_store: null
+
+  - id: 12
+    name: STR Intel
+    status: building
+    tier: bench
+    type: newsletter
+    summary: >
+      Weekly paid newsletter for short-term rental operators. Regulation changes,
+      platform policy changes, demand signals, one actionable insight per issue.
+      Beehiiv platform. Benched 2026-03-27.
+    next_step: "Set up Beehiiv account + grab domain"
+    due: null
+    blocker: null
+    last_action: 2026-03-27
+    repo: null
+    app_store: null
+
+  - id: 13
+    name: Civic Transparency Tool
+    status: assessed
+    tier: bench
+    type: newsletter-civic-tech
+    summary: >
+      AI-powered local government accountability newsletter. Watches city council
+      meetings via YouTube transcripts + RSS, runs Claude analysis, generates
+      newsletter draft. Working pipeline for Arvada, CO.
+    next_step: "Run first Arvada newsletter issue"
+    due: null
+    blocker: null
+    last_action: 2026-03-25
+    repo: semiagenticRob/civic-transparency-tool
+    app_store: null
