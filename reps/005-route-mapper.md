@@ -1,10 +1,10 @@
 # Rep 005 — Route Mapper
 
-**Status:** Building | **Tier:** Bench | **Type:** Website
+**Status:** Building
 **Repo:** [semiagenticRob/cardio-route-finder](https://github.com/semiagenticRob/cardio-route-finder)
 
-Map-first route generation for runners and cyclists. Drop a start point, set distance and toggles (loop/lollipop/out-and-back, trails/avoid lights), get candidate routes. ORS + Mapbox prototype.
+Map-first route generation for runners and cyclists. Drop a start point, set distance and toggles, get candidate routes. ORS + Mapbox.
 
 ## Progress
 
-- Loop/lollipop/out-and-back route types, distance tolerance, ORS-powered generation, Mapbox rendering, turn minimization, GPX export
+- Loop/lollipop/out-and-back routes, distance tolerance, ORS generation, Mapbox rendering, turn minimization, GPX export

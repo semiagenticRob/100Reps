@@ -1,9 +1,9 @@
 # Rep 011 — myvoiceprofile.com
 
-**Status:** Live | **Tier:** Validating | **Type:** Web service (B2C)
+**Status:** Live
 **Repo:** [semiagenticRob/myvoiceprofile](https://github.com/semiagenticRob/myvoiceprofile)
 
-B2C voice profiling service. Ingests speaker's published content (articles, YouTube, podcasts) and produces Voice Profile Document (VPD) and Voice Starter Prompt (VSP). Manual fulfillment, 24h turnaround. Productized wedge from WritersRoom.ai.
+Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment, 24h turnaround.
 
 ## Pricing
 
@@ -12,8 +12,6 @@ B2C voice profiling service. Ingests speaker's published content (articles, YouT
 
 ## Next Steps
 
-- Enable VOICE100 promo code on Stripe payment links
-- Set up hello@myvoiceprofile.com email
-- Create and upload OG image
-- Configure Formspree notifications
-- Run first real customer order to validate end-to-end
+- First real customer order end-to-end
+- Set up hello@myvoiceprofile.com
+- Enable VOICE100 promo code
