@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 13 / 100**
+**Progress: 14 / 100**
 
 ## Live
 
@@ -18,6 +18,7 @@
 | 003 | [Stack Tracker](https://github.com/semiagenticRob/stack-tracker) | V1 QA on physical device |
 | 005 | [Route Mapper](https://github.com/semiagenticRob/cardio-route-finder) | Continue building |
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
+| 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 
 ## Assessed
 

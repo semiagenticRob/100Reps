@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 13
+  total: 14
   target: 100
 
 reps:
@@ -20,10 +20,10 @@ reps:
     name: Estate Sale Helper
     status: live
     summary: Buyer-side estate sale app. Proximity search, images, saved sales, AI image search pro tier.
-    next_step: Launch promotion campaign
+    next_step: Launch promotion campaign — Facebook groups, Reddit, TikTok/IG, ASO, estate sale company partnerships (see REP-3 plan)
     due: null
     blocker: null
-    last_action: 2026-04-07
+    last_action: 2026-04-08
     repo: semiagenticRob/estate-sale-helper
 
   - id: 3
@@ -33,7 +33,7 @@ reps:
     next_step: V1 QA on physical device
     due: null
     blocker: null
-    last_action: 2026-03-25
+    last_action: 2026-04-08
     repo: semiagenticRob/stack-tracker
 
   - id: 4
@@ -50,10 +50,10 @@ reps:
     name: Route Mapper
     status: building
     summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
-    next_step: Continue building
+    next_step: DEFERRED — deprioritized until Stack Tracker ships. Resume when Stack Tracker is live.
     due: null
-    blocker: null
-    last_action: 2026-03-20
+    blocker: Deprioritized pending Stack Tracker completion
+    last_action: 2026-04-08
     repo: semiagenticRob/cardio-route-finder
 
   - id: 6
@@ -90,10 +90,10 @@ reps:
     name: Colorado Totes
     status: assessed
     summary: Moving tote rental contracted with apartment complexes. B2B channel, Denver market.
-    next_step: Cold-call 10 Denver property managers
-    due: 2026-04-04
+    next_step: Cold-call 10 Denver property managers — PROCEED, deadline extended
+    due: 2026-04-22
     blocker: null
-    last_action: 2026-03-25
+    last_action: 2026-04-08
     repo: null
 
   - id: 10
@@ -110,10 +110,10 @@ reps:
     name: myvoiceprofile.com
     status: live
     summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
-    next_step: First real customer order end-to-end
-    due: null
+    next_step: First real customer — start with personal network DMs (3 contacts), then X/LinkedIn outreach (see REP-3 plan)
+    due: 2026-04-15
     blocker: null
-    last_action: 2026-03-27
+    last_action: 2026-04-08
     repo: semiagenticRob/myvoiceprofile
 
   - id: 12
@@ -130,8 +130,18 @@ reps:
     name: Civic Transparency Tool
     status: assessed
     summary: AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live.
-    next_step: Run first Arvada issue
+    next_step: Run first Arvada issue — PROCEED, pipeline ready, just needs execution
+    due: 2026-04-15
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/civic-transparency-tool
+
+  - id: 14
+    name: Colorado AI Lab
+    status: building
+    summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
+    next_step: Finalize landing page — replace placeholders (Formspree, Calendly, phone, GA4) and go live
     due: null
     blocker: null
-    last_action: 2026-03-25
-    repo: semiagenticRob/civic-transparency-tool
+    last_action: 2026-04-08
+    repo: semiagenticRob/coloradoailab
