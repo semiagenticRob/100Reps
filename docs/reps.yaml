@@ -45,16 +45,18 @@ reps:
 
   - id: 3
     name: Stack Tracker
-    status: building
+    status: assessed
     summary: Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works.
-    next_step: V1 QA on physical device
+    next_step: Revisit when capacity opens up — V1 scaffold complete and ready to resume
     due: null
     blocker: null
-    last_action: 2026-04-08
+    last_action: 2026-04-10
     repo: semiagenticRob/stack-tracker
     timeline:
       - date: 2026-03-25
         event: "V1 scaffold complete"
+      - date: 2026-04-10
+        event: "Moved to assessed — benched to focus on live reps"
 
   - id: 4
     name: Runtime
