@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>100 REPS // DASHBOARD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;
+  --green:#00ff41;--amber:#ff9900;--red:#ff3333;
+  --blue:#4a9eff;--yellow:#ffff00;--magenta:#ff00ff;--gray:#666;
+  --grid:#1a3a1a;--text:#c0c0c0;--dim:#555;
+  --font:'JetBrains Mono','Fira Code','Consolas','Courier New',monospace;
+}
+html,body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:13px;line-height:1.4;overflow-x:hidden}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* HEADER */
+.header{padding:16px 20px 12px;border-bottom:1px solid var(--grid)}
+.header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.header-title{font-size:20px;font-weight:700;color:var(--green);letter-spacing:2px}
+.header-right{display:flex;align-items:center;gap:16px}
+.progress-label{color:var(--dim);font-size:12px}
+.progress-label span{color:var(--green);font-weight:700}
+.progress-bar{display:flex;height:14px;width:200px;border:1px solid var(--grid);overflow:hidden;border-radius:2px}
+.progress-bar .seg{height:100%;transition:width .5s ease}
+.last-updated{color:var(--dim);font-size:11px;margin-top:6px;text-align:right}
+.last-updated .feed-flash{color:var(--green);opacity:0;transition:opacity .3s}
+.last-updated .feed-flash.show{opacity:1}
+
+/* STATUS COUNTS */
+.status-counts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.status-pill{padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid transparent;transition:all .15s;text-transform:uppercase;user-select:none}
+.status-pill:hover{filter:brightness(1.3)}
+.status-pill.active{border-color:#fff}
+
+/* CONTROLS */
+.controls{padding:10px 20px;border-bottom:1px solid var(--grid);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-btns{display:flex;gap:4px;flex-wrap:wrap}
+.filter-btn{padding:4px 10px;font-family:var(--font);font-size:11px;background:var(--bg3);color:var(--dim);border:1px solid var(--grid);cursor:pointer;text-transform:uppercase;transition:all .15s;border-radius:2px}
+.filter-btn:hover{color:var(--text)}
+.filter-btn.active{color:#fff;border-color:#fff;background:var(--bg2)}
+.clear-filter{display:none;padding:4px 10px;font-family:var(--font);font-size:11px;background:var(--red);color:#fff;border:1px solid var(--red);cursor:pointer;border-radius:2px}
+.clear-filter.show{display:inline-block}
+.search-wrap{display:flex;align-items:center;gap:4px;margin-left:auto}
+.search-wrap label{color:var(--green);font-size:12px}
+.search-wrap input{background:var(--bg);border:1px solid var(--grid);color:var(--green);font-family:var(--font);font-size:12px;padding:4px 8px;width:180px;outline:none}
+.search-wrap input:focus{border-color:var(--green)}
+.sort-btns{display:flex;gap:4px}
+.sort-btn{padding:4px 8px;font-family:var(--font);font-size:10px;background:var(--bg3);color:var(--dim);border:1px solid var(--grid);cursor:pointer;border-radius:2px;transition:all .15s}
+.sort-btn:hover{color:var(--text)}
+.sort-btn.active{color:var(--green);border-color:var(--green)}
+.sort-btn .arrow{margin-left:3px;font-size:9px}
+.view-toggle{display:none;padding:4px 10px;font-family:var(--font);font-size:11px;background:var(--bg3);color:var(--dim);border:1px solid var(--grid);cursor:pointer;border-radius:2px}
+@media(max-width:768px){.view-toggle{display:inline-block}}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;padding:0 0 60px}
+table{width:100%;border-collapse:collapse;min-width:700px}
+thead th{position:sticky;top:0;background:var(--bg2);color:var(--green);font-size:11px;text-transform:uppercase;padding:8px 10px;text-align:left;border-bottom:2px solid var(--grid);cursor:pointer;user-select:none;white-space:nowrap}
+thead th:hover{color:#fff}
+thead th .sort-ind{margin-left:4px;font-size:9px;opacity:.5}
+thead th.sorted .sort-ind{opacity:1;color:var(--green)}
+tbody tr{border-bottom:1px solid var(--grid);cursor:pointer;transition:background .1s}
+tbody tr:hover{background:var(--bg2);box-shadow:inset 0 0 0 1px var(--green)}
+tbody tr.selected{background:var(--bg2)}
+tbody tr.dead-row{opacity:.5}
+tbody tr.dead-row td.name-cell{text-decoration:line-through}
+tbody tr.stale-14{border-left:3px solid var(--amber)}
+tbody tr.stale-30{border-left:3px solid var(--red)}
+tbody td{padding:8px 10px;font-size:12px;vertical-align:top;white-space:nowrap}
+tbody td.summary-cell{white-space:normal;max-width:400px;overflow:hidden;text-overflow:ellipsis}
+tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overflow:ellipsis}
+.id-cell{color:var(--dim);font-weight:700;width:40px}
+.name-cell{color:#fff;font-weight:700}
+.status-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.stale-badge{font-size:9px;color:var(--amber);margin-left:6px}
+.links-cell{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.link-tag{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border:1px solid var(--grid);border-radius:3px;font-size:10px;color:var(--green);white-space:nowrap;transition:all .15s}
+.link-tag:hover{background:var(--bg3);border-color:var(--green);text-decoration:none}
+.link-tag svg{width:12px;height:12px;flex-shrink:0}
+
+/* EXPANDED ROW */
+.detail-row{display:none}
+.detail-row.open{display:table-row}
+.detail-row td{padding:0}
+.detail-content{padding:16px 20px 16px 50px;border-left:2px solid var(--green);margin:0 10px 10px;background:var(--bg2);max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;opacity:0}
+.detail-row.open .detail-content{max-height:1000px;opacity:1;padding:16px 20px 16px 50px}
+.detail-section{margin-bottom:12px}
+.detail-label{color:var(--green);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.detail-text{color:var(--text);font-size:12px}
+.detail-blocker{color:var(--red);font-weight:700}
+.detail-links{display:flex;gap:12px;flex-wrap:wrap}
+.detail-link{display:flex;align-items:center;gap:6px;color:var(--green);font-size:12px;padding:4px 8px;border:1px solid var(--grid);border-radius:3px}
+.detail-link:hover{background:var(--bg3);border-color:var(--green)}
+.detail-link svg{width:14px;height:14px}
+
+/* TIMELINE FULL */
+.timeline-full{position:relative;padding-left:16px}
+.timeline-full::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:var(--grid)}
+.timeline-entry{position:relative;padding:4px 0 4px 12px;font-size:11px}
+.timeline-entry::before{content:'';position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;border:2px solid var(--green);background:var(--bg)}
+.timeline-date{color:var(--green);font-weight:700;margin-right:8px}
+.timeline-event{color:var(--text)}
+
+/* BLOCKER TICKER */
+.ticker{position:fixed;bottom:0;left:0;right:0;height:32px;background:var(--bg2);border-top:1px solid var(--grid);display:flex;align-items:center;overflow:hidden;z-index:100}
+.ticker-label{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;white-space:nowrap;flex-shrink:0;letter-spacing:1px}
+.ticker-track{flex:1;overflow:hidden;position:relative;height:100%}
+.ticker-content{display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 30s linear infinite}
+.ticker-content:hover{animation-play-state:paused}
+.ticker-item{padding:0 24px;font-size:11px;color:var(--amber);cursor:pointer;flex-shrink:0}
+.ticker-item:hover{color:#fff}
+.ticker-item .ticker-id{color:var(--dim);margin-right:6px}
+.no-blockers{color:var(--dim);font-size:11px;padding:0 16px}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SKELETON */
+.skeleton-row td{padding:10px}
+.skeleton-bar{height:12px;background:var(--bg3);border-radius:2px;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.7}}
+.skel-id{width:30px}.skel-name{width:120px}.skel-status{width:70px}.skel-summary{width:280px}
+.skel-next{width:150px}.skel-date{width:80px}.skel-links{width:60px}
+
+/* ERROR BANNER */
+.error-banner{display:none;padding:10px 20px;background:var(--red);color:#fff;font-weight:700;text-align:center;font-size:12px;letter-spacing:1px}
+.error-banner.show{display:block}
+
+/* HELP OVERLAY */
+.help-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center}
+.help-overlay.show{display:flex}
+.help-box{background:var(--bg2);border:1px solid var(--green);padding:24px 32px;max-width:400px;border-radius:4px}
+.help-box h2{color:var(--green);font-size:14px;margin-bottom:16px;letter-spacing:1px}
+.help-row{display:flex;justify-content:space-between;padding:4px 0;font-size:12px}
+.help-key{color:var(--green);font-weight:700;min-width:60px}
+.help-desc{color:var(--text)}
+.help-close{color:var(--dim);font-size:11px;text-align:center;margin-top:16px}
+
+/* CARDS (mobile) */
+.cards-view{display:none;padding:10px}
+.cards-view.active{display:block}
+.card{background:var(--bg2);border:1px solid var(--grid);padding:12px;margin-bottom:8px;border-radius:4px;cursor:pointer}
+.card:hover{border-color:var(--green)}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.card-name{color:#fff;font-weight:700;font-size:13px}
+.card-id{color:var(--dim);font-size:11px}
+.card-summary{color:var(--text);font-size:11px;margin-bottom:6px}
+.card-footer{display:flex;gap:8px;align-items:center;font-size:10px;color:var(--dim)}
+.card-detail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--grid)}
+.card-detail.open{display:block}
+
+@media(max-width:768px){
+  .table-wrap.table-active{display:block}
+  .table-wrap.cards-active{display:none}
+  .cards-view.table-active{display:none}
+  .cards-view.cards-active{display:block}
+  .header-title{font-size:16px}
+  .progress-bar{width:140px}
+  .search-wrap input{width:120px}
+}
+</style>
+</head>
+<body>
+
+<div class="error-banner" id="errorBanner"></div>
+
+<div class="header">
+  <div class="header-top">
+    <div class="header-title">100 REPS PROJECT</div>
+    <div class="header-right">
+      <div class="progress-label"><span id="countLabel">0/100</span></div>
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+  <div class="status-counts" id="statusCounts"></div>
+  <div class="last-updated">LAST UPDATED: <span id="lastUpdated"></span> <span class="feed-flash" id="feedFlash">FEED UPDATED</span></div>
+</div>
+
+<div class="controls">
+  <div class="filter-btns" id="filterBtns"></div>
+  <button class="clear-filter" id="clearFilter">CLEAR</button>
+  <button class="view-toggle" id="viewToggle">CARDS</button>
+  <div class="search-wrap">
+    <label>&gt; SEARCH:</label>
+    <input type="text" id="searchInput" placeholder="" autocomplete="off">
+  </div>
+</div>
+
+<div class="table-wrap table-active" id="tableWrap">
+  <table role="grid">
+    <thead>
+      <tr>
+        <th data-col="id" class="sorted"># <span class="sort-ind">&#9650;</span></th>
+        <th data-col="name">NAME <span class="sort-ind">&#9650;</span></th>
+        <th>LINKS</th>
+        <th data-col="status">STATUS <span class="sort-ind">&#9650;</span></th>
+        <th>SUMMARY</th>
+        <th>NEXT STEP</th>
+        <th data-col="last_action">LAST ACTION <span class="sort-ind">&#9650;</span></th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="cards-view" id="cardsView"></div>
+
+<div class="ticker" id="ticker">
+  <div class="ticker-label">BLOCKERS</div>
+  <div class="ticker-track">
+    <div class="ticker-content" id="tickerContent">
+      <span class="no-blockers">NO ACTIVE BLOCKERS</span>
+    </div>
+  </div>
+</div>
+
+<div class="help-overlay" id="helpOverlay">
+  <div class="help-box">
+    <h2>KEYBOARD SHORTCUTS</h2>
+    <div class="help-row"><span class="help-key">j / k</span><span class="help-desc">Move selection down / up</span></div>
+    <div class="help-row"><span class="help-key">Enter</span><span class="help-desc">Expand / collapse selected row</span></div>
+    <div class="help-row"><span class="help-key">Esc</span><span class="help-desc">Collapse all / close help</span></div>
+    <div class="help-row"><span class="help-key">/</span><span class="help-desc">Focus search</span></div>
+    <div class="help-row"><span class="help-key">?</span><span class="help-desc">Toggle this help</span></div>
+    <div class="help-row"><span class="help-key">1-6</span><span class="help-desc">Filter by status</span></div>
+    <div class="help-row"><span class="help-key">0</span><span class="help-desc">Show all</span></div>
+    <div class="help-close">Press ? or Esc to close</div>
+  </div>
+</div>
+
+<noscript>
+  <div style="padding:40px;color:#ff3333;font-family:monospace;text-align:center">
+    JavaScript is required to load the 100 Reps dashboard.
+  </div>
+</noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" crossorigin="anonymous"></script>
+<script>
+(function(){
+'use strict';
+
+/* ── Config ── */
+var YAML_URL = 'https://raw.githubusercontent.com/semiagenticRob/100Reps/main/reps.yaml';
+var POLL_INTERVAL = 5 * 60 * 1000;
+var STATUS_ORDER = ['idea','assessed','building','live','pmf','dead'];
+var STATUS_COLORS = {
+  idea:'#4a9eff', assessed:'#ff9900', building:'#ffff00',
+  live:'#00ff41', pmf:'#ff00ff', dead:'#666666'
+};
+var STATUS_ICONS = {
+  idea:'\u25CB', assessed:'\u25CE', building:'\u2699',
+  live:'\u2713', pmf:'\u2605', dead:'\u2717'
+};
+var LINK_SVG = {
+  website:'<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm5.3 5H11a13.4 13.4 0 00-1-3.2A6 6 0 0113.3 5zM8 1.1c.7.9 1.2 2 1.5 3.2h-3A11 11 0 018 1.1zM1.3 9a6 6 0 010-2h2.8a13 13 0 000 2zm.4 1h2.3a13 13 0 001 3.2A6 6 0 011.7 10zM4 8a12 12 0 010-2h2.5a14 14 0 000 2zm4 6.9c-.7-.9-1.2-2-1.5-3.2h3A11 11 0 018 14.9zM9.5 9h-3a12 12 0 010-2h3a12 12 0 010 2zm.5 4.2a13 13 0 001-3.2h2.3a6 6 0 01-3.3 3.2zm1.4-4.2a13 13 0 000-2h2.8a6 6 0 010 2z"/></svg>',
+  app_store:'<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm2.9 11.3H9.6L8 8.5l-1.6 2.8H5.1L7.2 8 5.1 4.7h1.3L8 7.5l1.6-2.8h1.3L8.8 8z"/></svg>',
+  sales:'<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm1 11H7V7h2zm0-5H7V4h2z"/></svg>'
+};
+var LINK_LABELS = { website:'Website', app_store:'App Store', sales:'Sales' };
+
+/* ── State ── */
+var reps = [];
+var meta = {};
+var lastHash = '';
+var lastModified = '';
+var currentFilter = 'all';
+var currentSort = 'id';
+var sortAsc = true;
+var searchTerm = '';
+var selectedIdx = -1;
+var expandedIds = {};
+var viewMode = 'table';
+var timelineSvgCache = {};
+
+/* ── DOM refs ── */
+var $body = document.getElementById('tableBody');
+var $counts = document.getElementById('statusCounts');
+var $filterBtns = document.getElementById('filterBtns');
+var $clearFilter = document.getElementById('clearFilter');
+var $search = document.getElementById('searchInput');
+var $countLabel = document.getElementById('countLabel');
+var $progressBar = document.getElementById('progressBar');
+var $lastUpdated = document.getElementById('lastUpdated');
+var $feedFlash = document.getElementById('feedFlash');
+var $errorBanner = document.getElementById('errorBanner');
+var $tickerContent = document.getElementById('tickerContent');
+var $helpOverlay = document.getElementById('helpOverlay');
+var $tableWrap = document.getElementById('tableWrap');
+var $cardsView = document.getElementById('cardsView');
+var $viewToggle = document.getElementById('viewToggle');
+
+/* ── Escape helper (XSS-safe for controlled YAML data) ── */
+function esc(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function truncate(str, len) {
+  if (!str) return '';
+  return str.length > len ? esc(str.slice(0, len)) + '\u2026' : esc(str);
+}
+
+/* ── Privacy: strip names, contacts, and private details from next_step ── */
+var SAFE_CAP_WORDS = /^(App|Store|Facebook|Reddit|TikTok|IG|Instagram|LinkedIn|Twitter|YouTube|Denver|Colorado|Arvada|Beehiiv|Apple|Google|Amazon|Stripe|Expo|Stack|Tracker|Estate|Sale|Helper|Voice|Profile|Route|Mapper|Totes|Declutter|Truck|Writers|Room|Civic|Transparency|Tool|Lab|Runtime|Diary|Intel|STR|Read|Along|Pro|Plus|Build|Formspree|Calendly|PROCEED|DEFERRED|QA)$/;
+function sanitizeNextStep(str) {
+  if (!str) return '';
+  str = str.replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, '');
+  str = str.replace(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g, '');
+  str = str.replace(/\(see\s+REP-\d+\s+plan\)/gi, '');
+  str = str.replace(/\(\d+\s+contacts?\)/gi, '');
+  str = str.replace(/personal\s+network\s*(DMs?)?/gi, '');
+  str = str.replace(/\bvia\s+[A-Z][a-z]+(\s+[A-Z][a-z]+)*/g, '');
+  str = str.replace(/\b([A-Z][a-z]{1,}(?:\s+[A-Z][a-z]{1,})+)\b/g, function(match) {
+    var words = match.split(/\s+/);
+    return words.every(function(w) { return SAFE_CAP_WORDS.test(w); }) ? match : '';
+  });
+  str = str.replace(/\b(?:with|from|by|at|start|to)(?:\s+(?:with|from|by|at|start|to))*\s*,/g, ',');
+  str = str.replace(/\u2014\s*,/g, '\u2014');
+  str = str.replace(/,\s*\u2014/g, ' \u2014');
+  str = str.replace(/\s*,\s*,+\s*/g, ', ');
+  str = str.replace(/,\s*$/g, '');
+  str = str.replace(/^\s*,\s*/g, '');
+  str = str.replace(/\s{2,}/g, ' ');
+  str = str.replace(/\s*[,\u2014]\s*$/g, '');
+  str = str.replace(/^\s*[,\u2014]\s*/g, '');
+  return str.trim();
+}
+
+/* ── Fetch & Parse ── */
+function fetchData(isRefresh) {
+  var headers = {};
+  if (isRefresh) {
+    headers['Cache-Control'] = 'no-cache';
+    if (lastModified) headers['If-Modified-Since'] = lastModified;
+  }
+  return fetch(YAML_URL + '?t=' + Date.now(), { headers: headers })
+    .then(function(resp) {
+      if (resp.status === 304) return false;
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var lm = resp.headers.get('Last-Modified');
+      if (lm) lastModified = lm;
+      return resp.text().then(function(text) {
+        var hash = simpleHash(text);
+        if (hash === lastHash) return false;
+        lastHash = hash;
+        var data = jsyaml.load(text);
+        meta = data.meta || {};
+        reps = (data.reps || []).map(function(r) {
+          return Object.assign({}, r, {
+            links: r.links || {},
+            timeline: r.timeline || []
+          });
+        });
+        timelineSvgCache = {};
+        reps.forEach(function(r) {
+          if (r.timeline.length > 0) timelineSvgCache[r.id] = buildTimelineSvg(r.timeline);
+        });
+        $errorBanner.classList.remove('show');
+        return true;
+      });
+    })
+    .catch(function(err) {
+      console.error('Fetch error:', err);
+      $errorBanner.textContent = 'YAML FEED OFFLINE' + (reps.length ? ' \u2014 SHOWING LAST CACHED DATA' : '');
+      $errorBanner.classList.add('show');
+      return false;
+    });
+}
+
+function simpleHash(str) {
+  var h = 0;
+  for (var i = 0; i < str.length; i++) {
+    h = ((h << 5) - h) + str.charCodeAt(i);
+    h |= 0;
+  }
+  return String(h);
+}
+
+/* ── Timeline SVG ── */
+function buildTimelineSvg(timeline) {
+  if (!timeline.length) return '';
+  var W = 120, H = 20, pad = 8, r = 4;
+  var dates = timeline.map(function(t) { return new Date(t.date).getTime(); });
+  var minD = Math.min.apply(null, dates);
+  var maxD = Math.max.apply(null, dates);
+  var range = maxD - minD || 1;
+  var svg = '<svg class="timeline-mini" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">';
+  svg += '<line x1="'+pad+'" y1="'+(H/2)+'" x2="'+(W-pad)+'" y2="'+(H/2)+'" stroke="#1a3a1a" stroke-width="2"/>';
+  timeline.forEach(function(t, i) {
+    var x = pad + ((dates[i] - minD) / range) * (W - 2*pad);
+    svg += '<circle cx="'+x+'" cy="'+(H/2)+'" r="'+r+'" fill="'+STATUS_COLORS.live+'" opacity=".8"><title>'+esc(t.date)+': '+esc(t.event)+'</title></circle>';
+  });
+  svg += '</svg>';
+  return svg;
+}
+
+/* ── Render ── */
+function render() {
+  var filtered = getFilteredSorted();
+  renderHeader();
+  renderFilters();
+  renderTable(filtered);
+  renderCards(filtered);
+  renderTicker();
+  updateTimestamp();
+}
+
+function renderHeader() {
+  var total = meta.total || reps.length;
+  var target = meta.target || 100;
+  $countLabel.textContent = total + '/' + target;
+
+  var counts = {};
+  STATUS_ORDER.forEach(function(s) { counts[s] = 0; });
+  reps.forEach(function(r) { if (counts[r.status] !== undefined) counts[r.status]++; });
+
+  // Segmented progress bar
+  var barHtml = '';
+  STATUS_ORDER.forEach(function(s) {
+    if (counts[s] > 0) {
+      var pct = ((counts[s] / target) * 100).toFixed(1);
+      barHtml += '<div class="seg" style="width:'+pct+'%;background:'+STATUS_COLORS[s]+'" title="'+s+': '+counts[s]+'"></div>';
+    }
+  });
+  var filled = 0;
+  STATUS_ORDER.forEach(function(s) { filled += counts[s]; });
+  var emptyPct = (((target - filled) / target) * 100).toFixed(1);
+  barHtml += '<div class="seg" style="width:'+emptyPct+'%;background:var(--bg3)"></div>';
+  $progressBar.innerHTML = barHtml;
+
+  // Status pills
+  var pillsHtml = '';
+  STATUS_ORDER.forEach(function(s) {
+    var isActive = currentFilter === s;
+    pillsHtml += '<span class="status-pill'+(isActive?' active':'')+'" style="background:'+STATUS_COLORS[s]+'22;color:'+STATUS_COLORS[s]+';border-color:'+(isActive?STATUS_COLORS[s]:'transparent')+'" data-status="'+s+'">'+s.toUpperCase()+': '+counts[s]+'</span>';
+  });
+  $counts.innerHTML = pillsHtml;
+  // Bind pill clicks
+  $counts.querySelectorAll('.status-pill').forEach(function(el) {
+    el.addEventListener('click', function() { setFilter(el.dataset.status); });
+  });
+}
+
+function renderFilters() {
+  var allStatuses = ['all'].concat(STATUS_ORDER);
+  var html = '';
+  allStatuses.forEach(function(s) {
+    var isActive = currentFilter === s;
+    var color = s === 'all' ? 'var(--text)' : STATUS_COLORS[s];
+    html += '<button class="filter-btn'+(isActive?' active':'')+'" style="'+(isActive?'color:'+color+';border-color:'+color:'')+'" data-status="'+s+'">'+s.toUpperCase()+'</button>';
+  });
+  $filterBtns.innerHTML = html;
+  $filterBtns.querySelectorAll('.filter-btn').forEach(function(el) {
+    el.addEventListener('click', function() { setFilter(el.dataset.status); });
+  });
+  $clearFilter.classList.toggle('show', currentFilter !== 'all');
+}
+
+function renderTable(filtered) {
+  var html = '';
+  filtered.forEach(function(rep, idx) {
+    var isDead = rep.status === 'dead';
+    var staleDays = daysSince(rep.last_action);
+    var rowClass = '';
+    if (isDead) rowClass += ' dead-row';
+    if (!isDead && staleDays > 30) rowClass += ' stale-30';
+    else if (!isDead && staleDays > 14) rowClass += ' stale-14';
+    if (selectedIdx === idx) rowClass += ' selected';
+
+    var staleLabel = (!isDead && staleDays > 14) ? '<span class="stale-badge">'+staleDays+'d</span>' : '';
+    var safeNext = sanitizeNextStep(rep.next_step);
+
+    html += '<tr class="'+rowClass.trim()+'" data-id="'+rep.id+'" data-idx="'+idx+'">';
+    html += '<td class="id-cell">'+String(rep.id).padStart(3,'0')+'</td>';
+    html += '<td class="name-cell">'+esc(rep.name)+'</td>';
+    html += '<td>'+renderLinksCell(rep)+'</td>';
+    html += '<td><span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+STATUS_ICONS[rep.status]+' '+rep.status.toUpperCase()+'</span></td>';
+    html += '<td class="summary-cell" title="'+esc(rep.summary)+'">'+truncate(rep.summary, 90)+'</td>';
+    html += '<td class="next-cell" title="'+esc(safeNext)+'">'+( safeNext ? truncate(safeNext, 55) : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
+    html += '<td>'+(rep.last_action || '\u2014')+staleLabel+'</td>';
+    html += '</tr>';
+
+    // Detail row
+    var isOpen = !!expandedIds[rep.id];
+    html += '<tr class="detail-row'+(isOpen?' open':'')+'" data-detail="'+rep.id+'"><td colspan="7">';
+    html += '<div class="detail-content">';
+    html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
+    if (rep.blocker) {
+      html += '<div class="detail-section"><div class="detail-label">Blocker</div><div class="detail-text detail-blocker">'+esc(rep.blocker)+'</div></div>';
+    }
+    if (safeNext) {
+      html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(safeNext)+'</div></div>';
+    }
+    if (rep.timeline.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full">';
+      rep.timeline.slice().reverse().forEach(function(t) {
+        html += '<div class="timeline-entry"><span class="timeline-date">'+esc(t.date)+'</span><span class="timeline-event">'+esc(t.event)+'</span></div>';
+      });
+      html += '</div></div>';
+    }
+    var linkEntries = buildLinkEntries(rep);
+    if (linkEntries.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
+      linkEntries.forEach(function(l) {
+        html += '<a class="detail-link" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
+      });
+      html += '</div></div>';
+    }
+    html += '</div></td></tr>';
+  });
+
+  $body.innerHTML = html;
+
+  // Bind row click events
+  $body.querySelectorAll('tr[data-id]').forEach(function(tr) {
+    if (tr.classList.contains('detail-row')) return;
+    tr.addEventListener('click', function(e) {
+      // Don't toggle if clicking a link
+      if (e.target.closest('a')) return;
+      var id = parseInt(tr.dataset.id);
+      var idx = parseInt(tr.dataset.idx);
+      toggleExpand(id, idx);
+    });
+  });
+}
+
+function renderCards(filtered) {
+  var html = '';
+  filtered.forEach(function(rep) {
+    var isDead = rep.status === 'dead';
+    var staleDays = daysSince(rep.last_action);
+    var isOpen = !!expandedIds[rep.id];
+
+    html += '<div class="card'+(isDead?' dead-row':'')+'" data-id="'+rep.id+'">';
+    html += '<div class="card-header"><span class="card-id">#'+String(rep.id).padStart(3,'0')+'</span>';
+    html += '<span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+rep.status.toUpperCase()+'</span></div>';
+    html += '<div class="card-name">'+esc(rep.name)+'</div>';
+    html += '<div class="card-summary">'+truncate(rep.summary, 80)+'</div>';
+    html += '<div class="card-footer">';
+    if (rep.last_action) html += '<span>Last: '+esc(rep.last_action)+'</span>';
+    if (!isDead && staleDays > 14) html += '<span style="color:var(--amber)">'+staleDays+'d stale</span>';
+    html += '</div>';
+
+    var cardSafeNext = sanitizeNextStep(rep.next_step);
+    html += '<div class="card-detail'+(isOpen?' open':'')+'">';
+    html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
+    if (rep.blocker) html += '<div class="detail-section"><div class="detail-label">Blocker</div><div class="detail-text detail-blocker">'+esc(rep.blocker)+'</div></div>';
+    if (cardSafeNext) html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(cardSafeNext)+'</div></div>';
+    if (rep.timeline.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full">';
+      rep.timeline.slice().reverse().forEach(function(t) {
+        html += '<div class="timeline-entry"><span class="timeline-date">'+esc(t.date)+'</span><span class="timeline-event">'+esc(t.event)+'</span></div>';
+      });
+      html += '</div></div>';
+    }
+    var linkEntries = buildLinkEntries(rep);
+    if (linkEntries.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
+      linkEntries.forEach(function(l) {
+        html += '<a class="detail-link" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
+      });
+      html += '</div></div>';
+    }
+    html += '</div></div>';
+  });
+  $cardsView.innerHTML = html;
+
+  // Bind card clicks
+  $cardsView.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      toggleExpand(parseInt(card.dataset.id));
+    });
+  });
+}
+
+function renderTicker() {
+  var blockers = reps.filter(function(r) { return r.blocker && r.status !== 'dead'; });
+  if (blockers.length === 0) {
+    $tickerContent.innerHTML = '<span class="no-blockers">ALL CLEAR \u2014 NO ACTIVE BLOCKERS</span>';
+    $tickerContent.style.animation = 'none';
+    return;
+  }
+  var makeItems = function() {
+    return blockers.map(function(r) {
+      return '<span class="ticker-item" data-id="'+r.id+'"><span class="ticker-id">#'+String(r.id).padStart(3,'0')+'</span>'+esc(r.name)+': '+esc(r.blocker)+'</span>';
+    }).join('');
+  };
+  $tickerContent.innerHTML = makeItems() + makeItems();
+  $tickerContent.style.animation = 'ticker-scroll '+Math.max(blockers.length * 10, 15)+'s linear infinite';
+
+  $tickerContent.querySelectorAll('.ticker-item').forEach(function(el) {
+    el.addEventListener('click', function() { scrollToRep(parseInt(el.dataset.id)); });
+  });
+}
+
+function renderLinksCell(rep) {
+  var entries = buildLinkEntries(rep);
+  if (entries.length === 0) return '<span style="color:var(--dim)">\u2014</span>';
+  var html = '<div class="links-cell">';
+  entries.forEach(function(l) {
+    html += '<a class="link-tag" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function domainFromUrl(url) {
+  try { return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, ''); }
+  catch(e) { return url; }
+}
+function buildLinkEntries(rep) {
+  var entries = [];
+  if (rep.links) {
+    Object.keys(rep.links).forEach(function(key) {
+      var url = rep.links[key];
+      if (!url) return;
+      var short = key === 'app_store' ? 'App Store' : domainFromUrl(url);
+      entries.push({ label: LINK_LABELS[key] || 'Link', short: short, url: url, svg: LINK_SVG[key] || LINK_SVG.website });
+    });
+  }
+  return entries;
+}
+
+/* ── Filter / Sort ── */
+function getFilteredSorted() {
+  var list = reps.slice();
+  if (currentFilter !== 'all') {
+    list = list.filter(function(r) { return r.status === currentFilter; });
+  }
+  if (searchTerm) {
+    var q = searchTerm.toLowerCase();
+    list = list.filter(function(r) {
+      return r.name.toLowerCase().indexOf(q) >= 0 ||
+        (r.summary && r.summary.toLowerCase().indexOf(q) >= 0) ||
+        r.status.toLowerCase().indexOf(q) >= 0;
+    });
+  }
+  list.sort(function(a, b) {
+    var va, vb;
+    switch (currentSort) {
+      case 'id': va = a.id; vb = b.id; break;
+      case 'name': va = a.name.toLowerCase(); vb = b.name.toLowerCase(); break;
+      case 'status': va = STATUS_ORDER.indexOf(a.status); vb = STATUS_ORDER.indexOf(b.status); break;
+      case 'last_action': va = a.last_action || '0000-01-01'; vb = b.last_action || '0000-01-01'; break;
+      default: va = a.id; vb = b.id;
+    }
+    if (va < vb) return sortAsc ? -1 : 1;
+    if (va > vb) return sortAsc ? 1 : -1;
+    return 0;
+  });
+  return list;
+}
+
+function setFilter(status) {
+  currentFilter = status;
+  selectedIdx = -1;
+  render();
+}
+
+function setSort(col) {
+  if (currentSort === col) {
+    sortAsc = !sortAsc;
+  } else {
+    currentSort = col;
+    sortAsc = true;
+  }
+  document.querySelectorAll('thead th').forEach(function(th) {
+    th.classList.toggle('sorted', th.dataset.col === col);
+    var ind = th.querySelector('.sort-ind');
+    if (ind && th.dataset.col === col) {
+      ind.innerHTML = sortAsc ? '&#9650;' : '&#9660;';
+    }
+  });
+  render();
+}
+
+/* ── Column header sort binding ── */
+document.querySelectorAll('thead th[data-col]').forEach(function(th) {
+  th.addEventListener('click', function() { setSort(th.dataset.col); });
+});
+
+/* ── Expand / Collapse ── */
+function toggleExpand(id, idx) {
+  if (expandedIds[id]) {
+    delete expandedIds[id];
+  } else {
+    expandedIds[id] = true;
+  }
+  if (idx !== undefined) selectedIdx = idx;
+  render();
+}
+
+function scrollToRep(id) {
+  expandedIds[id] = true;
+  render();
+  var row = document.querySelector('tr[data-id="'+id+'"]');
+  if (row) row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ── View toggle ── */
+function toggleViewMode() {
+  viewMode = viewMode === 'table' ? 'cards' : 'table';
+  $viewToggle.textContent = viewMode === 'table' ? 'CARDS' : 'TABLE';
+  $tableWrap.className = 'table-wrap ' + (viewMode === 'table' ? 'table-active' : 'cards-active');
+  $cardsView.className = 'cards-view ' + (viewMode === 'table' ? 'table-active' : 'cards-active');
+}
+$viewToggle.addEventListener('click', toggleViewMode);
+$clearFilter.addEventListener('click', function() { setFilter('all'); });
+
+/* ── Helpers ── */
+function daysSince(dateStr) {
+  if (!dateStr) return 999;
+  return Math.floor((new Date() - new Date(dateStr)) / (1000 * 60 * 60 * 24));
+}
+
+function updateTimestamp() {
+  $lastUpdated.textContent = new Date().toLocaleTimeString();
+}
+
+/* ── Search debounce ── */
+var searchTimeout;
+$search.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(function() {
+    searchTerm = $search.value.trim();
+    selectedIdx = -1;
+    render();
+  }, 150);
+});
+
+/* ── Keyboard navigation ── */
+document.addEventListener('keydown', function(e) {
+  if (document.activeElement === $search && e.key !== 'Escape') return;
+  var filtered = getFilteredSorted();
+
+  switch(e.key) {
+    case '?':
+      e.preventDefault();
+      $helpOverlay.classList.toggle('show');
+      break;
+    case 'Escape':
+      if ($helpOverlay.classList.contains('show')) {
+        $helpOverlay.classList.remove('show');
+      } else if (document.activeElement === $search) {
+        $search.blur();
+        searchTerm = '';
+        $search.value = '';
+        render();
+      } else {
+        expandedIds = {};
+        render();
+      }
+      break;
+    case '/':
+      if (document.activeElement !== $search) {
+        e.preventDefault();
+        $search.focus();
+      }
+      break;
+    case 'j':
+    case 'ArrowDown':
+      e.preventDefault();
+      if (selectedIdx < filtered.length - 1) {
+        selectedIdx++;
+        render();
+        var sel = document.querySelector('tr.selected');
+        if (sel) sel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      break;
+    case 'k':
+    case 'ArrowUp':
+      e.preventDefault();
+      if (selectedIdx > 0) {
+        selectedIdx--;
+        render();
+        var sel2 = document.querySelector('tr.selected');
+        if (sel2) sel2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      break;
+    case 'Enter':
+      if (selectedIdx >= 0 && selectedIdx < filtered.length) {
+        e.preventDefault();
+        toggleExpand(filtered[selectedIdx].id, selectedIdx);
+      }
+      break;
+    case '0': setFilter('all'); break;
+    case '1': setFilter('idea'); break;
+    case '2': setFilter('assessed'); break;
+    case '3': setFilter('building'); break;
+    case '4': setFilter('live'); break;
+    case '5': setFilter('pmf'); break;
+    case '6': setFilter('dead'); break;
+  }
+});
+
+$helpOverlay.addEventListener('click', function(e) {
+  if (e.target === $helpOverlay) $helpOverlay.classList.remove('show');
+});
+
+/* ── Auto-refresh ── */
+function refresh() {
+  fetchData(true).then(function(changed) {
+    if (changed) {
+      render();
+      $feedFlash.classList.add('show');
+      setTimeout(function() { $feedFlash.classList.remove('show'); }, 2000);
+    }
+    updateTimestamp();
+  });
+}
+
+/* ── Init ── */
+fetchData(false).then(function() {
+  render();
+  setInterval(refresh, POLL_INTERVAL);
+});
+
+})();
+</script>
+</body>
+</html>

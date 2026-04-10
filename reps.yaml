@@ -15,6 +15,9 @@ reps:
     blocker: null
     last_action: 2026-03-23
     repo: null
+    timeline:
+      - date: 2026-03-23
+        event: "Assessed — decided not to proceed"
 
   - id: 2
     name: Estate Sale Helper
@@ -25,6 +28,16 @@ reps:
     blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/estate-sale-helper
+    links:
+      website: https://www.estatesalehelper.com
+      app_store: https://apps.apple.com/us/app/estate-sale-helper/id6761272980
+    timeline:
+      - date: 2026-03-24
+        event: "Market research completed"
+      - date: 2026-03-26
+        event: "Apple developer account active"
+      - date: 2026-04-07
+        event: "Live on App Store (Build 5)"
 
   - id: 3
     name: Stack Tracker
@@ -35,6 +48,9 @@ reps:
     blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/stack-tracker
+    timeline:
+      - date: 2026-03-25
+        event: "V1 scaffold complete"
 
   - id: 4
     name: Runtime
@@ -95,6 +111,9 @@ reps:
     blocker: null
     last_action: 2026-04-08
     repo: null
+    timeline:
+      - date: 2026-03-25
+        event: "Assessment completed"
 
   - id: 10
     name: AI Diary
@@ -115,6 +134,8 @@ reps:
     blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/myvoiceprofile
+    links:
+      website: https://myvoiceprofile.com
 
   - id: 12
     name: STR Intel
@@ -145,3 +166,5 @@ reps:
     blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/coloradoailab
+    links:
+      website: https://coloradoailab.com
