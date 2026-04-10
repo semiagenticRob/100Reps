@@ -865,6 +865,7 @@ function refresh() {
   fetchData(true).then(function(changed) {
     if (changed) {
       render();
+      computeLastActions().then(function() { render(); });
       $feedFlash.classList.add('show');
       setTimeout(function() { $feedFlash.classList.remove('show'); }, 2000);
     }
@@ -872,9 +873,29 @@ function refresh() {
   });
 }
 
+/* ── Compute true last_action from YAML timeline + git commits ── */
+function computeLastActions() {
+  var promises = reps.map(function(rep) {
+    return fetchGitHistory(rep).then(function(commits) {
+      var dates = [];
+      if (rep.last_action) dates.push(new Date(rep.last_action));
+      (rep.timeline || []).forEach(function(t) {
+        dates.push(t.date instanceof Date ? t.date : new Date(t.date));
+      });
+      commits.forEach(function(c) { dates.push(c.date); });
+      if (dates.length > 0) {
+        var max = dates.reduce(function(a, b) { return a > b ? a : b; });
+        rep.last_action = max;
+      }
+    });
+  });
+  return Promise.all(promises);
+}
+
 /* ── Init ── */
 fetchData(false).then(function() {
   render();
+  computeLastActions().then(function() { render(); });
   setInterval(refresh, POLL_INTERVAL);
 });
 
