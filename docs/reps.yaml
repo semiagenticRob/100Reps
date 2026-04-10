@@ -1,0 +1,170 @@
+# 100 Reps Project — Canonical State
+# Statuses: idea → assessed → building → live → pmf → dead
+
+meta:
+  total: 14
+  target: 100
+
+reps:
+  - id: 1
+    name: Pipe Acquisition
+    status: dead
+    summary: Pipe/infrastructure business acquisition. Did not proceed.
+    next_step: Check in with business broker
+    due: 2026-04-23
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+    timeline:
+      - date: 2026-03-23
+        event: "Assessed — decided not to proceed"
+
+  - id: 2
+    name: Estate Sale Helper
+    status: live
+    summary: Buyer-side estate sale app. Proximity search, images, saved sales, AI image search pro tier.
+    next_step: Launch promotion campaign — Facebook groups, Reddit, TikTok/IG, ASO, estate sale company partnerships (see REP-3 plan)
+    due: null
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/estate-sale-helper
+    links:
+      website: https://www.estatesalehelper.com
+      app_store: https://apps.apple.com/us/app/estate-sale-helper/id6761272980
+    timeline:
+      - date: 2026-03-24
+        event: "Market research completed"
+      - date: 2026-03-26
+        event: "Apple developer account active"
+      - date: 2026-04-07
+        event: "Live on App Store (Build 5)"
+
+  - id: 3
+    name: Stack Tracker
+    status: building
+    summary: Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works.
+    next_step: V1 QA on physical device
+    due: null
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/stack-tracker
+    timeline:
+      - date: 2026-03-25
+        event: "V1 scaffold complete"
+
+  - id: 4
+    name: Runtime
+    status: idea
+    summary: Optimal run window finder. Training plan × calendar × weather.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+
+  - id: 5
+    name: Route Mapper
+    status: building
+    summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
+    next_step: Resume route generation MVP — ORS + Mapbox integration
+    due: null
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/cardio-route-finder
+
+  - id: 6
+    name: Teshuvah Read Along
+    status: building
+    summary: Digital siddur with synchronized Hebrew/transliteration/English read-along and audio.
+    next_step: Adam Moskowitz follow-up, UpStart fiscal sponsorship, NCSY via Rabbi Ross
+    due: null
+    blocker: null
+    last_action: 2026-03-26
+    repo: semiagenticRob/teshuvah-read-along
+
+  - id: 7
+    name: WritersRoom.ai
+    status: idea
+    summary: Transcript-to-content-stack service. AI production, human account manager final pass.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+
+  - id: 8
+    name: Declutter Truck
+    status: idea
+    summary: Mobile decluttering truck. Flat fee removal, AI photo cataloging, on-site consent for donate vs. sell.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-03-23
+    repo: null
+
+  - id: 9
+    name: Colorado Totes
+    status: assessed
+    summary: Moving tote rental contracted with apartment complexes. B2B channel, Denver market.
+    next_step: Cold-call 10 Denver property managers — PROCEED, deadline extended
+    due: 2026-04-22
+    blocker: null
+    last_action: 2026-04-08
+    repo: null
+    timeline:
+      - date: 2026-03-25
+        event: "Assessment completed"
+
+  - id: 10
+    name: AI Diary
+    status: idea
+    summary: Voice-first diary → structured vault → insights engine. The diary is input, the vault is output.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-03-25
+    repo: null
+
+  - id: 11
+    name: myvoiceprofile.com
+    status: live
+    summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
+    next_step: First real customer — start with personal network DMs (3 contacts), then X/LinkedIn outreach (see REP-3 plan)
+    due: 2026-04-15
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/myvoiceprofile
+    links:
+      website: https://myvoiceprofile.com
+
+  - id: 12
+    name: STR Intel
+    status: assessed
+    summary: Weekly paid STR newsletter. Regulation changes, demand signals, actionable insights. Beehiiv.
+    next_step: Set up Beehiiv account
+    due: null
+    blocker: null
+    last_action: 2026-03-27
+    repo: null
+
+  - id: 13
+    name: Civic Transparency Tool
+    status: assessed
+    summary: AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live.
+    next_step: Run first Arvada issue — PROCEED, pipeline ready, just needs execution
+    due: 2026-04-15
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/civic-transparency-tool
+
+  - id: 14
+    name: Colorado AI Lab
+    status: building
+    summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
+    next_step: Finalize landing page — replace placeholders (Formspree, Calendly, phone, GA4) and go live
+    due: null
+    blocker: null
+    last_action: 2026-04-08
+    repo: semiagenticRob/coloradoailab
+    links:
+      website: https://coloradoailab.com
