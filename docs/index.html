@@ -24,6 +24,8 @@ a:hover{text-decoration:underline}
 .header{padding:16px 20px 12px;border-bottom:1px solid var(--grid)}
 .header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .header-title{font-size:20px;font-weight:700;color:var(--green);letter-spacing:2px}
+.header-sub{font-size:11px;color:var(--dim);margin-top:4px;letter-spacing:0;font-weight:400}
+.header-sub a{color:var(--amber)}
 .header-right{display:flex;align-items:center;gap:16px}
 .progress-label{color:var(--dim);font-size:12px}
 .progress-label span{color:var(--green);font-weight:700}
@@ -181,7 +183,7 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 
 <div class="header">
   <div class="header-top">
-    <div class="header-title">100 REPS PROJECT</div>
+    <div><div class="header-title">100 REPS PROJECT</div><div class="header-sub"><a href="https://100reps.substack.com/" target="_blank" rel="noopener">One guy, 100 AI-powered businesses &mdash; can a solo founder with AI actually build something massive?</a></div></div>
     <div class="header-right">
       <div class="progress-label"><span id="countLabel">0/100</span></div>
       <div class="progress-bar" id="progressBar"></div>
