@@ -107,6 +107,12 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 .timeline-entry::before{content:'';position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;border:2px solid var(--green);background:var(--bg)}
 .timeline-date{color:var(--green);font-weight:700;margin-right:8px}
 .timeline-event{color:var(--text)}
+.timeline-entry.milestone::before{background:var(--green);border-color:var(--green)}
+.timeline-entry.commit::before{background:var(--bg);border-color:var(--dim)}
+.timeline-entry.milestone .timeline-event{color:var(--green);font-weight:700}
+.timeline-loading{color:var(--dim);font-size:11px;padding:4px 0 4px 12px}
+.timeline-show-more{color:var(--blue);font-size:11px;cursor:pointer;padding:6px 0 2px 12px;user-select:none}
+.timeline-show-more:hover{text-decoration:underline}
 
 /* BLOCKER TICKER */
 .ticker{position:fixed;bottom:0;left:0;right:0;height:32px;background:var(--bg2);border-top:1px solid var(--grid);display:flex;align-items:center;overflow:hidden;z-index:100}
@@ -282,6 +288,7 @@ var selectedIdx = -1;
 var expandedIds = {};
 var viewMode = 'table';
 var timelineSvgCache = {};
+var gitCommitCache = {}; // keyed by rep id, stores fetched commit arrays
 
 /* ── DOM refs ── */
 var $body = document.getElementById('tableBody');
@@ -361,10 +368,6 @@ function fetchData(isRefresh) {
             timeline: r.timeline || []
           });
         });
-        timelineSvgCache = {};
-        reps.forEach(function(r) {
-          if (r.timeline.length > 0) timelineSvgCache[r.id] = buildTimelineSvg(r.timeline);
-        });
         $errorBanner.classList.remove('show');
         return true;
       });
@@ -377,6 +380,39 @@ function fetchData(isRefresh) {
     });
 }
 
+/* ── Git commit history (lazy, cached per rep) ── */
+function fetchGitHistory(rep) {
+  if (!rep.repo) return Promise.resolve([]);
+  if (gitCommitCache[rep.id]) return Promise.resolve(gitCommitCache[rep.id]);
+  var url = 'https://api.github.com/repos/' + rep.repo + '/commits?per_page=50';
+  return fetch(url)
+    .then(function(resp) {
+      if (!resp.ok) return [];
+      return resp.json();
+    })
+    .then(function(commits) {
+      var entries = commits.map(function(c) {
+        var d = new Date(c.commit.author.date);
+        var msg = c.commit.message.split('\n')[0];
+        // Strip "Co-Authored-By" lines from first line if present
+        msg = msg.replace(/Co-Authored-By:.*$/i, '').trim();
+        return { date: d, event: msg, type: 'commit' };
+      });
+      gitCommitCache[rep.id] = entries;
+      return entries;
+    })
+    .catch(function() { return []; });
+}
+
+function mergeTimelines(yamlTimeline, gitCommits) {
+  var manual = (yamlTimeline || []).map(function(t) {
+    return { date: t.date instanceof Date ? t.date : new Date(t.date), event: t.event, type: 'milestone' };
+  });
+  var all = manual.concat(gitCommits);
+  all.sort(function(a, b) { return b.date - a.date; }); // newest first
+  return all;
+}
+
 function simpleHash(str) {
   var h = 0;
   for (var i = 0; i < str.length; i++) {
@@ -384,24 +420,6 @@ function simpleHash(str) {
     h |= 0;
   }
   return String(h);
-}
-
-/* ── Timeline SVG ── */
-function buildTimelineSvg(timeline) {
-  if (!timeline.length) return '';
-  var W = 120, H = 20, pad = 8, r = 4;
-  var dates = timeline.map(function(t) { return new Date(t.date).getTime(); });
-  var minD = Math.min.apply(null, dates);
-  var maxD = Math.max.apply(null, dates);
-  var range = maxD - minD || 1;
-  var svg = '<svg class="timeline-mini" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'">';
-  svg += '<line x1="'+pad+'" y1="'+(H/2)+'" x2="'+(W-pad)+'" y2="'+(H/2)+'" stroke="#1a3a1a" stroke-width="2"/>';
-  timeline.forEach(function(t, i) {
-    var x = pad + ((dates[i] - minD) / range) * (W - 2*pad);
-    svg += '<circle cx="'+x+'" cy="'+(H/2)+'" r="'+r+'" fill="'+STATUS_COLORS.live+'" opacity=".8"><title>'+esc(t.date)+': '+esc(t.event)+'</title></circle>';
-  });
-  svg += '</svg>';
-  return svg;
 }
 
 /* ── Render ── */
@@ -487,7 +505,7 @@ function renderTable(filtered) {
     html += '<td><span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+STATUS_ICONS[rep.status]+' '+rep.status.toUpperCase()+'</span></td>';
     html += '<td class="summary-cell" title="'+esc(rep.summary)+'">'+truncate(rep.summary, 90)+'</td>';
     html += '<td class="next-cell" title="'+esc(safeNext)+'">'+( safeNext ? truncate(safeNext, 55) : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
-    html += '<td>'+(rep.last_action || '\u2014')+staleLabel+'</td>';
+    html += '<td>'+(rep.last_action ? formatDate(rep.last_action) : '\u2014')+staleLabel+'</td>';
     html += '</tr>';
 
     // Detail row
@@ -501,13 +519,13 @@ function renderTable(filtered) {
     if (safeNext) {
       html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(safeNext)+'</div></div>';
     }
-    if (rep.timeline.length > 0) {
-      html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full">';
-      rep.timeline.slice().reverse().forEach(function(t) {
-        html += '<div class="timeline-entry"><span class="timeline-date">'+esc(t.date)+'</span><span class="timeline-event">'+esc(t.event)+'</span></div>';
-      });
-      html += '</div></div>';
+    html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="timeline-'+rep.id+'">';
+    if (rep.repo || rep.timeline.length > 0) {
+      html += '<div class="timeline-loading">Loading history\u2026</div>';
+    } else {
+      html += '<div class="timeline-loading">No history available</div>';
     }
+    html += '</div></div>';
     var linkEntries = buildLinkEntries(rep);
     if (linkEntries.length > 0) {
       html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
@@ -525,12 +543,16 @@ function renderTable(filtered) {
   $body.querySelectorAll('tr[data-id]').forEach(function(tr) {
     if (tr.classList.contains('detail-row')) return;
     tr.addEventListener('click', function(e) {
-      // Don't toggle if clicking a link
-      if (e.target.closest('a')) return;
+      if (e.target.closest('a') || e.target.closest('.timeline-show-more')) return;
       var id = parseInt(tr.dataset.id);
       var idx = parseInt(tr.dataset.idx);
       toggleExpand(id, idx);
     });
+  });
+
+  // Load timelines for expanded rows
+  filtered.forEach(function(rep) {
+    if (expandedIds[rep.id]) loadTimeline(rep);
   });
 }
 
@@ -547,7 +569,7 @@ function renderCards(filtered) {
     html += '<div class="card-name">'+esc(rep.name)+'</div>';
     html += '<div class="card-summary">'+truncate(rep.summary, 80)+'</div>';
     html += '<div class="card-footer">';
-    if (rep.last_action) html += '<span>Last: '+esc(rep.last_action)+'</span>';
+    if (rep.last_action) html += '<span>Last: '+esc(formatDate(rep.last_action))+'</span>';
     if (!isDead && staleDays > 14) html += '<span style="color:var(--amber)">'+staleDays+'d stale</span>';
     html += '</div>';
 
@@ -556,13 +578,13 @@ function renderCards(filtered) {
     html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
     if (rep.blocker) html += '<div class="detail-section"><div class="detail-label">Blocker</div><div class="detail-text detail-blocker">'+esc(rep.blocker)+'</div></div>';
     if (cardSafeNext) html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(cardSafeNext)+'</div></div>';
-    if (rep.timeline.length > 0) {
-      html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full">';
-      rep.timeline.slice().reverse().forEach(function(t) {
-        html += '<div class="timeline-entry"><span class="timeline-date">'+esc(t.date)+'</span><span class="timeline-event">'+esc(t.event)+'</span></div>';
-      });
-      html += '</div></div>';
+    html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="card-timeline-'+rep.id+'">';
+    if (rep.repo || rep.timeline.length > 0) {
+      html += '<div class="timeline-loading">Loading history\u2026</div>';
+    } else {
+      html += '<div class="timeline-loading">No history available</div>';
     }
+    html += '</div></div>';
     var linkEntries = buildLinkEntries(rep);
     if (linkEntries.length > 0) {
       html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
@@ -578,8 +600,58 @@ function renderCards(filtered) {
   // Bind card clicks
   $cardsView.querySelectorAll('.card').forEach(function(card) {
     card.addEventListener('click', function(e) {
-      if (e.target.closest('a')) return;
+      if (e.target.closest('a') || e.target.closest('.timeline-show-more')) return;
       toggleExpand(parseInt(card.dataset.id));
+    });
+  });
+
+  // Load timelines for expanded cards
+  filtered.forEach(function(rep) {
+    if (expandedIds[rep.id]) loadTimeline(rep);
+  });
+}
+
+var TIMELINE_INITIAL = 10;
+var timelineExpandedIds = {};
+
+function loadTimeline(rep) {
+  fetchGitHistory(rep).then(function(gitCommits) {
+    var merged = mergeTimelines(rep.timeline, gitCommits);
+    var containers = [
+      document.getElementById('timeline-' + rep.id),
+      document.getElementById('card-timeline-' + rep.id)
+    ];
+    containers.forEach(function(el) {
+      if (el) renderTimelineEntries(el, merged, rep.id);
+    });
+  });
+}
+
+function renderTimelineEntries(container, entries, repId) {
+  if (entries.length === 0) {
+    container.innerHTML = '<div class="timeline-loading">No history available</div>';
+    return;
+  }
+  var isExpanded = !!timelineExpandedIds[repId];
+  var limit = isExpanded ? entries.length : TIMELINE_INITIAL;
+  var shown = entries.slice(0, limit);
+  var html = '';
+  shown.forEach(function(e) {
+    var cls = e.type === 'milestone' ? ' milestone' : ' commit';
+    html += '<div class="timeline-entry'+cls+'"><span class="timeline-date">'+esc(formatDate(e.date))+'</span><span class="timeline-event">'+esc(e.event)+'</span></div>';
+  });
+  if (!isExpanded && entries.length > TIMELINE_INITIAL) {
+    html += '<div class="timeline-show-more" data-repid="'+repId+'">SHOW ' + (entries.length - TIMELINE_INITIAL) + ' MORE \u25BC</div>';
+  } else if (isExpanded && entries.length > TIMELINE_INITIAL) {
+    html += '<div class="timeline-show-more" data-repid="'+repId+'">SHOW LESS \u25B2</div>';
+  }
+  container.innerHTML = html;
+  container.querySelectorAll('.timeline-show-more').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var id = parseInt(btn.dataset.repid);
+      timelineExpandedIds[id] = !timelineExpandedIds[id];
+      renderTimelineEntries(container, entries, id);
     });
   });
 }
@@ -719,9 +791,17 @@ $viewToggle.addEventListener('click', toggleViewMode);
 $clearFilter.addEventListener('click', function() { setFilter('all'); });
 
 /* ── Helpers ── */
-function daysSince(dateStr) {
-  if (!dateStr) return 999;
-  return Math.floor((new Date() - new Date(dateStr)) / (1000 * 60 * 60 * 24));
+function daysSince(val) {
+  if (!val) return 999;
+  var d = val instanceof Date ? val : new Date(val);
+  return Math.floor((new Date() - d) / (1000 * 60 * 60 * 24));
+}
+
+function formatDate(val) {
+  if (!val) return '';
+  var d = val instanceof Date ? val : new Date(val);
+  if (isNaN(d.getTime())) return String(val);
+  return d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
 }
 
 function updateTimestamp() {
