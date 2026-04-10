@@ -1,0 +1,25 @@
+name: Sync reps.yaml to docs
+
+on:
+  push:
+    branches: [main]
+    paths: [reps.yaml]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy reps.yaml into docs/
+        run: cp reps.yaml docs/reps.yaml
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/reps.yaml
+          git diff --cached --quiet && exit 0
+          git commit -m "sync reps.yaml to docs/"
+          git push
