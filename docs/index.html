@@ -120,17 +120,6 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 .timeline-show-more{color:var(--blue);font-size:11px;cursor:pointer;padding:6px 0 2px 0;user-select:none}
 .timeline-show-more:hover{text-decoration:underline}
 
-/* BLOCKER TICKER */
-.ticker{position:fixed;bottom:0;left:0;right:0;height:32px;background:var(--bg2);border-top:1px solid var(--grid);display:flex;align-items:center;overflow:hidden;z-index:100}
-.ticker-label{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;white-space:nowrap;flex-shrink:0;letter-spacing:1px}
-.ticker-track{flex:1;overflow:hidden;position:relative;height:100%}
-.ticker-content{display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 30s linear infinite}
-.ticker-content:hover{animation-play-state:paused}
-.ticker-item{padding:0 24px;font-size:11px;color:var(--amber);cursor:pointer;flex-shrink:0}
-.ticker-item:hover{color:#fff}
-.ticker-item .ticker-id{color:var(--dim);margin-right:6px}
-.no-blockers{color:var(--dim);font-size:11px;padding:0 16px}
-@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SKELETON */
 .skeleton-row td{padding:10px}
@@ -228,14 +217,6 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 
 <div class="cards-view" id="cardsView"></div>
 
-<div class="ticker" id="ticker">
-  <div class="ticker-label">BLOCKERS</div>
-  <div class="ticker-track">
-    <div class="ticker-content" id="tickerContent">
-      <span class="no-blockers">NO ACTIVE BLOCKERS</span>
-    </div>
-  </div>
-</div>
 
 <div class="help-overlay" id="helpOverlay">
   <div class="help-box">
@@ -308,7 +289,6 @@ var $progressBar = document.getElementById('progressBar');
 var $lastUpdated = document.getElementById('lastUpdated');
 var $feedFlash = document.getElementById('feedFlash');
 var $errorBanner = document.getElementById('errorBanner');
-var $tickerContent = document.getElementById('tickerContent');
 var $helpOverlay = document.getElementById('helpOverlay');
 var $tableWrap = document.getElementById('tableWrap');
 var $cardsView = document.getElementById('cardsView');
@@ -436,7 +416,6 @@ function render() {
   renderFilters();
   renderTable(filtered);
   renderCards(filtered);
-  renderTicker();
   updateTimestamp();
 }
 
@@ -665,25 +644,6 @@ function renderTimelineEntries(container, entries, repId) {
   });
 }
 
-function renderTicker() {
-  var blockers = reps.filter(function(r) { return r.blocker && r.status !== 'dead'; });
-  if (blockers.length === 0) {
-    $tickerContent.innerHTML = '<span class="no-blockers">ALL CLEAR \u2014 NO ACTIVE BLOCKERS</span>';
-    $tickerContent.style.animation = 'none';
-    return;
-  }
-  var makeItems = function() {
-    return blockers.map(function(r) {
-      return '<span class="ticker-item" data-id="'+r.id+'"><span class="ticker-id">#'+String(r.id).padStart(3,'0')+'</span>'+esc(r.name)+': '+esc(r.blocker)+'</span>';
-    }).join('');
-  };
-  $tickerContent.innerHTML = makeItems() + makeItems();
-  $tickerContent.style.animation = 'ticker-scroll '+Math.max(blockers.length * 10, 15)+'s linear infinite';
-
-  $tickerContent.querySelectorAll('.ticker-item').forEach(function(el) {
-    el.addEventListener('click', function() { scrollToRep(parseInt(el.dataset.id)); });
-  });
-}
 
 function renderLinksCell(rep) {
   var entries = buildLinkEntries(rep);
