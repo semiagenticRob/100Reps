@@ -66,9 +66,9 @@ reps:
     name: Route Mapper
     status: building
     summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
-    next_step: DEFERRED — deprioritized until Stack Tracker ships. Resume when Stack Tracker is live.
+    next_step: Resume route generation MVP — ORS + Mapbox integration
     due: null
-    blocker: Deprioritized pending Stack Tracker completion
+    blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/cardio-route-finder
 
@@ -121,7 +121,7 @@ reps:
     summary: Voice-first diary → structured vault → insights engine. The diary is input, the vault is output.
     next_step: null
     due: null
-    blocker: Blocked on Stack Tracker shipping
+    blocker: null
     last_action: 2026-03-25
     repo: null
 
