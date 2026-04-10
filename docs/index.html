@@ -111,7 +111,11 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 .timeline-entry.commit::before{background:var(--bg);border-color:var(--dim)}
 .timeline-entry.milestone .timeline-event{color:var(--green);font-weight:700}
 .timeline-loading{color:var(--dim);font-size:11px;padding:4px 0 4px 12px}
-.timeline-show-more{color:var(--blue);font-size:11px;cursor:pointer;padding:6px 0 2px 12px;user-select:none}
+.timeline-scroll{max-height:350px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--grid) var(--bg)}
+.timeline-scroll::-webkit-scrollbar{width:6px}
+.timeline-scroll::-webkit-scrollbar-track{background:var(--bg)}
+.timeline-scroll::-webkit-scrollbar-thumb{background:var(--grid);border-radius:3px}
+.timeline-show-more{color:var(--blue);font-size:11px;cursor:pointer;padding:6px 0 2px 0;user-select:none}
 .timeline-show-more:hover{text-decoration:underline}
 
 /* BLOCKER TICKER */
@@ -635,11 +639,12 @@ function renderTimelineEntries(container, entries, repId) {
   var isExpanded = !!timelineExpandedIds[repId];
   var limit = isExpanded ? entries.length : TIMELINE_INITIAL;
   var shown = entries.slice(0, limit);
-  var html = '';
+  var html = '<div class="timeline-scroll">';
   shown.forEach(function(e) {
     var cls = e.type === 'milestone' ? ' milestone' : ' commit';
     html += '<div class="timeline-entry'+cls+'"><span class="timeline-date">'+esc(formatDate(e.date))+'</span><span class="timeline-event">'+esc(e.event)+'</span></div>';
   });
+  html += '</div>';
   if (!isExpanded && entries.length > TIMELINE_INITIAL) {
     html += '<div class="timeline-show-more" data-repid="'+repId+'">SHOW ' + (entries.length - TIMELINE_INITIAL) + ' MORE \u25BC</div>';
   } else if (isExpanded && entries.length > TIMELINE_INITIAL) {
@@ -652,6 +657,7 @@ function renderTimelineEntries(container, entries, repId) {
       var id = parseInt(btn.dataset.repid);
       timelineExpandedIds[id] = !timelineExpandedIds[id];
       renderTimelineEntries(container, entries, id);
+      if (!timelineExpandedIds[id]) container.scrollIntoView({ behavior:'smooth', block:'nearest' });
     });
   });
 }
