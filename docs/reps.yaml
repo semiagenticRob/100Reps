@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 14
+  total: 15
   target: 100
 
 reps:
@@ -177,3 +177,16 @@ reps:
     timeline:
       - date: 2026-04-08
         event: "Landing page live"
+
+  - id: 15
+    name: Hodl For What
+    status: idea
+    summary: Bitcoin spending planner for long-term holders. Set price targets for life purchases so you sell at the right level, not the wrong time.
+    next_step: Validate concept with Bitcoin community — does this resonate with stackers?
+    due: null
+    blocker: null
+    last_action: 2026-04-10
+    repo: null
+    timeline:
+      - date: 2026-04-10
+        event: "Concept captured — brain dump processed"
