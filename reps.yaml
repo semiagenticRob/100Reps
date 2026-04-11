@@ -203,7 +203,7 @@ reps:
     name: Solar Miner
     status: building
     summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
-    next_step: Identify solar inverter API (SolarEdge/Enphase) and build data ingestion layer for production vs. consumption delta
+    next_step: Register for Enphase Enlighten API access, pull live production data, then build consumption delta layer
     due: null
     blocker: null
     last_action: 2026-04-11
