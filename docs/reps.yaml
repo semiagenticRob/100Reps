@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 16
+  total: 17
   target: 100
 
 reps:
@@ -195,6 +195,15 @@ reps:
     status: idea
     summary: Newsletter or info product delivering Costco-native meal plans. Subscribers get bi-weekly meal schedules built around Costco staples, with prep guides and shopping lists.
     next_step: Research existing Costco meal plan content, identify pricing model, and sketch the info product structure
+    due: null
+    blocker: null
+    last_action: 2026-04-11
+    repo: null
+  - id: 17
+    name: Solar Miner
+    status: building
+    summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
+    next_step: Identify solar inverter API (SolarEdge/Enphase) and build data ingestion layer for production vs. consumption delta
     due: null
     blocker: null
     last_action: 2026-04-11
