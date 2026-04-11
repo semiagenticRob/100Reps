@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 15
+  total: 16
   target: 100
 
 reps:
@@ -190,3 +190,12 @@ reps:
     timeline:
       - date: 2026-04-10
         event: "Concept captured — brain dump processed"
+  - id: 16
+    name: Costco Meal Planner
+    status: idea
+    summary: Newsletter or info product delivering Costco-native meal plans. Subscribers get bi-weekly meal schedules built around Costco staples, with prep guides and shopping lists.
+    next_step: Research existing Costco meal plan content, identify pricing model, and sketch the info product structure
+    due: null
+    blocker: null
+    last_action: 2026-04-11
+    repo: null
