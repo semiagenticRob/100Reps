@@ -80,6 +80,8 @@ tbody td.summary-cell{white-space:normal;max-width:400px;overflow:hidden;text-ov
 tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overflow:ellipsis}
 .id-cell{color:var(--dim);font-weight:700;width:40px}
 .name-cell{color:#fff;font-weight:700}
+.pita-cell{text-align:center;width:50px}
+.pita-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700;letter-spacing:.5px;min-width:24px;text-align:center}
 .status-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .stale-badge{font-size:9px;color:var(--amber);margin-left:6px}
 .links-cell{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -183,8 +185,6 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 </div>
 
 <div class="controls">
-  <div class="filter-btns" id="filterBtns"></div>
-  <button class="clear-filter" id="clearFilter">CLEAR</button>
   <button class="view-toggle" id="viewToggle">CARDS</button>
   <div class="search-wrap">
     <label>&gt; SEARCH:</label>
@@ -200,17 +200,18 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
         <th data-col="name">NAME <span class="sort-ind">&#9650;</span></th>
         <th>LINKS</th>
         <th data-col="status">STATUS <span class="sort-ind">&#9650;</span></th>
+        <th data-col="pita" title="Pain In The Ass Index — operational lift to continuously run (1=low, 10=high)">PITA <span class="sort-ind">&#9650;</span></th>
         <th>SUMMARY</th>
         <th>NEXT STEP</th>
         <th data-col="last_action">LAST ACTION <span class="sort-ind">&#9650;</span></th>
       </tr>
     </thead>
     <tbody id="tableBody">
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
+      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
     </tbody>
   </table>
 </div>
@@ -281,8 +282,8 @@ var gitCommitCache = {}; // keyed by rep id, stores fetched commit arrays
 /* ── DOM refs ── */
 var $body = document.getElementById('tableBody');
 var $counts = document.getElementById('statusCounts');
-var $filterBtns = document.getElementById('filterBtns');
-var $clearFilter = document.getElementById('clearFilter');
+var $filterBtns = null;
+var $clearFilter = null;
 var $search = document.getElementById('searchInput');
 var $countLabel = document.getElementById('countLabel');
 var $progressBar = document.getElementById('progressBar');
@@ -293,6 +294,21 @@ var $helpOverlay = document.getElementById('helpOverlay');
 var $tableWrap = document.getElementById('tableWrap');
 var $cardsView = document.getElementById('cardsView');
 var $viewToggle = document.getElementById('viewToggle');
+
+/* ── PITA color scale (1=green → 10=red) ── */
+function pitaColor(n) {
+  if (!n || n < 1) return 'var(--dim)';
+  n = Math.max(1, Math.min(10, n));
+  var r, g;
+  if (n <= 5) {
+    r = Math.round(255 * (n - 1) / 4);
+    g = 255;
+  } else {
+    r = 255;
+    g = Math.round(255 * (10 - n) / 5);
+  }
+  return 'rgb(' + r + ',' + g + ',0)';
+}
 
 /* ── Escape helper (XSS-safe for controlled YAML data) ── */
 function esc(str) {
@@ -413,7 +429,6 @@ function simpleHash(str) {
 function render() {
   var filtered = getFilteredSorted();
   renderHeader();
-  renderFilters();
   renderTable(filtered);
   renderCards(filtered);
   updateTimestamp();
@@ -442,8 +457,10 @@ function renderHeader() {
   barHtml += '<div class="seg" style="width:'+emptyPct+'%;background:var(--bg3)"></div>';
   $progressBar.innerHTML = barHtml;
 
-  // Status pills
+  // Status pills (with ALL filter)
   var pillsHtml = '';
+  var allActive = currentFilter === 'all';
+  pillsHtml += '<span class="status-pill'+(allActive?' active':'')+'" style="background:var(--bg3);color:var(--text);border-color:'+(allActive?'#fff':'transparent')+'" data-status="all">ALL: '+total+'</span>';
   STATUS_ORDER.forEach(function(s) {
     var isActive = currentFilter === s;
     pillsHtml += '<span class="status-pill'+(isActive?' active':'')+'" style="background:'+STATUS_COLORS[s]+'22;color:'+STATUS_COLORS[s]+';border-color:'+(isActive?STATUS_COLORS[s]:'transparent')+'" data-status="'+s+'">'+s.toUpperCase()+': '+counts[s]+'</span>';
@@ -455,20 +472,6 @@ function renderHeader() {
   });
 }
 
-function renderFilters() {
-  var allStatuses = ['all'].concat(STATUS_ORDER);
-  var html = '';
-  allStatuses.forEach(function(s) {
-    var isActive = currentFilter === s;
-    var color = s === 'all' ? 'var(--text)' : STATUS_COLORS[s];
-    html += '<button class="filter-btn'+(isActive?' active':'')+'" style="'+(isActive?'color:'+color+';border-color:'+color:'')+'" data-status="'+s+'">'+s.toUpperCase()+'</button>';
-  });
-  $filterBtns.innerHTML = html;
-  $filterBtns.querySelectorAll('.filter-btn').forEach(function(el) {
-    el.addEventListener('click', function() { setFilter(el.dataset.status); });
-  });
-  $clearFilter.classList.toggle('show', currentFilter !== 'all');
-}
 
 function renderTable(filtered) {
   var html = '';
@@ -489,6 +492,8 @@ function renderTable(filtered) {
     html += '<td class="name-cell">'+esc(rep.name)+'</td>';
     html += '<td>'+renderLinksCell(rep)+'</td>';
     html += '<td><span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+STATUS_ICONS[rep.status]+' '+rep.status.toUpperCase()+'</span></td>';
+    var pc = pitaColor(rep.pita);
+    html += '<td class="pita-cell">'+(rep.pita ? '<span class="pita-badge" style="background:'+pc+'22;color:'+pc+'">'+rep.pita+'</span>' : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
     html += '<td class="summary-cell" title="'+esc(rep.summary)+'">'+truncate(rep.summary, 90)+'</td>';
     html += '<td class="next-cell" title="'+esc(safeNext)+'">'+( safeNext ? truncate(safeNext, 55) : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
     html += '<td>'+(rep.last_action ? formatDate(rep.last_action) : '\u2014')+staleLabel+'</td>';
@@ -496,7 +501,7 @@ function renderTable(filtered) {
 
     // Detail row
     var isOpen = !!expandedIds[rep.id];
-    html += '<tr class="detail-row'+(isOpen?' open':'')+'" data-detail="'+rep.id+'"><td colspan="7">';
+    html += '<tr class="detail-row'+(isOpen?' open':'')+'" data-detail="'+rep.id+'"><td colspan="8">';
     html += '<div class="detail-content">';
     html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
     if (rep.blocker) {
@@ -551,7 +556,9 @@ function renderCards(filtered) {
 
     html += '<div class="card'+(isDead?' dead-row':'')+'" data-id="'+rep.id+'">';
     html += '<div class="card-header"><span class="card-id">#'+String(rep.id).padStart(3,'0')+'</span>';
-    html += '<span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+rep.status.toUpperCase()+'</span></div>';
+    html += '<span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+rep.status.toUpperCase()+'</span>';
+    if (rep.pita) { var cpc = pitaColor(rep.pita); html += ' <span class="pita-badge" style="background:'+cpc+'22;color:'+cpc+'">PITA:'+rep.pita+'</span>'; }
+    html += '</div>';
     html += '<div class="card-name">'+esc(rep.name)+'</div>';
     html += '<div class="card-summary">'+truncate(rep.summary, 80)+'</div>';
     html += '<div class="card-footer">';
@@ -696,6 +703,7 @@ function getFilteredSorted() {
       case 'id': va = a.id; vb = b.id; break;
       case 'name': va = a.name.toLowerCase(); vb = b.name.toLowerCase(); break;
       case 'status': va = STATUS_ORDER.indexOf(a.status); vb = STATUS_ORDER.indexOf(b.status); break;
+      case 'pita': va = a.pita || 0; vb = b.pita || 0; break;
       case 'last_action': va = a.last_action || '0000-01-01'; vb = b.last_action || '0000-01-01'; break;
       default: va = a.id; vb = b.id;
     }
@@ -760,7 +768,6 @@ function toggleViewMode() {
   $cardsView.className = 'cards-view ' + (viewMode === 'table' ? 'table-active' : 'cards-active');
 }
 $viewToggle.addEventListener('click', toggleViewMode);
-$clearFilter.addEventListener('click', function() { setFilter('all'); });
 
 /* ── Helpers ── */
 function daysSince(val) {

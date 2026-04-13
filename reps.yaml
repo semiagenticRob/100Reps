@@ -9,6 +9,7 @@ reps:
   - id: 1
     name: Pipe Acquisition
     status: dead
+    pita: 7
     summary: Pipe/infrastructure business acquisition. Did not proceed.
     next_step: Check in with business broker
     due: 2026-04-23
@@ -22,6 +23,7 @@ reps:
   - id: 2
     name: Estate Sale Helper
     status: live
+    pita: 3
     summary: Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search.
     next_step: Send ATG response with user data — draft framework ready in vault, Rob fills real numbers from Supabase/App Store Connect
     due: null
@@ -46,6 +48,7 @@ reps:
   - id: 3
     name: Stack Tracker
     status: assessed
+    pita: 2
     summary: Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works.
     next_step: Revisit when capacity opens up — V1 scaffold complete and ready to resume
     due: null
@@ -61,6 +64,7 @@ reps:
   - id: 4
     name: Runtime
     status: idea
+    pita: 2
     summary: Optimal run window finder. Training plan × calendar × weather.
     next_step: null
     due: null
@@ -71,6 +75,7 @@ reps:
   - id: 5
     name: Route Mapper
     status: building
+    pita: 2
     summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
     next_step: Resume route generation MVP — ORS + Mapbox integration
     due: null
@@ -81,6 +86,7 @@ reps:
   - id: 6
     name: Teshuvah Read Along
     status: building
+    pita: 1
     summary: Digital siddur with synchronized Hebrew/transliteration/English read-along and audio.
     next_step: Adam Moskowitz follow-up, UpStart fiscal sponsorship, NCSY via Rabbi Ross
     due: null
@@ -91,6 +97,7 @@ reps:
   - id: 7
     name: WritersRoom.ai
     status: idea
+    pita: 7
     summary: Transcript-to-content-stack service. AI production, human account manager final pass.
     next_step: null
     due: null
@@ -101,6 +108,7 @@ reps:
   - id: 8
     name: Declutter Truck
     status: idea
+    pita: 9
     summary: Mobile decluttering truck. Flat fee removal, AI photo cataloging, on-site consent for donate vs. sell.
     next_step: null
     due: null
@@ -111,6 +119,7 @@ reps:
   - id: 9
     name: Colorado Totes
     status: assessed
+    pita: 10
     summary: Moving tote rental contracted with apartment complexes. B2B channel, Denver market.
     next_step: Cold-call 10 Denver property managers — PROCEED, deadline extended
     due: 2026-04-22
@@ -124,6 +133,7 @@ reps:
   - id: 10
     name: AI Diary
     status: idea
+    pita: 2
     summary: Voice-first diary → structured vault → insights engine. The diary is input, the vault is output.
     next_step: null
     due: null
@@ -134,6 +144,7 @@ reps:
   - id: 11
     name: myvoiceprofile.com
     status: live
+    pita: 6
     summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
     next_step: First real customer — start with personal network DMs (3 contacts), then X/LinkedIn outreach (see REP-3 plan)
     due: 2026-04-15
@@ -146,6 +157,7 @@ reps:
   - id: 12
     name: STR Accountable
     status: idea
+    pita: 3
     summary: Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal.
     next_step: Research existing advocacy tools and define the product interface
     due: null
@@ -161,6 +173,7 @@ reps:
   - id: 13
     name: Civic Transparency Tool
     status: assessed
+    pita: 4
     summary: AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live.
     next_step: Run first Arvada issue — PROCEED, pipeline ready, just needs execution
     due: 2026-04-15
@@ -171,6 +184,7 @@ reps:
   - id: 14
     name: Colorado AI Lab
     status: live
+    pita: 8
     summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
     next_step: First client outreach — personal network and LinkedIn
     due: null
@@ -186,6 +200,7 @@ reps:
   - id: 15
     name: Hodl For What
     status: idea
+    pita: 2
     summary: Bitcoin spending planner for long-term holders. Set price targets for life purchases so you sell at the right level, not the wrong time.
     next_step: Validate concept with Bitcoin community — does this resonate with stackers?
     due: null
@@ -198,6 +213,7 @@ reps:
   - id: 16
     name: Costco Meal Planner
     status: idea
+    pita: 5
     summary: Newsletter or info product delivering Costco-native meal plans. Subscribers get bi-weekly meal schedules built around Costco staples, with prep guides and shopping lists.
     next_step: Research existing Costco meal plan content, identify pricing model, and sketch the info product structure
     due: null
@@ -207,6 +223,7 @@ reps:
   - id: 17
     name: Solar Miner
     status: building
+    pita: 5
     summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
     next_step: Register for Enphase Enlighten API access, pull live production data, then build consumption delta layer
     due: null
