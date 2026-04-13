@@ -115,8 +115,8 @@ reps:
     next_step: Cold-call 10 Denver property managers — PROCEED, deadline extended
     due: 2026-04-22
     blocker: null
-    last_action: 2026-04-08
-    repo: null
+    last_action: 2026-04-13
+    repo: semiagenticRob/colorado-totes
     timeline:
       - date: 2026-03-25
         event: "Assessment completed"
