@@ -23,10 +23,10 @@ reps:
     name: Estate Sale Helper
     status: live
     summary: Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search.
-    next_step: Prepare response to ATG with user data — position ESH as in-person shopper layer with buyer-side data ATG does not have
+    next_step: Send ATG response with user data — draft framework ready in vault, Rob fills real numbers from Supabase/App Store Connect
     due: null
     blocker: null
-    last_action: 2026-04-10
+    last_action: 2026-04-13
     repo: semiagenticRob/estate-sale-helper
     links:
       website: https://www.estatesalehelper.com
