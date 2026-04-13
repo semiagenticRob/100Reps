@@ -225,8 +225,13 @@ reps:
     status: building
     pita: 5
     summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
-    next_step: Register for Enphase Enlighten API access, pull live production data, then build consumption delta layer
+    next_step: Scaffold repo, get Enphase IQ Gateway API token, build consumption profile from Xcel billing data
     due: null
     blocker: null
-    last_action: 2026-04-11
-    repo: null
+    last_action: 2026-04-13
+    repo: semiagenticRob/solar-miner
+    timeline:
+      - date: 2026-04-11
+        event: "Rep conceived and brief written"
+      - date: 2026-04-13
+        event: "Repo created, implementation plan finalized"
