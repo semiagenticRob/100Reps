@@ -144,14 +144,19 @@ reps:
       website: https://myvoiceprofile.com
 
   - id: 12
-    name: STR Intel
-    status: assessed
-    summary: Weekly paid STR newsletter. Regulation changes, demand signals, actionable insights. Beehiiv.
-    next_step: Set up Beehiiv account
+    name: STR Accountable
+    status: idea
+    summary: Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal.
+    next_step: Research existing advocacy tools and define the product interface
     due: null
     blocker: null
-    last_action: 2026-03-27
+    last_action: 2026-04-12
     repo: null
+    timeline:
+      - date: 2026-03-27
+        event: "Original concept as STR Intel (paid newsletter)"
+      - date: 2026-04-12
+        event: "Pivoted to STR Accountable — neighbor coordination tool for nuisance Airbnb accountability"
 
   - id: 13
     name: Civic Transparency Tool
