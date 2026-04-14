@@ -215,15 +215,22 @@ reps:
       - date: 2026-04-10
         event: "Concept captured — brain dump processed"
   - id: 16
-    name: Costco Meal Planner
-    status: idea
+    name: Stock Up Dinners
+    status: building
     pita: 5
-    summary: Newsletter or info product delivering Costco-native meal plans. Subscribers get bi-weekly meal schedules built around Costco staples, with prep guides and shopping lists.
-    next_step: Research existing Costco meal plan content, identify pricing model, and sketch the info product structure
-    due: null
+    summary: Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target: 200 email signups in 30 days. Live in 7 days.
+    next_step: Build free 14-dinner lead magnet plan, set up Beehiiv landing page, create Pinterest assets
+    due: 2026-04-21
     blocker: null
-    last_action: 2026-04-11
+    last_action: 2026-04-14
     repo: null
+    links:
+      website: https://stockupdinners.com
+    timeline:
+      - date: 2026-04-11
+        event: "Concept captured as Costco Meal Planner"
+      - date: 2026-04-14
+        event: "Renamed to Stock Up Dinners, domain secured, MVP spec finalized — live in 7 days"
   - id: 17
     name: Solar Miner
     status: dead
