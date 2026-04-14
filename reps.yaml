@@ -222,12 +222,12 @@ reps:
     repo: null
   - id: 17
     name: Solar Miner
-    status: building
+    status: dead
     pita: 5
     summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
-    next_step: Call Blue Raven Solar (855-608-0536) 9-5 MT to transfer Enphase system ownership, then generate local gateway token
-    due: 2026-04-14
-    blocker: Enphase system registered under installer account — need ownership transfer from Blue Raven Solar/SunPower
+    next_step: null
+    due: null
+    blocker: Net metering is not revenue-generating; model does not work under current net metering structure
     last_action: 2026-04-13
     repo: semiagenticRob/solar-miner
     timeline:
@@ -235,3 +235,5 @@ reps:
         event: "Rep conceived and brief written"
       - date: 2026-04-13
         event: "Repo created, daemon implemented, Xcel billing profiles built, IQ Gateway found at 192.168.0.38"
+      - date: 2026-04-13
+        event: "Killed — net metering not revenue-generating, model broken. Revisit only if heating component added"
