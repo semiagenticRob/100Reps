@@ -219,11 +219,11 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target: 200 email signups in 30 days. Live in 7 days."
-    next_step: "Phase 1: Vet all 14 recipes against real Costco inventory (task 3 of 17) — see reps/016-stock-up-dinners.md"
+    next_step: "Phase 1: Vet all 14 recipes against real Costco inventory (task 3 of 17)"
     due: 2026-04-21
     blocker: null
     last_action: 2026-04-14
-    repo: null
+    repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
     timeline:
