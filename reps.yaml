@@ -92,10 +92,10 @@ reps:
     status: building
     pita: 1
     summary: Digital siddur with synchronized Hebrew/transliteration/English read-along and audio.
-    next_step: Adam Moskowitz follow-up, UpStart fiscal sponsorship, NCSY via Rabbi Ross
+    next_step: In-person TJE demo meeting with rabbis, then Feigenbaum siddur partnership
     due: null
     blocker: null
-    last_action: 2026-03-26
+    last_action: 2026-04-13
     repo: semiagenticRob/teshuvah-read-along
 
   - id: 7
