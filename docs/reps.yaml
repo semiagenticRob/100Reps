@@ -218,8 +218,8 @@ reps:
     name: Stock Up Dinners
     status: building
     pita: 5
-    summary: Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target: 200 email signups in 30 days. Live in 7 days.
-    next_step: Build free 14-dinner lead magnet plan, set up Beehiiv landing page, create Pinterest assets
+    summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target: 200 email signups in 30 days. Live in 7 days."
+    next_step: "Phase 1: Build master Costco staple ingredient list (60-80 verified items) — see reps/016-stock-up-dinners.md for full launch checklist"
     due: 2026-04-21
     blocker: null
     last_action: 2026-04-14
@@ -231,6 +231,8 @@ reps:
         event: "Concept captured as Costco Meal Planner"
       - date: 2026-04-14
         event: "Renamed to Stock Up Dinners, domain secured, MVP spec finalized — live in 7 days"
+      - date: 2026-04-14
+        event: "17-step launch checklist finalized — 5 phases from foundation to post-launch"
   - id: 17
     name: Solar Miner
     status: dead
