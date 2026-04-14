@@ -38,6 +38,7 @@ These rules are non-negotiable. Every write to reps.yaml MUST conform to them.
   - id:          # integer, sequential, never reuse, never change
     name:        # string, short project name
     status:      # string, one of: idea | assessed | building | live | pmf | dead
+    pita:        # integer 1-10, operational lift (1=low, 10=high)
     summary:     # string, 1-2 sentences, plain text, no markdown, <200 chars
     next_step:   # string or null
     due:         # date (YYYY-MM-DD) or null
@@ -62,6 +63,7 @@ Optional fields (appear after `repo` ONLY when present):
 
 - **id** — sequential integer starting at 1. New reps get `max(id) + 1`. Never skip, reuse, or reassign.
 - **status** — MUST be exactly one of (lowercase): `idea`, `assessed`, `building`, `live`, `pmf`, `dead`. Any other value breaks the dashboard.
+- **pita** — integer 1-10. Operational lift index. 1 = passive, 10 = high-touch daily ops. Dashboard renders color-coded badges.
 - **summary** — plain text, 1-2 sentences, no markdown, no line breaks, under 200 characters.
 - **next_step** — plain text or `null`. **PUBLIC FIELD.** Never include personal names (first + last), email addresses, phone numbers, or private internal references.
 - **due** — ISO date `YYYY-MM-DD` or `null`. No datetime or timezone formats.
@@ -91,7 +93,44 @@ Optional fields (appear after `repo` ONLY when present):
 
 ---
 
-## The Two-Write Checklist
+## Rep Markdown File Format (`reps/NNN-name.md`)
+
+Every rep has a companion file in `~/100reps/reps/`. When updating a rep, also update this file to stay in sync.
+
+### Structure
+
+```markdown
+# Rep NNN — Name
+
+**Status:** Idea|Assessed|Building|Live|PMF|Dead
+**Repo:** [owner/repo](https://github.com/owner/repo)
+**Website:** [domain.com](https://domain.com)
+
+Summary paragraph.
+
+## Next Steps
+
+- Bulleted next actions
+
+## Milestones
+
+- YYYY-MM-DD: Event
+```
+
+### Rules
+
+- **Title:** `# Rep NNN — Name` with em dash
+- **Status:** Title case, must match reps.yaml
+- **Repo/Website/App Store lines:** Include only when field exists in reps.yaml. Omit for null values.
+- **Next Steps:** Include when reps.yaml `next_step` is not null
+- **Milestones:** Include when reps.yaml `timeline` exists. Oldest first.
+- **Dead reps:** Add `**Killed YYYY-MM-DD:** Reason.` after summary
+- **No planning docs:** Detailed checklists, specs, etc. belong in the rep's dedicated repo, not here
+- **If the file doesn't exist:** Create it following this format
+
+---
+
+## The Three-Write Checklist
 
 ### Write 1: reps.yaml
 
@@ -110,7 +149,17 @@ Update the relevant fields for the affected rep:
 
 **Do not touch** fields that haven't changed. Preserve all other rep entries exactly as-is.
 
-### Write 2: Vault Main Note
+### Write 2: Rep Markdown File
+
+**Path:** `~/100reps/reps/NNN-name.md`
+
+Update the rep file to reflect changes:
+- Update **Status** line if status changed
+- Update **Next Steps** section if next_step changed
+- Add milestone entries if timeline changed
+- For dead reps, add the kill line and remove Next Steps
+
+### Write 3: Vault Main Note
 
 **Path:** `~/second-brain/RW Vault/6 - Main Notes/<Rep Name>.md`
 
@@ -128,7 +177,7 @@ If the update is substantive (new feature decision, pivot, major milestone), wri
 
 **Cross-link check:** If the update references another rep or concept, add a `[[wikilink]]` in the body.
 
-### Write 3: Validate + Git Commits
+### Write 4: Validate + Git Commits
 
 **Validate reps.yaml before committing.** A syntax error takes the dashboard offline.
 
@@ -164,9 +213,10 @@ After both writes and the commit, reply to Robert with:
 ## Quick Checklist
 
 - [ ] reps.yaml read before writing
-- [ ] Main Note read (or created if missing)
-- [ ] reps.yaml updated with correct fields
-- [ ] Main Note appended with dated entry
+- [ ] reps.yaml updated with correct fields (including pita)
+- [ ] reps.yaml validated with `npx js-yaml reps.yaml > /dev/null`
+- [ ] Rep markdown file updated (or created if missing)
+- [ ] Vault Main Note appended with dated entry
 - [ ] Tags verified on Main Note
-- [ ] Both repos committed + pushed (100reps + second-brain)
+- [ ] All repos committed + pushed (100reps + second-brain)
 - [ ] Confirmation sent to Robert

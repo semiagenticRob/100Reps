@@ -8,3 +8,7 @@ Map-first route generation for runners and cyclists. Drop a start point, set dis
 ## Progress
 
 - Loop/lollipop/out-and-back routes, distance tolerance, ORS generation, Mapbox rendering, turn minimization, GPX export
+
+## Next Steps
+
+- Resume route generation MVP — ORS + Mapbox integration

@@ -1,7 +1,11 @@
 # Rep 001 — Pipe Acquisition
 
-**Status:** Dead | **Type:** Business acquisition
+**Status:** Dead
 
-Pipe/infrastructure business acquisition. Analyzed and assessed. Did not proceed.
+Pipe/infrastructure business acquisition (Hydro Physics). Seller rejected offer structure — no earnout, simultaneous building sale required, SBA incompatible.
 
-**Next step:** Check in with business broker — due 2026-04-23
+## Milestones
+
+- 2026-03-18: Sent two-phase offer to broker — 2.25-2.5x SDE with earnout + 24-month building lease
+- 2026-03-23: Assessed — decided not to proceed
+- 2026-04-12: Broker confirmed deal dead — seller (71yo) won't do earnout, has near-full-price offers, building must sell simultaneously

@@ -1,16 +1,18 @@
-# Rep 012 — STR Intel
+# Rep 012 — STR Accountable
 
-**Status:** Assessed
+**Status:** Idea
 
-Weekly paid STR newsletter. Regulation changes, demand signals, actionable insights. Beehiiv platform.
+Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal.
 
-## Business Model
+## History
 
-- $29/month; $19/month founding rate (first 100 subs)
-- Revenue targets: Month 1 $1,450 | Month 6 $5,800 | Month 12 $14,500
+Originally conceived as STR Intel (paid newsletter, 2026-03-27). Pivoted to STR Accountable — neighbor coordination tool for nuisance Airbnb accountability (2026-04-12).
 
 ## Next Steps
 
-- Set up Beehiiv account
-- Join 5 STR Facebook groups
-- Review and approve Issue #0
+- Research existing advocacy tools and define the product interface
+
+## Milestones
+
+- 2026-03-27: Original concept as STR Intel (paid newsletter)
+- 2026-04-12: Pivoted to STR Accountable — neighbor coordination tool

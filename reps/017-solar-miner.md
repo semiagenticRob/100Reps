@@ -1,9 +1,11 @@
 # Rep 017 — Solar Miner
 
-**Status:** Building
+**Status:** Dead
 **Repo:** [semiagenticRob/solar-miner](https://github.com/semiagenticRob/solar-miner)
 
-Throttle two Bitmain Antminer S19s to consume only surplus rooftop solar production via Braiins OS+ and Enphase API. Zero incremental grid cost — converts electricity that would otherwise export at low Xcel credit rates into Bitcoin.
+Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
+
+**Killed 2026-04-13:** Net metering is not revenue-generating; model does not work under current net metering structure. Revisit only if heating component added.
 
 ## Architecture
 
@@ -19,11 +21,5 @@ Python daemon on an always-on Mac reads real-time solar production from Enphase 
 ## Milestones
 
 - 2026-04-11: Rep conceived and brief written
-- 2026-04-13: Repo created, implementation plan finalized
-
-## Next Steps
-
-- Get Enphase IQ Gateway API token (local network access)
-- Download Xcel interval data for consumption profile
-- Flash Braiins OS+ on both S19s and calibrate power throttle range
-- Build the control daemon
+- 2026-04-13: Repo created, daemon implemented, Xcel billing profiles built, IQ Gateway found at 192.168.0.38
+- 2026-04-13: Killed — net metering not revenue-generating, model broken
