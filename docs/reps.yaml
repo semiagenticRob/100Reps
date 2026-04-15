@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 17
+  total: 18
   target: 100
 
 reps:
@@ -259,3 +259,16 @@ reps:
         event: "Repo created, daemon implemented, Xcel billing profiles built, IQ Gateway found at 192.168.0.38"
       - date: 2026-04-13
         event: "Killed — net metering not revenue-generating, model broken. Revisit only if heating component added"
+  - id: 18
+    name: Stupid Simple Agentic CRM
+    status: building
+    pita: 2
+    summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
+    next_step: Launch — announce and promote so others can fork and use it
+    due: null
+    blocker: null
+    last_action: 2026-04-15
+    repo: semiagenticRob/stupid-simple-agentic-crm
+    timeline:
+      - date: 2026-04-15
+        event: "Repo created and built — YAML/CSV architecture, import scripts, agent README, 7 sample contacts"
