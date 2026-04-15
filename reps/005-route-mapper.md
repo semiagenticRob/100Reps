@@ -11,4 +11,4 @@ Map-first route generation for runners and cyclists. Drop a start point, set dis
 
 ## Next Steps
 
-- Resume route generation MVP — ORS + Mapbox integration
+- Deploy to GitHub Pages — add base URL to vite.config.js and gh-pages deploy script

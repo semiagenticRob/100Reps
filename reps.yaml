@@ -81,10 +81,10 @@ reps:
     status: building
     pita: 2
     summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
-    next_step: Resume route generation MVP — ORS + Mapbox integration
+    next_step: Deploy to GitHub Pages — add base URL to vite.config.js and gh-pages deploy script (ORS + Mapbox MVP integration complete)
     due: null
     blocker: null
-    last_action: 2026-04-08
+    last_action: 2026-04-15
     repo: semiagenticRob/cardio-route-finder
 
   - id: 6
