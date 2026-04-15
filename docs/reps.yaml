@@ -78,12 +78,12 @@ reps:
 
   - id: 5
     name: Route Mapper
-    status: building
+    status: dead
     pita: 2
-    summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
-    next_step: Live on GitHub Pages — test UX, gather feedback, consider App Store or PMF validation
+    summary: Map-first route generation for runners and cyclists. ORS + Mapbox. Killed — Strava covers the use case with no differentiation path.
+    next_step: null
     due: null
-    blocker: null
+    blocker: Strava already has enough functionality — no differentiation path
     last_action: 2026-04-15
     repo: semiagenticRob/cardio-route-finder
     links:
@@ -91,6 +91,8 @@ reps:
     timeline:
       - date: 2026-04-15
         event: "Deployed to GitHub Pages — vite.config.js base set, gh-pages branch live"
+      - date: 2026-04-15
+        event: "Killed — Strava covers the use case, undifferentiated"
 
   - id: 6
     name: Teshuvah Read Along
