@@ -81,11 +81,16 @@ reps:
     status: building
     pita: 2
     summary: Map-first route generation for runners and cyclists. ORS + Mapbox.
-    next_step: Deploy to GitHub Pages — add base URL to vite.config.js and gh-pages deploy script (ORS + Mapbox MVP integration complete)
+    next_step: Live on GitHub Pages — test UX, gather feedback, consider App Store or PMF validation
     due: null
     blocker: null
     last_action: 2026-04-15
     repo: semiagenticRob/cardio-route-finder
+    links:
+      website: https://semiagenticrob.github.io/cardio-route-finder/
+    timeline:
+      - date: 2026-04-15
+        event: "Deployed to GitHub Pages — vite.config.js base set, gh-pages branch live"
 
   - id: 6
     name: Teshuvah Read Along
