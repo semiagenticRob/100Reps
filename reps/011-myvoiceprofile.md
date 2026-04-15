@@ -12,6 +12,7 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 
 ## Next Steps
 
-- First real customer order end-to-end
-- Set up hello@myvoiceprofile.com
-- Enable VOICE100 promo code
+- Send personal network DM outreach (3 contacts) — templates ready (CEO Agent 2026-04-15)
+- Confirm VOICE100 promo code active in Stripe before sending
+- Confirm hello@myvoiceprofile.com is live and receiving
+- Verify GA4 ID and Formspree ID on thank-you page

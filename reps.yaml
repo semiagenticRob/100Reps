@@ -150,10 +150,10 @@ reps:
     status: live
     pita: 6
     summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
-    next_step: First real customer — start with personal network DMs (3 contacts), then X/LinkedIn outreach (see REP-3 plan)
-    due: 2026-04-15
+    next_step: Send personal network DM outreach (3 contacts) — templates ready; confirm VOICE100 promo active in Stripe and hello@ email live first
+    due: null
     blocker: null
-    last_action: 2026-04-08
+    last_action: 2026-04-15
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
@@ -190,10 +190,10 @@ reps:
     status: live
     pita: 8
     summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
-    next_step: First client outreach — personal network and LinkedIn
+    next_step: First client outreach via LinkedIn — templates drafted; fix phone placeholder in footer before going live
     due: null
     blocker: null
-    last_action: 2026-04-10
+    last_action: 2026-04-15
     repo: semiagenticRob/coloradoailab
     links:
       website: https://coloradoailab.com

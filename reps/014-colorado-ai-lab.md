@@ -1,6 +1,6 @@
 # Rep 014 — Colorado AI Lab
 
-**Status:** Building
+**Status:** Live
 **Repo:** [semiagenticRob/coloradoailab](https://github.com/semiagenticRob/coloradoailab)
 **Website:** [coloradoailab.com](https://coloradoailab.com/)
 
@@ -18,5 +18,10 @@ Colorado businesses in construction, hospitality, professional services, healthc
 
 ## Next Steps
 
-- Finalize landing page — replace placeholders (Formspree, Calendly, phone, GA4)
-- Go live on GitHub Pages
+- First client outreach via LinkedIn — templates drafted (CEO Agent 2026-04-15)
+- Fix phone placeholder (720) 000-0000 in index.html line 790 before promoting
+- Target verticals: construction, hospitality, professional services, healthcare
+
+## Milestones
+
+- 2026-04-08: Landing page live on GitHub Pages
