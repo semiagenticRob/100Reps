@@ -7,8 +7,10 @@ Lightweight agent-operated personal CRM inside a GitHub repo. YAML files are sou
 
 ## Next Steps
 
-- Launch — announce and promote so others can fork and use it
+- Post launch content — Reddit (r/selfhosted, r/devtools, r/LocalLLaMA), Product Hunt, X/Twitter thread all drafted in vault
+- Best Reddit timing: Sunday afternoon or Tuesday evening EST
 
 ## Milestones
 
 - 2026-04-15: Repo created and built — YAML/CSV architecture, import scripts, agent README, 7 sample contacts
+- 2026-04-16: CEO Agent drafted launch posts for Reddit, Product Hunt, and X/Twitter — ready to post
