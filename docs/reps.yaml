@@ -265,10 +265,10 @@ reps:
         event: "Killed — net metering not revenue-generating, model broken. Revisit only if heating component added"
   - id: 18
     name: Stupid Simple Agentic CRM
-    status: building
+    status: live
     pita: 2
     summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
-    next_step: Launch — Reddit and Product Hunt post drafts ready in vault, Rob posts when ready
+    next_step: Monitor forks and stars, engage with replies on X launch post
     due: null
     blocker: null
     last_action: 2026-04-16
@@ -278,3 +278,5 @@ reps:
         event: "Repo created and built — YAML/CSV architecture, import scripts, agent README, 7 sample contacts"
       - date: 2026-04-16
         event: "CEO Agent: drafted Reddit (r/selfhosted, r/devtools, r/LocalLLaMA), Product Hunt, and X/Twitter launch posts — saved to vault"
+      - date: 2026-04-16
+        event: "Launched — shared on X, post live at x.com/robertwarren/status/2044745580509855861"
