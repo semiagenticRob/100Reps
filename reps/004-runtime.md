@@ -1,9 +1,11 @@
 # Rep 004 — Runtime
 
-**Status:** Idea
+**Status:** Dead
 
-Optimal run window finder. Training plan × calendar × weather. Tells you when to go, what to wear, how to fuel.
+Optimal run window finder. Training plan × calendar × weather.
 
-## Open Questions
+**Killed 2026-04-16:** Lack of standalone utility — no clear differentiation or product value beyond existing tools.
 
-- Standalone app vs. Garmin/Strava integration
+## Milestones
+
+- 2026-04-16: Killed — lack of standalone utility

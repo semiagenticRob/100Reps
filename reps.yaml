@@ -67,14 +67,17 @@ reps:
 
   - id: 4
     name: Runtime
-    status: idea
+    status: dead
     pita: 2
     summary: Optimal run window finder. Training plan × calendar × weather.
     next_step: null
     due: null
-    blocker: null
-    last_action: 2026-03-23
+    blocker: Lacks standalone utility — no clear differentiation or product value beyond existing tools
+    last_action: 2026-04-16
     repo: null
+    timeline:
+      - date: 2026-04-16
+        event: "Killed — lack of standalone utility"
 
   - id: 5
     name: Route Mapper
@@ -118,14 +121,17 @@ reps:
 
   - id: 8
     name: Declutter Truck
-    status: idea
+    status: dead
     pita: 9
     summary: Mobile decluttering truck. Flat fee removal, AI photo cataloging, on-site consent for donate vs. sell.
     next_step: null
     due: null
-    blocker: null
-    last_action: 2026-03-23
+    blocker: PITA score too high — operational lift not justified at this stage
+    last_action: 2026-04-16
     repo: null
+    timeline:
+      - date: 2026-04-16
+        event: "Killed — PITA score too high, operational lift not justified"
 
   - id: 9
     name: Colorado Totes
