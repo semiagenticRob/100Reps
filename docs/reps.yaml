@@ -99,10 +99,10 @@ reps:
     status: building
     pita: 1
     summary: Digital siddur with synchronized Hebrew/transliteration/English read-along and audio.
-    next_step: In-person TJE demo meeting with rabbis, then Feigenbaum siddur partnership
+    next_step: Send Mosaica Press partnership email after TJE meeting — draft ready in vault
     due: null
     blocker: null
-    last_action: 2026-04-13
+    last_action: 2026-04-16
     repo: semiagenticRob/teshuvah-read-along
 
   - id: 7
@@ -157,10 +157,10 @@ reps:
     status: live
     pita: 6
     summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
-    next_step: Send personal network DM outreach (3 contacts) — templates ready; confirm VOICE100 promo active in Stripe and hello@ email live first
+    next_step: Fix order form and GA4 before outreach — Formspree ID and GA4 tracking ID are both placeholders in live codebase
     due: null
-    blocker: null
-    last_action: 2026-04-15
+    blocker: Order form broken — Formspree ID is a placeholder, orders cannot be submitted
+    last_action: 2026-04-16
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
@@ -266,11 +266,13 @@ reps:
     status: building
     pita: 2
     summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
-    next_step: Launch — announce and promote so others can fork and use it
+    next_step: Launch — Reddit and Product Hunt post drafts ready in vault, Rob posts when ready
     due: null
     blocker: null
-    last_action: 2026-04-15
+    last_action: 2026-04-16
     repo: semiagenticRob/stupid-simple-agentic-crm
     timeline:
       - date: 2026-04-15
         event: "Repo created and built — YAML/CSV architecture, import scripts, agent README, 7 sample contacts"
+      - date: 2026-04-16
+        event: "CEO Agent: drafted Reddit (r/selfhosted, r/devtools, r/LocalLLaMA), Product Hunt, and X/Twitter launch posts — saved to vault"
