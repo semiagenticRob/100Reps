@@ -101,12 +101,23 @@ reps:
     name: Teshuvah Read Along
     status: building
     pita: 1
-    summary: Digital siddur with synchronized Hebrew/transliteration/English read-along and audio.
-    next_step: Send Mosaica Press partnership email after TJE meeting — draft ready in vault
+    summary: DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress.
+    next_step: Await rabbinic intro to Rabbi Feigenbaum; redesign Shacharit UI as continuous scroll with selectable display modes and section introductions
     due: null
     blocker: null
-    last_action: 2026-04-16
+    last_action: 2026-04-17
     repo: semiagenticRob/teshuvah-read-along
+    timeline:
+      - date: 2026-03-24
+        event: "Rabbi outreach sent — Rabbi Wolf, Rabbi Ross, Alex Amchislavskiy"
+      - date: 2026-03-30
+        event: "Rabbi Leban (TJE) offered 501(c)(3) umbrella + rabbinic review support"
+      - date: 2026-04-01
+        event: "Phase 1-2 complete — Shacharit, Mincha, Ma'ariv, Birkat Hamazon with real audio. Rebranded to DavenAlong"
+      - date: 2026-04-13
+        event: "Rob proposed in-person TJE demo; both rabbis recommend Feigenbaum siddur partnership"
+      - date: 2026-04-17
+        event: "TJE in-person meeting — extremely positive. Pivoted to Shacharit-first continuous scroll redesign; rabbis offered direct intro to Rabbi Feigenbaum; Zmanim integration scoped"
 
   - id: 7
     name: WritersRoom.ai
