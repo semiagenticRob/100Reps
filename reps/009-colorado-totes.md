@@ -3,14 +3,14 @@
 **Status:** Assessed
 **Repo:** [semiagenticRob/colorado-totes](https://github.com/semiagenticRob/colorado-totes)
 
-Moving tote rental contracted with apartment complexes. B2B channel, Denver market. Assessment completed 2026-03-25 — premise sound, timing excellent.
+Moving tote rental for apartment complexes — pivoted from owner-operated delivery to a SaaS platform model. Buildings purchase totes and subscribe to a management platform; third-party logistics (Amazon FBA or 3PL) handles fulfillment. Founder exits the truck entirely.
 
 ## Next Steps
 
-- Cold-call 10 Denver property managers
-- Get bulk tote pricing quote
-- File trademark (USPTO TEAS Plus ~$250)
+- Define SaaS MVP — subscription platform for multi-unit building tote management
+- Explore Amazon FBA or 3PL partner for fulfillment layer
 
 ## Milestones
 
-- 2026-03-25: Assessment completed
+- 2026-03-25: Assessment completed — B2B channel validated, premise sound
+- 2026-04-17: Pivoted to SaaS platform model — PITA dropped from 10 to 4

@@ -136,16 +136,18 @@ reps:
   - id: 9
     name: Colorado Totes
     status: assessed
-    pita: 10
-    summary: Moving tote rental contracted with apartment complexes. B2B channel, Denver market.
-    next_step: Cold-call 10 Denver property managers — PROCEED, deadline extended
-    due: 2026-04-22
+    pita: 4
+    summary: Pivoted from owner-operated tote delivery to SaaS platform. Buildings buy totes, manage via subscription. 3PL or Amazon handles logistics — removes founder from the truck.
+    next_step: Define SaaS MVP — subscription platform for multi-unit building tote management; explore Amazon FBA or 3PL for fulfillment layer
+    due: null
     blocker: null
-    last_action: 2026-04-13
+    last_action: 2026-04-17
     repo: semiagenticRob/colorado-totes
     timeline:
       - date: 2026-03-25
         event: "Assessment completed"
+      - date: 2026-04-17
+        event: "Pivoted to SaaS platform model — buildings own totes, subscribe to management platform; founder exits the truck via 3PL/Amazon logistics layer. PITA dropped from 10 to 4."
 
   - id: 10
     name: AI Diary
