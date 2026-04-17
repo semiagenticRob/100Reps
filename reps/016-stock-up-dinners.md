@@ -28,11 +28,18 @@ Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 
 - **Combined total**: ~$595-635 (~$43-45 per family dinner)
 - Full formatted lists in vault Main Note (Stock Up Dinners.md)
 
+## Meal Sequencing (Task 5)
+
+**Week 1:** Mon: Coconut Shrimp Curry | Tue: Chicken Burrito Bowls | Wed: Beef Bolognese | Thu: Teriyaki Salmon | Fri: Chicken Stir-Fry | Sat: Turkey Chili | Sun: Baked Penne
+
+**Week 2:** Mon: Beef & Black Bean Burritos | Tue: Chicken Tikka Bowls | Wed: Salmon Quinoa Bowls | Thu: Peanut Chicken Noodles | Fri: Fish Taco Kits | Sat: Roasted Pork Tenderloin | Sun: Chicken Parm & Pasta
+
+Full sequencing rationale saved to vault Stock Up Dinners.md.
+
 ## Next Steps
 
-- Task 5: Organize meals into Week 1 and Week 2 with logical sequencing (no back-to-back same protein, easier meals Mon/Fri)
-- Apply Task 4 shopping list content to PLAN.md in repo
-- Create brand assets in Canva and design the free PDF (tasks 6-7)
+- Task 6: Create brand assets in Canva — logo, Pinterest pin template, and PDF cover. Begin free PDF layout (20-30 pages, printable). Meal sequencing (Task 5) complete and saved to vault.
+- Apply Task 4 shopping list content and Task 5 meal schedule to PLAN.md in repo
 - Set up Beehiiv + landing page (tasks 8-9)
 
 ## Milestones
@@ -42,3 +49,4 @@ Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 
 - 2026-04-14: Launch checklist, ingredient list, meal plans, and Cycle 2 completed
 - 2026-04-15: Task 3 complete — Costco inventory vetting done, substitution documented
 - 2026-04-16: Task 4 complete — per-week shopping lists built and saved to vault
+- 2026-04-17: Task 5 complete — 14 meals sequenced into Week 1 and Week 2, no back-to-back same protein, easy Mon/Fri
