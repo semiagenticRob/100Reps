@@ -232,10 +232,10 @@ reps:
     status: building
     pita: 5
     summary: Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days. Live in 7 days.
-    next_step: "Task 5: Organize meals into Week 1 and Week 2 with logical sequencing (no back-to-back same protein, easier meals Mon/Fri)"
+    next_step: "Task 6: Create brand assets in Canva — logo, Pinterest pin template, and PDF cover. Begin free PDF layout (20-30 pages, printable). Meal sequencing (Task 5) complete and saved to vault."
     due: 2026-04-21
     blocker: null
-    last_action: 2026-04-16
+    last_action: 2026-04-17
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -252,6 +252,8 @@ reps:
         event: "CEO Agent: Task 4 complete — per-week shopping lists built. Week 1 big shop (~$555-575) + Week 2 fresh-protein top-up (~$50-60). Saved to vault note."
       - date: 2026-04-16
         event: "Rob adding launch plan additions to plan.md"
+      - date: 2026-04-17
+        event: "CEO Agent: Task 5 complete — 14 meals sequenced into Week 1 and Week 2 with no back-to-back same protein, easy Mon/Fri, involved Sat/Sun. Full schedule saved to vault note."
   - id: 17
     name: Solar Miner
     status: dead
