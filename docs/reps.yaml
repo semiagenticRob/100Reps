@@ -122,6 +122,8 @@ reps:
         event: "Rob proposed in-person TJE demo; both rabbis recommend Feigenbaum siddur partnership"
       - date: 2026-04-17
         event: "TJE in-person meeting — extremely positive. Pivoted to Shacharit-first continuous scroll redesign; rabbis offered direct intro to Rabbi Feigenbaum; Zmanim integration scoped"
+      - date: 2026-04-18
+        event: "CEO Agent: Zmanim API research complete — @hebcal/core npm package recommended. Offline, free, pure JS, React Native compatible. Full integration guide in vault."
 
   - id: 7
     name: WritersRoom.ai
@@ -271,6 +273,8 @@ reps:
         event: "Rob adding launch plan additions to plan.md"
       - date: 2026-04-17
         event: "CEO Agent: Task 5 complete — 14 meals sequenced into Week 1 and Week 2 with no back-to-back same protein, easy Mon/Fri, involved Sat/Sun. Full schedule saved to vault note."
+      - date: 2026-04-18
+        event: "CEO Agent: Landing page copy (Task 9) and welcome email sequence (Task 10) drafted and saved to vault. PLAN.md tasks 3/4/5 check-off proposed (dry run)."
   - id: 17
     name: Solar Miner
     status: dead
@@ -293,10 +297,10 @@ reps:
     status: live
     pita: 2
     summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
-    next_step: Monitor forks and stars, engage with replies on X launch post
+    next_step: Post to r/selfhosted Sunday Apr 19 (peak traffic) — Reddit drafts ready in vault. Monitor GitHub stars and forks.
     due: null
     blocker: null
-    last_action: 2026-04-16
+    last_action: 2026-04-18
     repo: semiagenticRob/stupid-simple-agentic-crm
     timeline:
       - date: 2026-04-15
@@ -305,3 +309,5 @@ reps:
         event: "CEO Agent: drafted Reddit (r/selfhosted, r/devtools, r/LocalLLaMA), Product Hunt, and X/Twitter launch posts — saved to vault"
       - date: 2026-04-16
         event: "Launched — shared on X, post live at x.com/robertwarren/status/2044745580509855861"
+      - date: 2026-04-18
+        event: "CEO Agent: 0 stars/forks 48h post-launch. Reddit posts not yet posted — Sunday Apr 19 is optimal timing."
