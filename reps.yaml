@@ -29,10 +29,10 @@ reps:
     status: live
     pita: 3
     summary: Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search.
-    next_step: Send ATG response with user data — draft framework ready in vault, Rob fills real numbers from Supabase/App Store Connect
+    next_step: Build user base through organic promotion — Reddit launch posts drafted and ready; post to r/estatesales Sunday Apr 19 for peak traffic. Re-engage ATG once app has meaningful traction.
     due: null
     blocker: null
-    last_action: 2026-04-13
+    last_action: 2026-04-18
     repo: semiagenticRob/estate-sale-helper
     links:
       website: https://www.estatesalehelper.com
@@ -48,6 +48,10 @@ reps:
         event: "ATG partnership outreach — Marika Clemow responded, engaged not rejected"
       - date: 2026-04-10
         event: "Submitted geofenced rating/heat map update to App Store"
+      - date: 2026-04-16
+        event: "ATG conversation paused — zero users to show. Pivot to organic user acquisition first."
+      - date: 2026-04-18
+        event: "CEO Agent: next_step updated — Reddit promotion Sunday Apr 19 is the immediate action"
 
   - id: 3
     name: Stack Tracker
