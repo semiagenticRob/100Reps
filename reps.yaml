@@ -179,11 +179,11 @@ reps:
     name: myvoiceprofile.com
     status: live
     pita: 6
-    summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment.
-    next_step: Fix order form and GA4 before outreach — Formspree ID and GA4 tracking ID are both placeholders in live codebase
+    summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro.
+    next_step: Fix Formspree ID on thank-you.html and GA4 ID on both pages before sending DM outreach — customers can pay via Stripe but cannot submit content URLs for fulfillment
     due: null
-    blocker: Order form broken — Formspree ID is a placeholder, orders cannot be submitted
-    last_action: 2026-04-16
+    blocker: Formspree ID on thank-you.html is a placeholder — customers can pay but fulfillment form is broken; GA4 not tracking
+    last_action: 2026-04-18
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
