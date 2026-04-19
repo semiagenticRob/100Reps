@@ -29,10 +29,10 @@ reps:
     status: live
     pita: 3
     summary: Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search.
-    next_step: Build user base through organic promotion — Reddit launch posts drafted and ready; post to r/estatesales Sunday Apr 19 for peak traffic. Re-engage ATG once app has meaningful traction.
+    next_step: Post to r/estatesales TODAY (Sunday Apr 19) — peak Reddit traffic window. Variant A post ready in vault. After posting, monitor comments for 48h and re-engage ATG once app has meaningful traction.
     due: null
     blocker: null
-    last_action: 2026-04-18
+    last_action: 2026-04-19
     repo: semiagenticRob/estate-sale-helper
     links:
       website: https://www.estatesalehelper.com
@@ -52,6 +52,8 @@ reps:
         event: "ATG conversation paused — zero users to show. Pivot to organic user acquisition first."
       - date: 2026-04-18
         event: "CEO Agent: next_step updated — Reddit promotion Sunday Apr 19 is the immediate action"
+      - date: 2026-04-19
+        event: "CEO Agent: Today is Sunday Apr 19 — Reddit launch day. next_step updated to flag urgency."
 
   - id: 3
     name: Stack Tracker
@@ -106,10 +108,10 @@ reps:
     status: building
     pita: 1
     summary: DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress.
-    next_step: Await rabbinic intro to Rabbi Feigenbaum; redesign Shacharit UI as continuous scroll with selectable display modes and section introductions
+    next_step: Await rabbinic intro to Rabbi Feigenbaum; implement continuous scroll Shacharit redesign per spec saved to vault
     due: null
     blocker: null
-    last_action: 2026-04-17
+    last_action: 2026-04-19
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -124,6 +126,8 @@ reps:
         event: "TJE in-person meeting — extremely positive. Pivoted to Shacharit-first continuous scroll redesign; rabbis offered direct intro to Rabbi Feigenbaum; Zmanim integration scoped"
       - date: 2026-04-18
         event: "CEO Agent: Zmanim API research complete — @hebcal/core npm package recommended. Offline, free, pure JS, React Native compatible. Full integration guide in vault."
+      - date: 2026-04-19
+        event: "CEO Agent: Full continuous scroll redesign spec authored — component hierarchy, section structure, dual entry paths, Zmanim header, migration plan. Saved to vault."
 
   - id: 7
     name: WritersRoom.ai
@@ -185,7 +189,7 @@ reps:
     next_step: Fix Formspree ID on thank-you.html and GA4 ID on both pages before sending DM outreach — customers can pay via Stripe but cannot submit content URLs for fulfillment
     due: null
     blocker: Formspree ID on thank-you.html is a placeholder — customers can pay but fulfillment form is broken; GA4 not tracking
-    last_action: 2026-04-18
+    last_action: 2026-04-19
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
@@ -222,16 +226,18 @@ reps:
     status: live
     pita: 8
     summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
-    next_step: First client outreach via LinkedIn — templates drafted; fix phone placeholder in footer before going live
+    next_step: Fix phone placeholder (720) 000-0000 in index.html line 790 — then send first LinkedIn outreach; templates already drafted
     due: null
     blocker: null
-    last_action: 2026-04-15
+    last_action: 2026-04-19
     repo: semiagenticRob/coloradoailab
     links:
       website: https://coloradoailab.com
     timeline:
       - date: 2026-04-08
         event: "Landing page live"
+      - date: 2026-04-19
+        event: "CEO Agent: Phone placeholder confirmed still present in index.html line 790 — blocking LinkedIn outreach."
 
   - id: 15
     name: Hodl For What
@@ -251,10 +257,10 @@ reps:
     status: building
     pita: 5
     summary: Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days. Live in 7 days.
-    next_step: "Task 6: Create brand assets in Canva — logo, Pinterest pin template, and PDF cover. Begin free PDF layout (20-30 pages, printable). Meal sequencing (Task 5) complete and saved to vault."
+    next_step: "URGENT (Apr 21 deadline): Task 6 — Create brand assets in Canva (logo, pin template, PDF cover). This is the only human-blocking step. Reddit launch posts drafted and ready in vault."
     due: 2026-04-21
     blocker: null
-    last_action: 2026-04-17
+    last_action: 2026-04-19
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -275,6 +281,8 @@ reps:
         event: "CEO Agent: Task 5 complete — 14 meals sequenced into Week 1 and Week 2 with no back-to-back same protein, easy Mon/Fri, involved Sat/Sun. Full schedule saved to vault note."
       - date: 2026-04-18
         event: "CEO Agent: Landing page copy (Task 9) and welcome email sequence (Task 10) drafted and saved to vault. PLAN.md tasks 3/4/5 check-off proposed (dry run)."
+      - date: 2026-04-19
+        event: "CEO Agent: Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy + 3 Pinterest pin captions — saved to vault."
   - id: 17
     name: Solar Miner
     status: dead
@@ -297,10 +305,10 @@ reps:
     status: live
     pita: 2
     summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
-    next_step: Post to r/selfhosted Sunday Apr 19 (peak traffic) — Reddit drafts ready in vault. Monitor GitHub stars and forks.
+    next_step: Post to r/selfhosted TODAY (Sunday Apr 19) — peak Reddit traffic window. All 3 subreddit drafts ready in vault. Post r/devtools and r/LocalLLaMA same day for full launch coverage.
     due: null
     blocker: null
-    last_action: 2026-04-18
+    last_action: 2026-04-19
     repo: semiagenticRob/stupid-simple-agentic-crm
     timeline:
       - date: 2026-04-15
@@ -311,3 +319,5 @@ reps:
         event: "Launched — shared on X, post live at x.com/robertwarren/status/2044745580509855861"
       - date: 2026-04-18
         event: "CEO Agent: 0 stars/forks 48h post-launch. Reddit posts not yet posted — Sunday Apr 19 is optimal timing."
+      - date: 2026-04-19
+        event: "CEO Agent: TODAY is Sunday Apr 19 — Reddit launch day. next_step flagged urgent."

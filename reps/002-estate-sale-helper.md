@@ -8,9 +8,9 @@ Buyer-side estate sale app. Proximity search, images, payment methods, saved sal
 
 ## Next Steps
 
-- Post to r/estatesales Sunday April 19 for peak traffic — launch posts are drafted
-- Build user base organically before re-engaging ATG partnership
-- Monitor downloads and user reviews in App Store Connect
+- Post to r/estatesales TODAY (Sunday Apr 19) — Variant A post ready in vault
+- Monitor comments for 48h; engage every reply
+- Re-engage ATG once app has meaningful traction
 
 ## Milestones
 
@@ -19,3 +19,4 @@ Buyer-side estate sale app. Proximity search, images, payment methods, saved sal
 - 2026-04-07: Live on App Store (Build 5)
 - 2026-04-10: ATG partnership outreach — Marika Clemow responded, engaged not rejected
 - 2026-04-16: ATG conversation paused — zero users to show; pivot to organic acquisition first
+- 2026-04-19: CEO Agent — Reddit launch day confirmed; next_step flagged urgent

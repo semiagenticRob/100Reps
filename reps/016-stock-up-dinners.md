@@ -38,9 +38,9 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 
 ## Next Steps
 
-- Task 6: Create brand assets in Canva — logo, Pinterest pin template, and PDF cover. Begin free PDF layout (20-30 pages, printable). Meal sequencing (Task 5) complete and saved to vault.
-- Apply Task 4 shopping list content and Task 5 meal schedule to PLAN.md in repo
-- Set up Beehiiv + landing page (tasks 8-9)
+- **URGENT — Apr 21 deadline in 2 days:** Task 6: Create brand assets in Canva — logo, Pinterest pin template, and PDF cover (human-only step)
+- Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy — saved to vault
+- Apply Task 4 shopping list content and Task 5 meal schedule to PLAN.md in repo (proposed, dry run)
 
 ## Milestones
 
@@ -50,3 +50,4 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-15: Task 3 complete — Costco inventory vetting done, substitution documented
 - 2026-04-16: Task 4 complete — per-week shopping lists built and saved to vault
 - 2026-04-17: Task 5 complete — 14 meals sequenced into Week 1 and Week 2, no back-to-back same protein, easy Mon/Fri
+- 2026-04-19: CEO Agent — Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy + 3 Pinterest pin captions

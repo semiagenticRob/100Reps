@@ -18,10 +18,10 @@ Colorado businesses in construction, hospitality, professional services, healthc
 
 ## Next Steps
 
-- First client outreach via LinkedIn — templates drafted (CEO Agent 2026-04-15)
-- Fix phone placeholder (720) 000-0000 in index.html line 790 before promoting
-- Target verticals: construction, hospitality, professional services, healthcare
+- Fix phone placeholder (720) 000-0000 in index.html line 790 — this is the only thing blocking LinkedIn outreach
+- After fixing: send LinkedIn DMs — templates already drafted (CEO Agent 2026-04-15)
 
 ## Milestones
 
 - 2026-04-08: Landing page live on GitHub Pages
+- 2026-04-19: CEO Agent — phone placeholder confirmed still present; next_step reordered to fix-first
