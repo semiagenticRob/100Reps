@@ -8,8 +8,8 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 ## Next Steps
 
 - Await rabbinic intro to Rabbi Feigenbaum (hold Mosaica cold email)
-- Implement continuous scroll Shacharit redesign — full spec saved to vault (DavenAlong - Continuous Scroll Redesign Spec.md)
-- Zmanim integration via @hebcal/core — research complete, guide in vault
+- ShacharitScrollScreen continuous scroll is BUILT and navigable — confirmed in repo
+- Remaining dev work: ZmanimHeader component + dual entry path screen — full implementation code saved to vault (DavenAlong - ZmanimHeader Implementation.md)
 
 ## Milestones
 
@@ -19,3 +19,4 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 - 2026-04-13: Rob proposed in-person TJE demo; both rabbis recommend Feigenbaum siddur partnership
 - 2026-04-17: TJE in-person meeting — extremely positive. Pivoted to Shacharit-first continuous scroll redesign; rabbis offered direct intro to Rabbi Feigenbaum; Zmanim integration scoped
 - 2026-04-19: CEO Agent — full continuous scroll redesign spec authored (component hierarchy, section structure, dual entry paths, Zmanim header, migration plan)
+- 2026-04-20: CEO Agent — confirmed ShacharitScrollScreen already built and navigable. ZmanimHeader component code drafted and saved to vault.

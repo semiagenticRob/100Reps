@@ -18,10 +18,12 @@ Colorado businesses in construction, hospitality, professional services, healthc
 
 ## Next Steps
 
-- Fix phone placeholder (720) 000-0000 in index.html line 790 — this is the only thing blocking LinkedIn outreach
-- After fixing: send LinkedIn DMs — templates already drafted (CEO Agent 2026-04-15)
+- Send LinkedIn outreach — all templates ready (CEO Agent 2026-04-15), site fully live
+- Phone (720) 761-3094 is real and live; Formspree and Calendly functional
+- Start with construction and hospitality verticals in Denver
 
 ## Milestones
 
 - 2026-04-08: Landing page live on GitHub Pages
 - 2026-04-19: CEO Agent — phone placeholder confirmed still present; next_step reordered to fix-first
+- 2026-04-20: CEO Agent — phone fixed, full site deployed (commit Apr 19), blocker cleared. LinkedIn outreach ready.
