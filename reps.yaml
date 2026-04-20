@@ -27,11 +27,11 @@ reps:
   - id: 2
     name: "Estate Sale Helper"
     status: live
-    pita: 3
+    pita: 6
     summary: "Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search."
-    next_step: "Post Reddit Variant B to r/flipping and Variant C to r/ThriftStoreHauls this week — drafts ready in vault. Variant A posted Apr 6. Illinois coverage now live (Chicago grid added). Re-engage ATG once traction exists."
+    next_step: "Hold Reddit outreach (Variants B & C) until next app version ships with route planning, priority features, and updated rating system. Re-engage ATG once traction exists."
     due: null
-    blocker: null
+    blocker: "Next app version required (route planning + priority features + updated rating system) before Reddit outreach resumes"
     last_action: 2026-04-20
     repo: semiagenticRob/estate-sale-helper
     links:
@@ -56,6 +56,8 @@ reps:
         event: "CEO Agent: Today is Sunday Apr 19 — Reddit launch day. next_step updated to flag urgency."
       - date: 2026-04-20
         event: "CEO Agent: Illinois coverage confirmed live in scraper (Chicago grid point). Variant B and C Reddit posts ready to send any day this week."
+      - date: 2026-04-20
+        event: "Rob: PITA raised to 6 — rep now requires outbound sales/marketing. Reddit outreach on hold pending next app version (route planning, priority features, updated rating system)."
 
   - id: 3
     name: "Stack Tracker"
@@ -316,7 +318,7 @@ reps:
     status: live
     pita: 2
     summary: "Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes."
-    next_step: "Post to r/devtools and r/LocalLLaMA this week — drafts ready in vault. Sunday r/selfhosted window passed (Apr 19). Still at 0 stars/forks — Reddit is the critical distribution channel now."
+    next_step: null
     due: null
     blocker: null
     last_action: 2026-04-20
@@ -334,3 +336,5 @@ reps:
         event: "CEO Agent: TODAY is Sunday Apr 19 — Reddit launch day. next_step flagged urgent."
       - date: 2026-04-20
         event: "CEO Agent: 0 stars/forks confirmed (5 days post-launch). Sunday r/selfhosted window passed. r/devtools and r/LocalLLaMA posts ready to send any day this week."
+      - date: 2026-04-20
+        event: "Rob: Internal tool only going forward — no outbound marketing. Will continue to refine."
