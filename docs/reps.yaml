@@ -192,9 +192,9 @@ reps:
     status: live
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: "Fix Formspree ID on thank-you.html (line 325) before sending DM outreach. Fastest option is a mailto link workaround (15 min, no account) — full instructions in vault note. Proper Formspree fix is option B."
+    next_step: "Mark existing Formspree submissions as Not Spam to train the filter. Clean up leftover template comment on thank-you.html line 322. Then send DM outreach — form is functional."
     due: null
-    blocker: "Formspree placeholder on thank-you.html blocks fulfillment — customers pay but content URL submissions never arrive. GA4 also a placeholder but non-critical for launch."
+    blocker: null
     last_action: 2026-04-20
     repo: semiagenticRob/myvoiceprofile
     links:
