@@ -7,10 +7,10 @@ meta:
 
 reps:
   - id: 1
-    name: Pipe Acquisition
+    name: "Pipe Acquisition"
     status: dead
     pita: 7
-    summary: Pipe/infrastructure business acquisition (Hydro Physics). Seller rejected offer structure — no earnout, simultaneous building sale required, SBA incompatible.
+    summary: "Pipe/infrastructure business acquisition (Hydro Physics). Seller rejected offer structure — no earnout, simultaneous building sale required, SBA incompatible."
     next_step: null
     due: null
     blocker: null
@@ -25,11 +25,11 @@ reps:
         event: "Broker confirmed deal dead — seller (71yo) won't do earnout, has near-full-price offers, building must sell simultaneously"
 
   - id: 2
-    name: Estate Sale Helper
+    name: "Estate Sale Helper"
     status: live
     pita: 3
-    summary: Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search.
-    next_step: Post Reddit Variant B to r/flipping and Variant C to r/ThriftStoreHauls this week — drafts ready in vault. Variant A posted Apr 6. Illinois coverage now live (Chicago grid added). Re-engage ATG once traction exists.
+    summary: "Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search."
+    next_step: "Post Reddit Variant B to r/flipping and Variant C to r/ThriftStoreHauls this week — drafts ready in vault. Variant A posted Apr 6. Illinois coverage now live (Chicago grid added). Re-engage ATG once traction exists."
     due: null
     blocker: null
     last_action: 2026-04-20
@@ -58,11 +58,11 @@ reps:
         event: "CEO Agent: Illinois coverage confirmed live in scraper (Chicago grid point). Variant B and C Reddit posts ready to send any day this week."
 
   - id: 3
-    name: Stack Tracker
+    name: "Stack Tracker"
     status: assessed
     pita: 2
-    summary: Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works.
-    next_step: Revisit when capacity opens up — V1 scaffold complete and ready to resume
+    summary: "Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works."
+    next_step: "Revisit when capacity opens up — V1 scaffold complete and ready to resume"
     due: null
     blocker: null
     last_action: 2026-04-10
@@ -74,13 +74,13 @@ reps:
         event: "Moved to assessed — benched to focus on live reps"
 
   - id: 4
-    name: Runtime
+    name: "Runtime"
     status: dead
     pita: 2
-    summary: Optimal run window finder. Training plan × calendar × weather.
+    summary: "Optimal run window finder. Training plan × calendar × weather."
     next_step: null
     due: null
-    blocker: Lacks standalone utility — no clear differentiation or product value beyond existing tools
+    blocker: "Lacks standalone utility — no clear differentiation or product value beyond existing tools"
     last_action: 2026-04-16
     repo: null
     timeline:
@@ -88,13 +88,13 @@ reps:
         event: "Killed — lack of standalone utility"
 
   - id: 5
-    name: Route Mapper
+    name: "Route Mapper"
     status: dead
     pita: 2
-    summary: Map-first route generation for runners and cyclists. ORS + Mapbox. Killed — Strava covers the use case with no differentiation path.
+    summary: "Map-first route generation for runners and cyclists. ORS + Mapbox. Killed — Strava covers the use case with no differentiation path."
     next_step: null
     due: null
-    blocker: Strava already has enough functionality — no differentiation path
+    blocker: "Strava already has enough functionality — no differentiation path"
     last_action: 2026-04-15
     repo: semiagenticRob/cardio-route-finder
     links:
@@ -106,10 +106,10 @@ reps:
         event: "Killed — Strava covers the use case, undifferentiated"
 
   - id: 6
-    name: Teshuvah Read Along
+    name: "Teshuvah Read Along"
     status: building
     pita: 1
-    summary: DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress.
+    summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
     next_step: "Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Implementation specs saved to vault."
     due: null
     blocker: null
@@ -134,10 +134,10 @@ reps:
         event: "CEO Agent: Confirmed ShacharitScrollScreen already built and navigable in repo. Remaining items: ZmanimHeader + dual entry path screen. ZmanimHeader implementation code drafted and saved to vault."
 
   - id: 7
-    name: WritersRoom.ai
+    name: "WritersRoom.ai"
     status: idea
     pita: 7
-    summary: Transcript-to-content-stack service. AI production, human account manager final pass.
+    summary: "Transcript-to-content-stack service. AI production, human account manager final pass."
     next_step: null
     due: null
     blocker: null
@@ -145,13 +145,13 @@ reps:
     repo: null
 
   - id: 8
-    name: Declutter Truck
+    name: "Declutter Truck"
     status: dead
     pita: 9
-    summary: Mobile decluttering truck. Flat fee removal, AI photo cataloging, on-site consent for donate vs. sell.
+    summary: "Mobile decluttering truck. Flat fee removal, AI photo cataloging, on-site consent for donate vs. sell."
     next_step: null
     due: null
-    blocker: PITA score too high — operational lift not justified at this stage
+    blocker: "PITA score too high — operational lift not justified at this stage"
     last_action: 2026-04-16
     repo: null
     timeline:
@@ -159,11 +159,11 @@ reps:
         event: "Killed — PITA score too high, operational lift not justified"
 
   - id: 9
-    name: Colorado Totes
+    name: "Colorado Totes"
     status: assessed
     pita: 4
-    summary: Pivoted from owner-operated tote delivery to SaaS platform. Buildings buy totes, manage via subscription. 3PL or Amazon handles logistics — removes founder from the truck.
-    next_step: Define SaaS MVP — subscription platform for multi-unit building tote management; explore Amazon FBA or 3PL for fulfillment layer
+    summary: "Pivoted from owner-operated tote delivery to SaaS platform. Buildings buy totes, manage via subscription. 3PL or Amazon handles logistics — removes founder from the truck."
+    next_step: "Define SaaS MVP — subscription platform for multi-unit building tote management; explore Amazon FBA or 3PL for fulfillment layer"
     due: null
     blocker: null
     last_action: 2026-04-17
@@ -175,10 +175,10 @@ reps:
         event: "Pivoted to SaaS platform model — buildings own totes, subscribe to management platform; founder exits the truck via 3PL/Amazon logistics layer. PITA dropped from 10 to 4."
 
   - id: 10
-    name: AI Diary
+    name: "AI Diary"
     status: idea
     pita: 2
-    summary: Voice-first diary → structured vault → insights engine. The diary is input, the vault is output.
+    summary: "Voice-first diary → structured vault → insights engine. The diary is input, the vault is output."
     next_step: null
     due: null
     blocker: null
@@ -186,24 +186,24 @@ reps:
     repo: null
 
   - id: 11
-    name: myvoiceprofile.com
+    name: "myvoiceprofile.com"
     status: live
     pita: 6
-    summary: Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro.
-    next_step: Fix Formspree ID on thank-you.html (line 325) before sending DM outreach. Fastest option is a mailto link workaround (15 min, no account) — full instructions in vault note. Proper Formspree fix is option B.
+    summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
+    next_step: "Fix Formspree ID on thank-you.html (line 325) before sending DM outreach. Fastest option is a mailto link workaround (15 min, no account) — full instructions in vault note. Proper Formspree fix is option B."
     due: null
-    blocker: Formspree placeholder on thank-you.html blocks fulfillment — customers pay but content URL submissions never arrive. GA4 also a placeholder but non-critical for launch.
+    blocker: "Formspree placeholder on thank-you.html blocks fulfillment — customers pay but content URL submissions never arrive. GA4 also a placeholder but non-critical for launch."
     last_action: 2026-04-20
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
 
   - id: 12
-    name: STR Accountable
+    name: "STR Accountable"
     status: idea
     pita: 3
-    summary: Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal.
-    next_step: Research existing advocacy tools and define the product interface
+    summary: "Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal."
+    next_step: "Research existing advocacy tools and define the product interface"
     due: null
     blocker: null
     last_action: 2026-04-12
@@ -215,22 +215,22 @@ reps:
         event: "Pivoted to STR Accountable — neighbor coordination tool for nuisance Airbnb accountability"
 
   - id: 13
-    name: Civic Transparency Tool
+    name: "Civic Transparency Tool"
     status: assessed
     pita: 4
-    summary: AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live.
-    next_step: Run first Arvada issue — PROCEED, pipeline ready, just needs execution
+    summary: "AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live."
+    next_step: "Run first Arvada issue — PROCEED, pipeline ready, just needs execution"
     due: 2026-04-15
     blocker: null
     last_action: 2026-04-08
     repo: semiagenticRob/civic-transparency-tool
 
   - id: 14
-    name: Colorado AI Lab
+    name: "Colorado AI Lab"
     status: live
     pita: 8
-    summary: Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework.
-    next_step: Send LinkedIn outreach — all templates ready (CEO Agent 2026-04-15), site fully live. Phone is real, Formspree and Calendly functional. Start with construction and hospitality verticals in Denver.
+    summary: "Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework."
+    next_step: "Send LinkedIn outreach — all templates ready (CEO Agent 2026-04-15), site fully live. Phone is real, Formspree and Calendly functional. Start with construction and hospitality verticals in Denver."
     due: null
     blocker: null
     last_action: 2026-04-20
@@ -246,11 +246,11 @@ reps:
         event: "CEO Agent: Phone number fixed and full site deployed (commit Apr 19). Email removed, phone is now sole contact. Blocker cleared — LinkedIn outreach is ready to send."
 
   - id: 15
-    name: Hodl For What
+    name: "Hodl For What"
     status: idea
     pita: 2
-    summary: Bitcoin spending planner for long-term holders. Set price targets for life purchases so you sell at the right level, not the wrong time.
-    next_step: Validate concept with Bitcoin community — does this resonate with stackers?
+    summary: "Bitcoin spending planner for long-term holders. Set price targets for life purchases so you sell at the right level, not the wrong time."
+    next_step: "Validate concept with Bitcoin community — does this resonate with stackers?"
     due: null
     blocker: null
     last_action: 2026-04-10
@@ -258,11 +258,12 @@ reps:
     timeline:
       - date: 2026-04-10
         event: "Concept captured — brain dump processed"
+
   - id: 16
-    name: Stock Up Dinners
+    name: "Stock Up Dinners"
     status: building
     pita: 5
-    summary: Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days. Live in 7 days.
+    summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days. Live in 7 days."
     next_step: "URGENT (Apr 21 deadline): Set up Beehiiv account + connect stockupdinners.com domain (Task 8) — website currently 403. Step-by-step Beehiiv guide with all copy pre-written saved to vault today. Task 6 (Canva brand assets) is parallel human step."
     due: 2026-04-21
     blocker: null
@@ -291,14 +292,15 @@ reps:
         event: "CEO Agent: Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy + 3 Pinterest pin captions — saved to vault."
       - date: 2026-04-20
         event: "CEO Agent: Confirmed stockupdinners.com/lander is 403 — Beehiiv not yet set up. Step-by-step Beehiiv setup guide written and saved to vault with all pre-written copy, welcome email sequence, and launch checklist."
+
   - id: 17
-    name: Solar Miner
+    name: "Solar Miner"
     status: dead
     pita: 5
-    summary: Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost.
+    summary: "Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost."
     next_step: null
     due: null
-    blocker: Net metering is not revenue-generating; model does not work under current net metering structure
+    blocker: "Net metering is not revenue-generating; model does not work under current net metering structure"
     last_action: 2026-04-13
     repo: semiagenticRob/solar-miner
     timeline:
@@ -308,12 +310,13 @@ reps:
         event: "Repo created, daemon implemented, Xcel billing profiles built, IQ Gateway found at 192.168.0.38"
       - date: 2026-04-13
         event: "Killed — net metering not revenue-generating, model broken. Revisit only if heating component added"
+
   - id: 18
-    name: Stupid Simple Agentic CRM
+    name: "Stupid Simple Agentic CRM"
     status: live
     pita: 2
-    summary: Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes.
-    next_step: Post to r/devtools and r/LocalLLaMA this week — drafts ready in vault. Sunday r/selfhosted window passed (Apr 19). Still at 0 stars/forks — Reddit is the critical distribution channel now.
+    summary: "Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes."
+    next_step: "Post to r/devtools and r/LocalLLaMA this week — drafts ready in vault. Sunday r/selfhosted window passed (Apr 19). Still at 0 stars/forks — Reddit is the critical distribution channel now."
     due: null
     blocker: null
     last_action: 2026-04-20
