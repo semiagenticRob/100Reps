@@ -110,7 +110,7 @@ reps:
     status: building
     pita: 1
     summary: DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress.
-    next_step: Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Implementation specs saved to vault.
+    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Implementation specs saved to vault."
     due: null
     blocker: null
     last_action: 2026-04-20
