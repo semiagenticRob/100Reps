@@ -196,10 +196,10 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
   <table role="grid">
     <thead>
       <tr>
-        <th data-col="id" class="sorted"># <span class="sort-ind">&#9650;</span></th>
+        <th data-col="id"># <span class="sort-ind">&#9650;</span></th>
         <th data-col="name">NAME <span class="sort-ind">&#9650;</span></th>
         <th>LINKS</th>
-        <th data-col="status">STATUS <span class="sort-ind">&#9650;</span></th>
+        <th data-col="status" class="sorted">STATUS <span class="sort-ind">&#9650;</span></th>
         <th data-col="pita" title="Pain In The Ass Index — operational lift to continuously run (1=low, 10=high)">PITA <span class="sort-ind">&#9650;</span></th>
         <th>SUMMARY</th>
         <th>NEXT STEP</th>
@@ -248,6 +248,7 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 var YAML_URL = './reps.yaml';
 var POLL_INTERVAL = 5 * 60 * 1000;
 var STATUS_ORDER = ['idea','assessed','building','live','pmf','dead'];
+var STATUS_SORT_ORDER = ['pmf','live','building','assessed','idea','dead'];
 var STATUS_COLORS = {
   idea:'#4a9eff', assessed:'#ff9900', building:'#ffff00',
   live:'#00ff41', pmf:'#ff00ff', dead:'#666666'
@@ -270,7 +271,7 @@ var meta = {};
 var lastHash = '';
 var lastModified = '';
 var currentFilter = 'all';
-var currentSort = 'id';
+var currentSort = 'status';
 var sortAsc = true;
 var searchTerm = '';
 var selectedIdx = -1;
@@ -702,7 +703,7 @@ function getFilteredSorted() {
     switch (currentSort) {
       case 'id': va = a.id; vb = b.id; break;
       case 'name': va = a.name.toLowerCase(); vb = b.name.toLowerCase(); break;
-      case 'status': va = STATUS_ORDER.indexOf(a.status); vb = STATUS_ORDER.indexOf(b.status); break;
+      case 'status': va = STATUS_SORT_ORDER.indexOf(a.status); vb = STATUS_SORT_ORDER.indexOf(b.status); break;
       case 'pita': va = a.pita || 0; vb = b.pita || 0; break;
       case 'last_action': va = a.last_action || '0000-01-01'; vb = b.last_action || '0000-01-01'; break;
       default: va = a.id; vb = b.id;
