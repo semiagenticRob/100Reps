@@ -7,13 +7,18 @@ Lightweight agent-operated personal CRM inside a GitHub repo. YAML files are sou
 
 ## Next Steps
 
-- Post to r/devtools and r/LocalLLaMA this week — drafts ready in vault
-- Sunday r/selfhosted window passed (Apr 19 missed); r/devtools works any weekday
-- 0 stars/forks at 5 days post-X-launch — Reddit is the critical distribution channel
+- Continue refining as an internal tool — no outbound marketing planned
+- Use it: add real contacts, test agent-operated workflows, iterate on UX
+
+## Decision Log
+
+- 2026-04-20: Rob pivoted to internal-only use. No further outbound marketing or Reddit promotion. Will continue to refine the tool personally.
 
 ## Milestones
 
 - 2026-04-15: Repo created and built — YAML/CSV architecture, import scripts, agent README, 7 sample contacts
 - 2026-04-16: CEO Agent drafted launch posts for Reddit, Product Hunt, and X/Twitter — ready to post
-- 2026-04-19: CEO Agent — Reddit launch day. next_step flagged urgent; 0 stars/forks after X launch
-- 2026-04-20: CEO Agent — 0 stars/forks confirmed. Sunday window passed. r/devtools and r/LocalLLaMA posts ready for this week.
+- 2026-04-16: Launched — shared on X at x.com/robertwarren/status/2044745580509855861
+- 2026-04-19: CEO Agent — Reddit launch day. 0 stars/forks after X launch.
+- 2026-04-20: CEO Agent — 0 stars/forks confirmed (5 days post-launch). Rob: internal tool only going forward, no outbound marketing.
+- 2026-04-21: CEO Agent — rep doc updated to reflect internal-only decision. Reddit outreach section removed.
