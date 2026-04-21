@@ -196,10 +196,10 @@ reps:
     status: live
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: "Mark existing Formspree submissions as Not Spam to train the filter. Clean up leftover template comment on thank-you.html line 322. Then send DM outreach — form is functional."
+    next_step: "Send DM outreach targeting grant writers, email copywriters, and blog writers — templates D/E/F saved to vault. Also proposed: remove leftover template comment on thank-you.html lines 321-324 (dry run). Form functional, Formspree spam filter improving."
     due: null
     blocker: null
-    last_action: 2026-04-20
+    last_action: 2026-04-21
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com

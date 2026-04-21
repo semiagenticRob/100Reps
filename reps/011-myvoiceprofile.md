@@ -13,9 +13,9 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 
 ## Next Steps
 
-- Mark existing Formspree submissions as Not Spam in the dashboard
-- Clean up leftover template comment on thank-you.html line 322
-- Send DM outreach — form is functional
+- Send DM outreach targeting grant writers, email copywriters, and blog writers — templates D/E/F saved to vault
+- Proposed (dry run): remove leftover template comment on thank-you.html lines 321-324
+- Form is functional; continue marking Formspree submissions as Not Spam to improve filter
 
 ## Milestones
 
@@ -24,3 +24,4 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 - 2026-04-18: CEO Agent: Pricing updated in repo ($9.99/$14.99) — manifest and rep doc updated
 - 2026-04-20: CEO Agent: Formspree blocker persists (day 4). Drafted two fix options — saved to vault.
 - 2026-04-20: Rob: Form is functional — xdapbjob is the real form ID. Submissions arriving but landing in Formspree spam. Blocker cleared.
+- 2026-04-21: CEO Agent: Three new DM outreach templates (D/E/F) drafted for grant writers, email copywriters, and blog writers — saved to vault.
