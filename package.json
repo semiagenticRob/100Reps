@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "dev": "http-server docs -p 3000 -o"
+  },
   "devDependencies": {
+    "http-server": "^14.1.1",
     "js-yaml": "^4.1.1"
   }
 }
