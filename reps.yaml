@@ -29,10 +29,10 @@ reps:
     status: live
     pita: 6
     summary: "Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search."
-    next_step: "Hold Reddit outreach (Variants B & C) until next app version ships with route planning, priority features, and updated rating system. Re-engage ATG once traction exists."
+    next_step: "Route Builder (Option A) is the single unblocking feature — add multi-stop Maps URL launch from the Saved screen header (1-2 hours, zero new dependencies). Once shipped, resume Reddit Variants B and C immediately. Full implementation spec for all three next-version features saved to vault. Reddit posts are written and waiting."
     due: null
-    blocker: "Next app version required (route planning + priority features + updated rating system) before Reddit outreach resumes"
-    last_action: 2026-04-20
+    blocker: null
+    last_action: 2026-04-21
     repo: semiagenticRob/estate-sale-helper
     links:
       website: https://www.estatesalehelper.com
@@ -58,6 +58,8 @@ reps:
         event: "CEO Agent: Illinois coverage confirmed live in scraper (Chicago grid point). Variant B and C Reddit posts ready to send any day this week."
       - date: 2026-04-20
         event: "Rob: PITA raised to 6 — rep now requires outbound sales/marketing. Reddit outreach on hold pending next app version (route planning, priority features, updated rating system)."
+      - date: 2026-04-21
+        event: "CEO Agent: Full next-version feature spec authored and saved to vault. Route Builder (Option A) identified as the single unblocking build — multi-stop Maps URL from Saved screen, 1-2 hours, zero new dependencies. Once shipped, Reddit Variants B and C resume immediately."
 
   - id: 3
     name: "Stack Tracker"
