@@ -112,10 +112,10 @@ reps:
     status: building
     pita: 1
     summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
-    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Implementation specs saved to vault."
+    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Full implementation specs for both saved to vault."
     due: null
     blocker: null
-    last_action: 2026-04-20
+    last_action: 2026-04-21
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -134,6 +134,8 @@ reps:
         event: "CEO Agent: Full continuous scroll redesign spec authored — component hierarchy, section structure, dual entry paths, Zmanim header, migration plan. Saved to vault."
       - date: 2026-04-20
         event: "CEO Agent: Confirmed ShacharitScrollScreen already built and navigable in repo. Remaining items: ZmanimHeader + dual entry path screen. ZmanimHeader implementation code drafted and saved to vault."
+      - date: 2026-04-21
+        event: "CEO Agent: Full EntryPath screen implementation spec authored and saved to vault. Covers EntryPathScreen component, settings store extension, navigation wiring, and SectionIntro beginner/returning behavior. Both remaining dev units fully documented — ready to implement."
 
   - id: 7
     name: "WritersRoom.ai"
