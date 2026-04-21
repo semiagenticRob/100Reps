@@ -267,11 +267,11 @@ reps:
     name: "Stock Up Dinners"
     status: building
     pita: 5
-    summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days. Live in 7 days."
-    next_step: "URGENT (Apr 21 deadline): Set up Beehiiv account + connect stockupdinners.com domain (Task 8) — website currently 403. Step-by-step Beehiiv guide with all copy pre-written saved to vault today. Task 6 (Canva brand assets) is parallel human step."
-    due: 2026-04-21
+    summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
+    next_step: "Set up Beehiiv account and connect stockupdinners.com domain — all copy pre-written in vault. Gumroad product listing copy drafted and saved to vault (Task 15). Website still returning 403. Once Beehiiv is live: test funnel, then post Reddit launch content (r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy — all ready). Parallel: Task 6 Canva brand assets."
+    due: null
     blocker: null
-    last_action: 2026-04-20
+    last_action: 2026-04-21
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -296,6 +296,8 @@ reps:
         event: "CEO Agent: Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy + 3 Pinterest pin captions — saved to vault."
       - date: 2026-04-20
         event: "CEO Agent: Confirmed stockupdinners.com/lander is 403 — Beehiiv not yet set up. Step-by-step Beehiiv setup guide written and saved to vault with all pre-written copy, welcome email sequence, and launch checklist."
+      - date: 2026-04-21
+        event: "CEO Agent: Gumroad product listing copy drafted and saved to vault (Task 15). Covers main listing, coming-soon variant, cover image guidance, and setup checklist. Website still 403 — Beehiiv setup is the critical unblocked next step."
 
   - id: 17
     name: "Solar Miner"
