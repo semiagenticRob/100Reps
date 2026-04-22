@@ -7,9 +7,10 @@ Business intelligence dashboard for an executive at a wildfowl mitigation compan
 
 ## Next Steps
 
-- Connect live data source to replace mock data
-- Define data pipeline from timekeeping system to dashboard
+- Connect Zoho/ADP pipeline to replace mock data
+- Add geography/team view distinguishing Core Services (IL, WI, Detroit, Indy) vs. Structural division
 
 ## Milestones
 
 - 2026-04-22: Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns.
+- 2026-04-22: WGC Bird deep-dive call — team structure confirmed (Core Services + Structural), data pipeline: proprietary app → Zoho → ADP. Built drill-down and team expansion views live on call.
