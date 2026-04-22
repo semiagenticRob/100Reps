@@ -9,7 +9,15 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 
 - Await rabbinic intro to Rabbi Feigenbaum (hold Mosaica cold email)
 - ShacharitScrollScreen continuous scroll is BUILT and navigable — confirmed in repo
-- Remaining dev work: ZmanimHeader component + dual entry path screen — full implementation specs for both saved to vault (DavenAlong - ZmanimHeader Implementation.md and DavenAlong - EntryPath Screen Implementation.md)
+- Remaining dev work: ZmanimHeader + EntryPath — full implementation specs in `docs/feature-specs/` (ready to build)
+- Visual identity brief in `docs/design/visual-identity-brief.md` — formalizes adaptive color system, typography, section accent colors. Reference for building the design system.
+
+## Deliverables
+
+- `docs/feature-specs/zmanim-header-implementation.md` — full ZmanimHeader component code and integration guide
+- `docs/feature-specs/entry-path-screen-implementation.md` — EntryPathScreen component, settings store, navigation wiring
+- `docs/feature-specs/continuous-scroll-redesign.md` — full redesign spec and migration plan
+- `docs/design/visual-identity-brief.md` — adaptive parchment palette, typography, section accent colors, motion principles
 
 ## Milestones
 
@@ -21,3 +29,4 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 - 2026-04-19: CEO Agent — full continuous scroll redesign spec authored (component hierarchy, section structure, dual entry paths, Zmanim header, migration plan)
 - 2026-04-20: CEO Agent — confirmed ShacharitScrollScreen already built and navigable. ZmanimHeader component code drafted and saved to vault.
 - 2026-04-21: CEO Agent — EntryPath screen implementation spec authored and saved to vault. Both remaining dev units (ZmanimHeader + EntryPath) now fully documented and ready to implement.
+- 2026-04-22: CEO Agent — Visual identity brief authored. Formalizes adaptive parchment palette, time-of-day color shifts, Shacharit section accent colors, typography stack (Frank Ruhl Libre + EB Garamond). Saved to docs/design/visual-identity-brief.md.

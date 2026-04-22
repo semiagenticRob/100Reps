@@ -18,9 +18,13 @@ Colorado businesses in construction, hospitality, professional services, healthc
 
 ## Next Steps
 
-- Connect with Brinkman Construction CEO and Stonebridge Companies COO on LinkedIn this week
-- Full hit list of 6 named Denver targets (construction + hospitality) with angles saved to vault
+- Open `docs/outreach/linkedin-messages.md` in repo — personalized connection requests + follow-up DMs for all 6 targets ready to copy-paste
+- Week 1 priority: connect with Brinkman Construction CEO and Stonebridge Companies COO
 - Entry offer for all outreach: free AI Readiness Assessment
+
+## Deliverables
+
+- `docs/outreach/linkedin-messages.md` — personalized LinkedIn connection note + follow-up DM for all 6 targets, cadence guide, results tracking table
 
 ## Milestones
 
@@ -28,3 +32,4 @@ Colorado businesses in construction, hospitality, professional services, healthc
 - 2026-04-19: CEO Agent — phone placeholder confirmed still present; next_step reordered to fix-first
 - 2026-04-20: CEO Agent — phone fixed, full site deployed (commit Apr 19), blocker cleared. LinkedIn outreach ready.
 - 2026-04-21: CEO Agent — research-backed outreach hit list compiled. 6 Denver targets across construction and hospitality with named contacts and outreach angles.
+- 2026-04-22: CEO Agent — personalized LinkedIn connection request + follow-up DM drafted for all 6 targets. Ready to copy-paste and send. Saved to docs/outreach/linkedin-messages.md.

@@ -38,11 +38,18 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 
 ## Next Steps
 
-- Set up Beehiiv account and connect stockupdinners.com domain — all copy pre-written in vault
-- Gumroad product listing copy drafted and saved to vault (Task 15) — set up listing, copy the URL into Email 3
-- Website still 403 — Beehiiv is the only remaining gate before Reddit launch
-- Once Beehiiv is live: test funnel, then post Reddit launch content (all posts ready in vault)
-- Parallel: Task 6 Canva brand assets
+- Set up Beehiiv account — step-by-step guide in `docs/launch/beehiiv-setup-guide.md`. This unblocks the website (currently 403) and enables the email funnel.
+- Complete Task 6 Canva brand assets — full brief in `docs/design/canva-brand-brief.md` (60-90 min)
+- Set up Gumroad listing — copy in `docs/launch/gumroad-listing.md`; grab URL and drop into Email 3
+- After Beehiiv live: test funnel, then post Reddit content (all posts ready in `docs/launch/reddit-launch-posts.md`)
+
+## Deliverables
+
+- `docs/launch/beehiiv-setup-guide.md` — step-by-step setup with all copy pre-written
+- `docs/launch/landing-page-copy.md` — headline, value props, email capture, 3-email welcome sequence
+- `docs/launch/gumroad-listing.md` — main $25 listing + coming-soon pre-order variant
+- `docs/launch/reddit-launch-posts.md` — posts for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy
+- `docs/design/canva-brand-brief.md` — color palette, typography, 4 PDF template layouts
 
 ## Milestones
 
@@ -55,3 +62,4 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-19: CEO Agent — Reddit launch posts drafted for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy + 3 Pinterest pin captions
 - 2026-04-20: CEO Agent — confirmed stockupdinners.com/lander is 403 (Beehiiv not set up). Step-by-step Beehiiv setup guide with all pre-written copy saved to vault.
 - 2026-04-21: CEO Agent — Gumroad product listing copy drafted (Task 15). Main listing, coming-soon variant, cover image guidance, setup checklist all saved to vault.
+- 2026-04-22: CEO Agent — PLAN.md updated (tasks 3/4/5 checked off; ready-copy notes on 9/10/13/15). Canva brand brief authored and saved to docs/design/canva-brand-brief.md.
