@@ -358,7 +358,7 @@ reps:
     status: building
     pita: 3
     summary: "Business intelligence dashboard for an executive at a wildfowl mitigation company. Labor utilization view — confirmed billable, unmapped probable, and non-billable hours broken out by team and person, with week/month/quarter toggle."
-    next_step: "Connect live data source to replace mock data; define data pipeline from timekeeping system to dashboard"
+    next_step: "Connect Zoho/ADP pipeline to replace mock data; add geography/team view distinguishing Core Services (IL, WI, Detroit, Indy) vs. Structural division"
     due: null
     blocker: null
     last_action: 2026-04-22
@@ -366,3 +366,5 @@ reps:
     timeline:
       - date: 2026-04-22
         event: "Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns."
+      - date: 2026-04-22
+        event: "WGC Bird deep-dive call — team structure confirmed (Core Services + Structural), data pipeline: proprietary app → Zoho → ADP. Built drill-down and team expansion views live on call."
