@@ -114,10 +114,10 @@ reps:
     status: building
     pita: 1
     summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
-    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Continuous scroll ShacharitScrollScreen is built and navigable. Remaining dev work: ZmanimHeader component + dual entry path screen. Full implementation specs for both saved to vault."
+    next_step: "Await rabbinic intro to Rabbi Feigenbaum. ZmanimHeader + EntryPath implementation specs are in docs/feature-specs/ (ready to build). Visual identity brief now in docs/design/visual-identity-brief.md — formalizes the prototype's adaptive color system, typography (Frank Ruhl Libre + EB Garamond), and section accent colors. Brief is the reference for building the app's design system."
     due: null
     blocker: null
-    last_action: 2026-04-21
+    last_action: 2026-04-22
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -138,6 +138,8 @@ reps:
         event: "CEO Agent: Confirmed ShacharitScrollScreen already built and navigable in repo. Remaining items: ZmanimHeader + dual entry path screen. ZmanimHeader implementation code drafted and saved to vault."
       - date: 2026-04-21
         event: "CEO Agent: Full EntryPath screen implementation spec authored and saved to vault. Covers EntryPathScreen component, settings store extension, navigation wiring, and SectionIntro beginner/returning behavior. Both remaining dev units fully documented — ready to implement."
+      - date: 2026-04-22
+        event: "CEO Agent: Visual identity brief authored and saved to docs/design/visual-identity-brief.md. Formalizes adaptive parchment palette, time-of-day color shifts, Shacharit section accent colors, and typography stack (Frank Ruhl Libre + EB Garamond)."
 
   - id: 7
     name: "WritersRoom.ai"
@@ -196,10 +198,10 @@ reps:
     status: live
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: "Send DM outreach targeting grant writers, email copywriters, and blog writers — templates D/E/F saved to vault. Also proposed: remove leftover template comment on thank-you.html lines 321-324 (dry run). Form functional, Formspree spam filter improving."
+    next_step: "Send DM outreach using templates A-F — all 6 segments now in docs/outreach-templates.md in repo. Priority order: newsletter writers, blog writers, grant writers. Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324."
     due: null
     blocker: null
-    last_action: 2026-04-21
+    last_action: 2026-04-22
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
@@ -236,10 +238,10 @@ reps:
     status: live
     pita: 8
     summary: "Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework."
-    next_step: "Research-backed outreach hit list saved to vault — 6 specific Denver targets across construction (Brinkman, Palace, Howell) and hospitality (Stonebridge, Tavern Hospitality) with named contacts and angles. Connect with Brinkman and Stonebridge leadership on LinkedIn this week. Entry offer: free AI Readiness Assessment."
+    next_step: "Personalized LinkedIn connection requests + follow-up DMs for all 6 Denver targets now in docs/outreach/linkedin-messages.md in repo — ready to copy-paste. Week 1 priority: connect with Brinkman Construction CEO and Stonebridge COO. Entry offer for all: free AI Readiness Assessment."
     due: null
     blocker: null
-    last_action: 2026-04-21
+    last_action: 2026-04-22
     repo: semiagenticRob/coloradoailab
     links:
       website: https://coloradoailab.com
@@ -252,6 +254,8 @@ reps:
         event: "CEO Agent: Phone number fixed and full site deployed (commit Apr 19). Email removed, phone is now sole contact. Blocker cleared — LinkedIn outreach is ready to send."
       - date: 2026-04-21
         event: "CEO Agent: Research-backed LinkedIn outreach hit list compiled — 6 named Denver targets in construction and hospitality with contact angles. Saved to vault."
+      - date: 2026-04-22
+        event: "CEO Agent: Personalized LinkedIn connection request + follow-up DM drafted for all 6 targets. Saved to docs/outreach/linkedin-messages.md in repo. Ready to copy-paste and send."
 
   - id: 15
     name: "Hodl For What"
@@ -272,10 +276,10 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Set up Beehiiv account and connect stockupdinners.com domain — all copy pre-written in vault. Gumroad product listing copy drafted and saved to vault (Task 15). Website still returning 403. Once Beehiiv is live: test funnel, then post Reddit launch content (r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy — all ready). Parallel: Task 6 Canva brand assets."
+    next_step: "Set up Beehiiv account and connect domain — step-by-step guide in docs/launch/beehiiv-setup-guide.md. PLAN.md updated: tasks 3/4/5 checked off, tasks 9/10/13/15 marked with ready copy. Task 6 Canva brand brief in docs/design/canva-brand-brief.md (60-90 min to complete). Website still 403 — Beehiiv is the only gate."
     due: null
     blocker: null
-    last_action: 2026-04-21
+    last_action: 2026-04-22
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -302,6 +306,8 @@ reps:
         event: "CEO Agent: Confirmed stockupdinners.com/lander is 403 — Beehiiv not yet set up. Step-by-step Beehiiv setup guide written and saved to vault with all pre-written copy, welcome email sequence, and launch checklist."
       - date: 2026-04-21
         event: "CEO Agent: Gumroad product listing copy drafted and saved to vault (Task 15). Covers main listing, coming-soon variant, cover image guidance, and setup checklist. Website still 403 — Beehiiv setup is the critical unblocked next step."
+      - date: 2026-04-22
+        event: "CEO Agent: PLAN.md tasks 3/4/5 checked off (were done in vault but unchecked in repo). Content-ready notes added to tasks 9/10/13/15. Canva brand brief authored — palette (Costco Red/Warm Navy/Golden Yellow), typography (Playfair Display + Lato), 4 PDF templates specified. Saved to docs/design/canva-brand-brief.md."
 
   - id: 17
     name: "Solar Miner"
