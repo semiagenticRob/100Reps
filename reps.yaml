@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 18
+  total: 19
   target: 100
 
 reps:
@@ -352,3 +352,17 @@ reps:
         event: "CEO Agent: 0 stars/forks confirmed (5 days post-launch). Sunday r/selfhosted window passed. r/devtools and r/LocalLLaMA posts ready to send any day this week."
       - date: 2026-04-20
         event: "Rob: Internal tool only going forward — no outbound marketing. Will continue to refine."
+
+  - id: 19
+    name: "Goose Helper"
+    status: building
+    pita: 3
+    summary: "Business intelligence dashboard for an executive at a wildfowl mitigation company. Labor utilization view — confirmed billable, unmapped probable, and non-billable hours broken out by team and person, with week/month/quarter toggle."
+    next_step: "Connect live data source to replace mock data; define data pipeline from timekeeping system to dashboard"
+    due: null
+    blocker: null
+    last_action: 2026-04-22
+    repo: semiagenticRob/goose-helper
+    timeline:
+      - date: 2026-04-22
+        event: "Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns."
