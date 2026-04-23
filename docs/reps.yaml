@@ -278,10 +278,10 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Set up Beehiiv account and connect domain — step-by-step guide in docs/launch/beehiiv-setup-guide.md. PLAN.md updated: tasks 3/4/5 checked off, tasks 9/10/13/15 marked with ready copy. Task 6 Canva brand brief in docs/design/canva-brand-brief.md (60-90 min to complete). Website still 403 — Beehiiv is the only gate."
+    next_step: "Set up Beehiiv account and connect domain — step-by-step guide in docs/launch/beehiiv-setup-guide.md. Website is a GoDaddy placeholder — Beehiiv is the only gate. All content ready: landing page copy in docs/marketing/landing-page-copy.md, Pinterest strategy (12 pins) in docs/marketing/pinterest-pin-strategy.md, Gumroad copy in docs/launch/gumroad-listing.md."
     due: null
     blocker: null
-    last_action: 2026-04-22
+    last_action: 2026-04-23
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -310,6 +310,8 @@ reps:
         event: "CEO Agent: Gumroad product listing copy drafted and saved to vault (Task 15). Covers main listing, coming-soon variant, cover image guidance, and setup checklist. Website still 403 — Beehiiv setup is the critical unblocked next step."
       - date: 2026-04-22
         event: "CEO Agent: PLAN.md tasks 3/4/5 checked off (were done in vault but unchecked in repo). Content-ready notes added to tasks 9/10/13/15. Canva brand brief authored — palette (Costco Red/Warm Navy/Golden Yellow), typography (Playfair Display + Lato), 4 PDF templates specified. Saved to docs/design/canva-brand-brief.md."
+      - date: 2026-04-23
+        event: "CEO Agent: Pinterest pin strategy authored — 12 pins with titles, descriptions, hashtags, visual briefs, board structure, SEO keywords, and 6-day posting schedule. Saved to docs/marketing/pinterest-pin-strategy.md. PLAN.md doc paths corrected (docs/marketing/ not docs/launch/ for copy files)."
 
   - id: 17
     name: "Solar Miner"
