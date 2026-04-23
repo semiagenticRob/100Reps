@@ -114,10 +114,10 @@ reps:
     status: building
     pita: 1
     summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
-    next_step: "Await rabbinic intro to Rabbi Feigenbaum. ZmanimHeader + EntryPath implementation specs are in docs/feature-specs/ (ready to build). Visual identity brief now in docs/design/visual-identity-brief.md — formalizes the prototype's adaptive color system, typography (Frank Ruhl Libre + EB Garamond), and section accent colors. Brief is the reference for building the app's design system."
+    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Partnership pitch email (short + extended versions) ready to send on intro — docs/plans/feigenbaum-partnership-email.md. ZmanimHeader + EntryPath implementation specs in docs/feature-specs/ (ready to build). Visual identity brief in docs/design/visual-identity-brief.md."
     due: null
     blocker: null
-    last_action: 2026-04-22
+    last_action: 2026-04-23
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -140,6 +140,8 @@ reps:
         event: "CEO Agent: Full EntryPath screen implementation spec authored and saved to vault. Covers EntryPathScreen component, settings store extension, navigation wiring, and SectionIntro beginner/returning behavior. Both remaining dev units fully documented — ready to implement."
       - date: 2026-04-22
         event: "CEO Agent: Visual identity brief authored and saved to docs/design/visual-identity-brief.md. Formalizes adaptive parchment palette, time-of-day color shifts, Shacharit section accent colors, and typography stack (Frank Ruhl Libre + EB Garamond)."
+      - date: 2026-04-23
+        event: "CEO Agent: Feigenbaum partnership email drafted — short + extended versions ready to send the moment the TJE intro arrives. Saved to docs/plans/feigenbaum-partnership-email.md."
 
   - id: 7
     name: "WritersRoom.ai"
