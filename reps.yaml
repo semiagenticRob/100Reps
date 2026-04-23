@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 19
+  total: 20
   target: 100
 
 reps:
@@ -372,3 +372,17 @@ reps:
         event: "Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns."
       - date: 2026-04-22
         event: "WGC Bird deep-dive call — team structure confirmed (Core Services + Structural), data pipeline: proprietary app → Zoho → ADP. Built drill-down and team expansion views live on call."
+
+  - id: 20
+    name: "Near Me Mail"
+    status: idea
+    pita: 3
+    summary: "EDDM co-op postcard business targeting Denver home service businesses via Facebook groups. Oversized 9x12 postcards filled with local ads (one business per category), distributed to 10,000+ homes via USPS Every Door Direct Mail. Upsell path to AI-powered local marketing services (web, Google Ads, SEO)."
+    next_step: "Post in 3 Denver business Facebook groups Thursday at 7pm; measure DM response before spending a dollar"
+    due: null
+    blocker: null
+    last_action: 2026-04-23
+    repo: semiagenticRob/near-me-mail
+    timeline:
+      - date: 2026-04-23
+        event: "Rep added — assessed via startup-assessor. Unit economics confirmed (47% gross margin, ~$4,200 profit per 10K-home mailing). Entry lane open: no solo EDDM+Facebook operators identified in Denver. Upsell path to local marketing services identified as highest-ceiling play."

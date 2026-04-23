@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 15 / 100**
+**Progress: 16 / 100**
 
 ## Live
 
@@ -31,12 +31,13 @@
 
 ## Idea
 
-| # | Project |
-|---|---------|
-| 004 | Runtime |
-| 007 | WritersRoom.ai |
-| 008 | Declutter Truck |
-| 010 | AI Diary |
+| # | Project | Description |
+|---|---------|-------------|
+| 004 | Runtime | |
+| 007 | WritersRoom.ai | |
+| 008 | Declutter Truck | |
+| 010 | AI Diary | |
+| 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
 
 ## Dead
 
