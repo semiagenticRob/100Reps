@@ -1,21 +1,17 @@
 # Rep 011 — myvoiceprofile.com
 
-**Status:** Live
+**Status:** Dead
 **Repo:** [semiagenticRob/myvoiceprofile](https://github.com/semiagenticRob/myvoiceprofile)
 **Website:** [myvoiceprofile.com](https://myvoiceprofile.com)
 
 Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment, 24h turnaround.
 
+**Killed 2026-04-24:** Rob elected to remove.
+
 ## Pricing (updated 2026-04-18)
 
 - Voice Starter: $9.99 (up to 5 URLs)
 - Voice Pro: $14.99 (up to 20 URLs + sample piece)
-
-## Next Steps
-
-- Send DM outreach using templates A-F in `docs/outreach-templates.md` — find targets using `docs/customer-sourcing-guide.md`
-- Priority: newsletter writers (Substack/Beehiiv) → blog writers (LinkedIn/Reddit) → grant writers (LinkedIn/AFP)
-- Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324
 
 ## Deliverables
 

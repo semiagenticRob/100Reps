@@ -7,7 +7,7 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 
 ## Next Steps
 
-- Await rabbinic intro to Rabbi Feigenbaum — partnership email ready to send on intro (short + extended versions in `docs/plans/feigenbaum-partnership-email.md`)
+- Send partnership pitch email to Rabbi Feigenbaum — short + extended versions in `docs/plans/feigenbaum-partnership-email.md`. Meeting set for May 10.
 - ShacharitScrollScreen continuous scroll is BUILT and navigable — confirmed in repo
 - Remaining dev work: ZmanimHeader + EntryPath — full implementation specs in `docs/feature-specs/` (ready to build)
 - Visual identity brief in `docs/design/visual-identity-brief.md` — formalizes adaptive color system, typography, section accent colors. Reference for building the design system.
@@ -35,3 +35,4 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 - 2026-04-22: CEO Agent — Visual identity brief authored. Formalizes adaptive parchment palette, time-of-day color shifts, Shacharit section accent colors, typography stack (Frank Ruhl Libre + EB Garamond). Saved to docs/design/visual-identity-brief.md.
 - 2026-04-23: CEO Agent — Feigenbaum partnership email drafted. Short + extended versions ready to send the moment the TJE intro arrives. Saved to docs/plans/feigenbaum-partnership-email.md.
 - 2026-04-24: CEO Agent — App Store submission prep doc authored. Name, subtitle, full description, keywords, screenshot spec, pre-submission checklist. Saved to docs/plans/app-store-submission.md.
+- 2026-04-24: Feigenbaum intro made; meeting set for May 10.
