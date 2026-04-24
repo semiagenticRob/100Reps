@@ -114,10 +114,10 @@ reps:
     status: building
     pita: 1
     summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
-    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Partnership pitch email (short + extended versions) ready to send on intro — docs/plans/feigenbaum-partnership-email.md. ZmanimHeader + EntryPath implementation specs in docs/feature-specs/ (ready to build). Visual identity brief in docs/design/visual-identity-brief.md."
+    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Partnership pitch email ready to send on intro — docs/plans/feigenbaum-partnership-email.md. ZmanimHeader + EntryPath specs in docs/feature-specs/ (ready to build). App Store submission metadata drafted — docs/plans/app-store-submission.md."
     due: null
     blocker: null
-    last_action: 2026-04-23
+    last_action: 2026-04-24
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -142,6 +142,8 @@ reps:
         event: "CEO Agent: Visual identity brief authored and saved to docs/design/visual-identity-brief.md. Formalizes adaptive parchment palette, time-of-day color shifts, Shacharit section accent colors, and typography stack (Frank Ruhl Libre + EB Garamond)."
       - date: 2026-04-23
         event: "CEO Agent: Feigenbaum partnership email drafted — short + extended versions ready to send the moment the TJE intro arrives. Saved to docs/plans/feigenbaum-partnership-email.md."
+      - date: 2026-04-24
+        event: "CEO Agent: App Store submission prep doc authored — name, subtitle, description, keywords, screenshot spec, pre-submission checklist. Saved to docs/plans/app-store-submission.md."
 
   - id: 7
     name: "WritersRoom.ai"
@@ -200,13 +202,28 @@ reps:
     status: live
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: "Send DM outreach using templates A-F — all 6 segments now in docs/outreach-templates.md in repo. Priority order: newsletter writers, blog writers, grant writers. Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324."
+    next_step: "Send DM outreach using templates A-F in docs/outreach-templates.md. Customer sourcing guide (where to find each segment) now in docs/customer-sourcing-guide.md. Priority: newsletter writers first. Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324."
     due: null
     blocker: null
-    last_action: 2026-04-22
+    last_action: 2026-04-24
     repo: semiagenticRob/myvoiceprofile
     links:
       website: https://myvoiceprofile.com
+    timeline:
+      - date: 2026-04-07
+        event: "Domain purchased, landing page live on GitHub Pages"
+      - date: 2026-04-16
+        event: "CEO Agent: Formspree + GA4 placeholders identified — flagged as blocker"
+      - date: 2026-04-18
+        event: "CEO Agent: Pricing updated in repo ($9.99/$14.99)"
+      - date: 2026-04-20
+        event: "Rob: Form is functional — xdapbjob is the real form ID. Submissions arriving but landing in Formspree spam. Blocker cleared."
+      - date: 2026-04-21
+        event: "CEO Agent: Three new DM outreach templates (D/E/F) drafted for grant writers, email copywriters, and blog writers."
+      - date: 2026-04-22
+        event: "CEO Agent: All 6 templates (A-F) compiled into docs/outreach-templates.md in repo. Ready to send."
+      - date: 2026-04-24
+        event: "CEO Agent: Customer sourcing guide authored — where to find newsletter writers, blog writers, and grant writers across Substack, LinkedIn, Reddit, and specialized communities. Saved to docs/customer-sourcing-guide.md."
 
   - id: 12
     name: "STR Accountable"
@@ -240,10 +257,10 @@ reps:
     status: live
     pita: 8
     summary: "Denver-based AI consulting firm. Strategy, workshops, and monthly transformation partnerships for local businesses (10-300 employees). STE Framework."
-    next_step: "Personalized LinkedIn connection requests + follow-up DMs for all 6 Denver targets now in docs/outreach/linkedin-messages.md in repo — ready to copy-paste. Week 1 priority: connect with Brinkman Construction CEO and Stonebridge COO. Entry offer for all: free AI Readiness Assessment."
+    next_step: "Send LinkedIn outreach — personalized connection requests + DMs for 6 Denver targets in docs/outreach/linkedin-messages.md. When they complete the quiz, use AI Readiness Report Template in docs/assessment/ai-readiness-report-template.md to send personalized follow-up within 24h."
     due: null
     blocker: null
-    last_action: 2026-04-22
+    last_action: 2026-04-24
     repo: semiagenticRob/coloradoailab
     links:
       website: https://coloradoailab.com
@@ -258,6 +275,8 @@ reps:
         event: "CEO Agent: Research-backed LinkedIn outreach hit list compiled — 6 named Denver targets in construction and hospitality with contact angles. Saved to vault."
       - date: 2026-04-22
         event: "CEO Agent: Personalized LinkedIn connection request + follow-up DM drafted for all 6 targets. Saved to docs/outreach/linkedin-messages.md in repo. Ready to copy-paste and send."
+      - date: 2026-04-24
+        event: "CEO Agent: AI Readiness Assessment report template authored — fill-in-the-blank personalized report to send within 24h of prospect completing the quiz. Saved to docs/assessment/ai-readiness-report-template.md."
 
   - id: 15
     name: "Hodl For What"
@@ -278,10 +297,10 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Set up Beehiiv account and connect domain — step-by-step guide in docs/launch/beehiiv-setup-guide.md. Website is a GoDaddy placeholder — Beehiiv is the only gate. All content ready: landing page copy in docs/marketing/landing-page-copy.md, Pinterest strategy (12 pins) in docs/marketing/pinterest-pin-strategy.md, Gumroad copy in docs/launch/gumroad-listing.md."
+    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — full targeting guide in docs/marketing/facebook-groups-strategy.md. Then set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. All content ready to post the moment landing page is live."
     due: null
     blocker: null
-    last_action: 2026-04-23
+    last_action: 2026-04-24
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -312,6 +331,8 @@ reps:
         event: "CEO Agent: PLAN.md tasks 3/4/5 checked off (were done in vault but unchecked in repo). Content-ready notes added to tasks 9/10/13/15. Canva brand brief authored — palette (Costco Red/Warm Navy/Golden Yellow), typography (Playfair Display + Lato), 4 PDF templates specified. Saved to docs/design/canva-brand-brief.md."
       - date: 2026-04-23
         event: "CEO Agent: Pinterest pin strategy authored — 12 pins with titles, descriptions, hashtags, visual briefs, board structure, SEO keywords, and 6-day posting schedule. Saved to docs/marketing/pinterest-pin-strategy.md. PLAN.md doc paths corrected (docs/marketing/ not docs/launch/ for copy files)."
+      - date: 2026-04-24
+        event: "CEO Agent: Facebook group strategy authored — 6 specific groups to join now (Costco Finds 1.4M, Costco Products & Reviews 500K+, meal planning communities), post format template, and launch-day timing. Saved to docs/marketing/facebook-groups-strategy.md."
 
   - id: 17
     name: "Solar Miner"
@@ -362,16 +383,20 @@ reps:
     status: building
     pita: 3
     summary: "Business intelligence dashboard for an executive at a wildfowl mitigation company. Labor utilization view — confirmed billable, unmapped probable, and non-billable hours broken out by team and person, with week/month/quarter toggle."
-    next_step: "Connect Zoho/ADP pipeline to replace mock data; add geography/team view distinguishing Core Services (IL, WI, Detroit, Indy) vs. Structural division"
+    next_step: "Send client data onboarding questions (docs/superpowers/specs/client-data-onboarding.md) to WGC Bird contact — 15 questions covering ADP access, Zoho setup, team roster, and deployment. Fastest path: request one ADP CSV export to replace mock data within a week."
     due: null
     blocker: null
-    last_action: 2026-04-22
+    last_action: 2026-04-24
     repo: semiagenticRob/goose-helper
     timeline:
       - date: 2026-04-22
         event: "Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns."
       - date: 2026-04-22
         event: "WGC Bird deep-dive call — team structure confirmed (Core Services + Structural), data pipeline: proprietary app → Zoho → ADP. Built drill-down and team expansion views live on call."
+      - date: 2026-04-23
+        event: "CEO Agent: Zoho/ADP data pipeline spec authored — ADP and Zoho API requirements, minimum viable data schema, CSV export fallback path. Saved to docs/superpowers/specs/zoho-adp-data-pipeline-spec.md."
+      - date: 2026-04-24
+        event: "CEO Agent: Client data onboarding guide authored — 15 intake questions covering ADP product/access, Zoho time tracking, team roster, deployment preferences. Includes minimum viable request to send client. Saved to docs/superpowers/specs/client-data-onboarding.md."
 
   - id: 20
     name: "Near Me Mail"

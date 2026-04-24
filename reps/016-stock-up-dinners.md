@@ -38,10 +38,11 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 
 ## Next Steps
 
+- *Do now:* Join 6 Costco and meal-planning Facebook groups (approval delays) — full targeting list + post format in `docs/marketing/facebook-groups-strategy.md`
 - Set up Beehiiv account — step-by-step guide in `docs/launch/beehiiv-setup-guide.md`. Website is a GoDaddy "Launching Soon" placeholder — Beehiiv is the only gate.
 - Complete Task 6 Canva brand assets — full brief in `docs/design/canva-brand-brief.md` (60-90 min)
 - Set up Gumroad listing — copy in `docs/launch/gumroad-listing.md`; grab URL and drop into Email 3
-- After Beehiiv live: test funnel, then post Reddit content (`docs/marketing/reddit-launch-posts.md`) and execute Pinterest strategy (`docs/marketing/pinterest-pin-strategy.md`)
+- After Beehiiv live: test funnel, then post across Reddit, Pinterest, and Facebook groups simultaneously
 
 ## Deliverables
 
@@ -50,6 +51,7 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - `docs/marketing/landing-page-copy.md` — headline, value props, email capture, 3-email welcome sequence
 - `docs/marketing/reddit-launch-posts.md` — posts for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy
 - `docs/marketing/pinterest-pin-strategy.md` — 12 pins: titles, descriptions, hashtags, visual briefs, board structure, 6-day posting schedule
+- `docs/marketing/facebook-groups-strategy.md` — 6 groups to join now (Costco Finds 1.4M, etc.), value-first post format, launch-day timing
 - `docs/design/canva-brand-brief.md` — color palette, typography, 4 PDF template layouts
 
 ## Milestones
@@ -65,3 +67,4 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-21: CEO Agent — Gumroad product listing copy drafted (Task 15). Main listing, coming-soon variant, cover image guidance, setup checklist all saved to vault.
 - 2026-04-22: CEO Agent — PLAN.md updated (tasks 3/4/5 checked off; ready-copy notes on 9/10/13/15). Canva brand brief authored and saved to docs/design/canva-brand-brief.md.
 - 2026-04-23: CEO Agent — Pinterest pin strategy authored: 12 pins with titles, descriptions, hashtags, visual briefs, board structure, SEO keywords, 6-day posting schedule. Saved to docs/marketing/pinterest-pin-strategy.md. PLAN.md doc paths corrected to docs/marketing/ throughout.
+- 2026-04-24: CEO Agent — Facebook group strategy authored. 6 specific groups to join NOW before Beehiiv is live (approval delays): Costco Finds (1.4M), Costco Products & Reviews (500K+), meal planning communities. Value-first post format template included. Saved to docs/marketing/facebook-groups-strategy.md.

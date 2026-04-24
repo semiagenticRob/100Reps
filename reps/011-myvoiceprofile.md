@@ -13,13 +13,14 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 
 ## Next Steps
 
-- Send DM outreach using templates A-F — all 6 segments in `docs/outreach-templates.md` in repo
-- Priority: newsletter writers → blog writers → grant writers
+- Send DM outreach using templates A-F in `docs/outreach-templates.md` — find targets using `docs/customer-sourcing-guide.md`
+- Priority: newsletter writers (Substack/Beehiiv) → blog writers (LinkedIn/Reddit) → grant writers (LinkedIn/AFP)
 - Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324
 
 ## Deliverables
 
 - `docs/outreach-templates.md` — all 6 outreach templates (A-F) with prioritization guide, channel recommendations, and pre-send checklist
+- `docs/customer-sourcing-guide.md` — where to find each target segment: Substack discovery, LinkedIn search strings, Reddit communities, specialized directories. Fastest path to first customer included.
 
 ## Milestones
 
@@ -30,3 +31,4 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 - 2026-04-20: Rob: Form is functional — xdapbjob is the real form ID. Submissions arriving but landing in Formspree spam. Blocker cleared.
 - 2026-04-21: CEO Agent: Three new DM outreach templates (D/E/F) drafted for grant writers, email copywriters, and blog writers — saved to vault.
 - 2026-04-22: CEO Agent: All 6 templates (A-F) compiled into docs/outreach-templates.md in repo. Ready to copy-paste and send.
+- 2026-04-24: CEO Agent — Customer sourcing guide authored. Covers where to find newsletter writers (Substack Discover, r/newsletters), blog writers (Medium, ProBlogger, r/blogging), and grant writers (LinkedIn AFP members, r/nonprofit). Fastest-path tip included. Saved to docs/customer-sourcing-guide.md.
