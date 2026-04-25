@@ -114,7 +114,7 @@ reps:
     status: building
     pita: 1
     summary: "DavenAlong — Shacharit-first continuous scroll siddur. Selectable Hebrew/transliteration/English, Zmanim integration, dual beginner/returning entry paths. Feigenbaum content partnership in progress."
-    next_step: "Await rabbinic intro to Rabbi Feigenbaum. Partnership pitch email ready to send on intro — docs/plans/feigenbaum-partnership-email.md. ZmanimHeader + EntryPath specs in docs/feature-specs/ (ready to build). App Store submission metadata drafted — docs/plans/app-store-submission.md."
+    next_step: "Send partnership pitch email — docs/plans/feigenbaum-partnership-email.md. Meeting with Rabbi Feigenbaum set for May 10. ZmanimHeader + EntryPath specs in docs/feature-specs/ (ready to build)."
     due: null
     blocker: null
     last_action: 2026-04-24
@@ -144,6 +144,8 @@ reps:
         event: "CEO Agent: Feigenbaum partnership email drafted — short + extended versions ready to send the moment the TJE intro arrives. Saved to docs/plans/feigenbaum-partnership-email.md."
       - date: 2026-04-24
         event: "CEO Agent: App Store submission prep doc authored — name, subtitle, description, keywords, screenshot spec, pre-submission checklist. Saved to docs/plans/app-store-submission.md."
+      - date: 2026-04-24
+        event: "Feigenbaum intro made; meeting set for May 10."
 
   - id: 7
     name: "WritersRoom.ai"
@@ -199,10 +201,10 @@ reps:
 
   - id: 11
     name: "myvoiceprofile.com"
-    status: live
+    status: dead
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: "Send DM outreach using templates A-F in docs/outreach-templates.md. Customer sourcing guide (where to find each segment) now in docs/customer-sourcing-guide.md. Priority: newsletter writers first. Proposed code fix (dry run): remove leftover template comment on thank-you.html lines 321-324."
+    next_step: null
     due: null
     blocker: null
     last_action: 2026-04-24
@@ -224,6 +226,8 @@ reps:
         event: "CEO Agent: All 6 templates (A-F) compiled into docs/outreach-templates.md in repo. Ready to send."
       - date: 2026-04-24
         event: "CEO Agent: Customer sourcing guide authored — where to find newsletter writers, blog writers, and grant writers across Substack, LinkedIn, Reddit, and specialized communities. Saved to docs/customer-sourcing-guide.md."
+      - date: 2026-04-24
+        event: "Killed — Rob elected to remove."
 
   - id: 12
     name: "STR Accountable"
