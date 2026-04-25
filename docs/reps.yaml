@@ -29,10 +29,10 @@ reps:
     status: live
     pita: 6
     summary: "Buyer-side estate sale app. Proximity search, images, saved sales, geofenced heat map rating, route planning, AI image search."
-    next_step: "Route Builder (Option A) is the single unblocking feature — add multi-stop Maps URL launch from the Saved screen header (1-2 hours, zero new dependencies). Once shipped, resume Reddit Variants B and C immediately. Full implementation spec for all three next-version features saved to vault. Reddit posts are written and waiting."
+    next_step: "Build Route Builder (Option A) — multi-stop Maps URL from Saved screen header (1-2 hrs, zero dependencies). Implementation in docs/feature-specs/v2-features.md. When shipped, update App Store listing using docs/appstore/app-store-update-v2.md, then resume Reddit Variants B and C immediately."
     due: null
     blocker: null
-    last_action: 2026-04-21
+    last_action: 2026-04-25
     repo: semiagenticRob/estate-sale-helper
     links:
       website: https://www.estatesalehelper.com
@@ -60,6 +60,8 @@ reps:
         event: "Rob: PITA raised to 6 — rep now requires outbound sales/marketing. Reddit outreach on hold pending next app version (route planning, priority features, updated rating system)."
       - date: 2026-04-21
         event: "CEO Agent: Full next-version feature spec authored and saved to vault. Route Builder (Option A) identified as the single unblocking build — multi-stop Maps URL from Saved screen, 1-2 hours, zero new dependencies. Once shipped, Reddit Variants B and C resume immediately."
+      - date: 2026-04-25
+        event: "CEO Agent: App Store v2 update doc authored — updated subtitle, description, keywords (adds route planner), What's New copy, and pre-submission checklist. Saved to docs/appstore/app-store-update-v2.md."
 
   - id: 3
     name: "Stack Tracker"
