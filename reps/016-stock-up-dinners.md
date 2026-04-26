@@ -48,6 +48,7 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 
 - `docs/launch/beehiiv-setup-guide.md` — step-by-step setup with all copy pre-written
 - `docs/launch/gumroad-listing.md` — main $25 listing + coming-soon pre-order variant
+- `docs/launch/free-pdf-content.md` — full text content for the 14-dinner free lead magnet PDF, ready to paste into Canva
 - `docs/marketing/landing-page-copy.md` — headline, value props, email capture, 3-email welcome sequence
 - `docs/marketing/reddit-launch-posts.md` — posts for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy
 - `docs/marketing/pinterest-pin-strategy.md` — 12 pins: titles, descriptions, hashtags, visual briefs, board structure, 6-day posting schedule
@@ -67,4 +68,6 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-21: CEO Agent — Gumroad product listing copy drafted (Task 15). Main listing, coming-soon variant, cover image guidance, setup checklist all saved to vault.
 - 2026-04-22: CEO Agent — PLAN.md updated (tasks 3/4/5 checked off; ready-copy notes on 9/10/13/15). Canva brand brief authored and saved to docs/design/canva-brand-brief.md.
 - 2026-04-23: CEO Agent — Pinterest pin strategy authored: 12 pins with titles, descriptions, hashtags, visual briefs, board structure, SEO keywords, 6-day posting schedule. Saved to docs/marketing/pinterest-pin-strategy.md. PLAN.md doc paths corrected to docs/marketing/ throughout.
-- 2026-04-24: CEO Agent — Facebook group strategy authored. 6 specific groups to join NOW before Beehiiv is live (approval delays): Costco Finds (1.4M), Costco Products & Reviews (500K+), meal planning communities. Value-first post format template included. Saved to docs/marketing/facebook-groups-strategy.md.
+- 2026-04-24: CEO Agent — Facebook group strategy authored. 6 specific groups to join NOW before Beehiiv is live (approval delays). Saved to docs/marketing/facebook-groups-strategy.md.
+- 2026-04-25: CEO Agent — Full free PDF lead magnet content authored. All 14 dinners, shopping lists, cook-day workflows, page text ready to paste into Canva. Saved to docs/launch/free-pdf-content.md.
+- 2026-04-26: CEO Agent — Manifest updated. Free PDF deliverable logged. Critical path: Beehiiv setup + Facebook group joins.
