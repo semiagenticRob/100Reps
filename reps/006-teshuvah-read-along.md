@@ -17,6 +17,7 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 ## Deliverables
 
 - `docs/plans/feigenbaum-background-brief.md` — Rabbi Yitzchak Feigenbaum's biography, siddur pedagogy (FAQ feature, modern English, teen-focused), comparison to ArtScroll/Koren, talking points for May 10
+- `docs/plans/siddur-competitive-landscape.md` — ArtScroll, Koren, Sefaria, iSiddur feature comparison, DavenAlong's 7 differentiators, risks, and positioning statement for the Feigenbaum meeting
 - `docs/plans/feigenbaum-meeting-prep.md` — 60-min agenda, demo flow, 4 discovery questions, negotiation points, response matrix
 - `docs/plans/feigenbaum-partnership-email.md` — two-version partnership email (short first-contact + extended)
 - `docs/feature-specs/zmanim-header-implementation.md` — full ZmanimHeader component code and integration guide
@@ -41,3 +42,4 @@ DavenAlong — Shacharit-first continuous scroll siddur with selectable Hebrew/t
 - 2026-04-24: Feigenbaum intro made; meeting set for May 10.
 - 2026-04-25: CEO Agent — Feigenbaum meeting prep doc authored — 60-min agenda, demo flow, negotiation guide. Saved to docs/plans/feigenbaum-meeting-prep.md.
 - 2026-04-26: CEO Agent — Feigenbaum background brief authored — Rabbi Yitzchak Feigenbaum's bio (Darche Noam co-founder, first Mashgiach at Aish HaTorah), siddur pedagogy (FAQ feature, modern English, teen-focused, Feldheim 2022), talking points. Saved to docs/plans/feigenbaum-background-brief.md.
+- 2026-04-27: CEO Agent — Siddur competitive landscape authored. ArtScroll, Koren, Sefaria, iSiddur compared across 8 features. DavenAlong leads on all 7 differentiators. Positioning statement drafted for May 10 meeting. Saved to docs/plans/siddur-competitive-landscape.md.

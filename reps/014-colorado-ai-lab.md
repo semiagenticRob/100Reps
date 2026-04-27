@@ -30,6 +30,7 @@ Colorado businesses in construction, hospitality, professional services, healthc
 - `docs/assessment/ai-readiness-report-template.md` — fill-in-the-blank personalized report template for post-quiz follow-up (by industry: construction, hospitality, professional services, healthcare)
 - `docs/sales/discovery-call-script.md` — first call structure: opener, discovery questions, qualification, close, next steps
 - `docs/sales/proposal-template.md` — post-discovery call fill-in-the-blank proposal: 3 pricing tiers (workshop/pilot/partnership), objection handling, follow-up protocol
+- `docs/sales/workshop-overview.md` — 2-page PDF-ready workshop overview with 4 content blocks, pricing table, who it's for, deliverables, and LinkedIn DM script for sharing with prospects
 
 ## Milestones
 
@@ -41,3 +42,4 @@ Colorado businesses in construction, hospitality, professional services, healthc
 - 2026-04-24: CEO Agent — AI Readiness Assessment report template authored. Fill-in-the-blank personalized report to send within 24h of prospect completing the quiz. Saved to docs/assessment/ai-readiness-report-template.md.
 - 2026-04-25: CEO Agent — Discovery call script authored. 30-min first call structure with opener, discovery questions, qualification framework, and close options. Saved to docs/sales/discovery-call-script.md.
 - 2026-04-26: CEO Agent — Engagement proposal template authored. Post-discovery fill-in-the-blank proposal with 3 pricing tiers, objection handling, and follow-up protocol. Saved to docs/sales/proposal-template.md.
+- 2026-04-27: CEO Agent — Workshop overview one-pager authored. 2-page PDF-ready doc with pricing ($2,500 half-day / $4,000 full-day), 4 content blocks, deliverables list, and LinkedIn DM script for prospect sharing. Saved to docs/sales/workshop-overview.md.

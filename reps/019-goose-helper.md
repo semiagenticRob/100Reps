@@ -20,6 +20,7 @@ Business intelligence dashboard for an executive at a wildfowl mitigation compan
 - `docs/superpowers/specs/client-data-onboarding.md` — 15 intake questions for ADP access, Zoho setup, team roster, deployment
 - `docs/superpowers/specs/client-executive-brief.md` — one-pager: what the dashboard does, 3 views (company/team/person), two data options (API vs CSV), data-sharing ask
 - `docs/superpowers/specs/data-mapping-template.md` — fillable roster table, job code → utilization category mapping, hours targets, ADP export instructions, deployment preference questions
+- `docs/superpowers/specs/client-outreach-email.md` — email template Rob sends with the 3-doc bundle: subject line, body (<200 words), Google Drive link instructions, and 5-day follow-up template
 
 ## Milestones
 
@@ -29,3 +30,4 @@ Business intelligence dashboard for an executive at a wildfowl mitigation compan
 - 2026-04-24: CEO Agent — Client data onboarding guide authored. 15 intake questions + minimum viable request to send client now. Saved to docs/superpowers/specs/client-data-onboarding.md.
 - 2026-04-25: CEO Agent — Client executive brief authored. One-pager for WGC Bird data-sharing conversation: what dashboard does, 3 views, API vs CSV options, clear ask. Saved to docs/superpowers/specs/client-executive-brief.md.
 - 2026-04-26: CEO Agent — Data mapping template authored. Fillable roster, job code → utilization mapping, hours thresholds, ADP export instructions. Saved to docs/superpowers/specs/data-mapping-template.md.
+- 2026-04-27: CEO Agent — Client outreach email authored. Subject line, <200-word body, Google Drive sharing instructions, and 5-day follow-up template for sending the 3-doc bundle. Saved to docs/superpowers/specs/client-outreach-email.md.
