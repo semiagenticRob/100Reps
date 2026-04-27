@@ -311,10 +311,10 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — full targeting guide in docs/marketing/facebook-groups-strategy.md. Then set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. All content ready to post the moment landing page is live."
+    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — full targeting guide in docs/marketing/facebook-groups-strategy.md. Then set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. Plan 2 paid PDF content (Weeks 3-4, 14 dinners) ready at docs/launch/paid-pdf-plan2.md. All content ready to post the moment landing page is live."
     due: null
     blocker: null
-    last_action: 2026-04-26
+    last_action: 2026-04-27
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -351,6 +351,8 @@ reps:
         event: "CEO Agent: Full free PDF lead magnet content authored — all page text, shopping lists, cook day workflows, meal recipes for all 14 dinners, ready to paste into Canva template. Saved to docs/launch/free-pdf-content.md."
       - date: 2026-04-26
         event: "CEO Agent: Manifest updated — free-pdf-content.md deliverable logged. Critical path remains Beehiiv setup + Facebook group joins."
+      - date: 2026-04-27
+        event: "CEO Agent: Plan 2 paid PDF content authored — 14 new dinners for Weeks 3-4 (Greek chicken, Korean beef, honey garlic salmon, Thai basil turkey, shrimp scampi, BBQ pork, white bean chicken soup + 7 more). Saved to docs/launch/paid-pdf-plan2.md."
 
   - id: 17
     name: "Solar Miner"

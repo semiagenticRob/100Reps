@@ -54,6 +54,7 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - `docs/marketing/pinterest-pin-strategy.md` — 12 pins: titles, descriptions, hashtags, visual briefs, board structure, 6-day posting schedule
 - `docs/marketing/facebook-groups-strategy.md` — 6 groups to join now (Costco Finds 1.4M, etc.), value-first post format, launch-day timing
 - `docs/design/canva-brand-brief.md` — color palette, typography, 4 PDF template layouts
+- `docs/launch/paid-pdf-plan2.md` — full paid product content for Plan 2 (Weeks 3-4, 14 dinners): Greek chicken, Korean beef, honey garlic salmon, Thai basil turkey, shrimp fried rice, BBQ pork, white bean chicken soup + 7 more. Complete with shopping lists, meal schedule, cook-day prep, and serve instructions.
 
 ## Milestones
 
@@ -71,3 +72,4 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-24: CEO Agent — Facebook group strategy authored. 6 specific groups to join NOW before Beehiiv is live (approval delays). Saved to docs/marketing/facebook-groups-strategy.md.
 - 2026-04-25: CEO Agent — Full free PDF lead magnet content authored. All 14 dinners, shopping lists, cook-day workflows, page text ready to paste into Canva. Saved to docs/launch/free-pdf-content.md.
 - 2026-04-26: CEO Agent — Manifest updated. Free PDF deliverable logged. Critical path: Beehiiv setup + Facebook group joins.
+- 2026-04-27: CEO Agent — Plan 2 paid PDF content authored. 14 new Costco dinners for Weeks 3-4 with new flavor profiles. Saved to docs/launch/paid-pdf-plan2.md. First installment of actual paid product content.
