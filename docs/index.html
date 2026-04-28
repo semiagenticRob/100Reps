@@ -1089,12 +1089,50 @@ function renderJournal() {
   });
 }
 
+function wireJournalChrome() {
+  var $panel = document.getElementById('journalPanel');
+  var $toggle = document.getElementById('journalToggle');
+  var $rail = document.getElementById('journalRail');
+  if (!$panel) return;
+
+  function setCollapsed(collapsed) {
+    $panel.classList.toggle('collapsed', collapsed);
+    if ($toggle) {
+      $toggle.innerHTML = collapsed ? '&raquo;' : '&laquo;';
+      $toggle.title = collapsed ? 'Expand panel' : 'Collapse panel';
+    }
+    try { localStorage.setItem('journalCollapsed', collapsed ? '1' : '0'); } catch(e) {}
+  }
+
+  var stored;
+  try { stored = localStorage.getItem('journalCollapsed'); } catch(e) {}
+  if (stored === '1') {
+    setCollapsed(true);
+  } else if (stored === '0') {
+    setCollapsed(false);
+  } else if (window.matchMedia('(max-width: 900px)').matches) {
+    setCollapsed(true);
+  }
+
+  if ($toggle) {
+    $toggle.addEventListener('click', function() {
+      setCollapsed(!$panel.classList.contains('collapsed'));
+    });
+  }
+  if ($rail) {
+    $rail.addEventListener('click', function() {
+      setCollapsed(false);
+    });
+  }
+}
+
 /* ── Init ── */
 fetchData(false).then(function() {
   render();
   computeLastActions().then(function() { render(); });
   setInterval(refresh, POLL_INTERVAL);
 });
+wireJournalChrome();
 fetchFieldNotes().then(renderJournal);
 
 })();
