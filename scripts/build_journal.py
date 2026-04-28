@@ -8,8 +8,14 @@ HTML through a strict allowlist, and writes `docs/field-notes.json` and
 from __future__ import annotations
 
 import datetime as _dt
+import json
+import re
+import sys
+from pathlib import Path
 from typing import Any
 
+import bleach
+import markdown as _markdown
 import yaml
 
 
@@ -44,11 +50,6 @@ def parse_frontmatter(raw: str) -> tuple[dict[str, Any], str]:
 
     return meta, body
 
-
-import re
-
-import bleach
-import markdown as _markdown
 
 PREVIEW_MAX_CHARS = 140
 
@@ -93,7 +94,10 @@ def _rewrite_wikilinks(text: str) -> str:
     return text
 
 
-_SCRIPT_TAG = re.compile(r'<script\b[^>]*>.*?</script>', re.IGNORECASE | re.DOTALL)
+_RAW_TEXT_TAG = re.compile(
+    r'<(script|style|noscript|template|xmp|iframe)\b[^>]*>.*?</\1>',
+    re.IGNORECASE | re.DOTALL,
+)
 
 
 def render_body(body: str) -> str:
@@ -106,9 +110,10 @@ def render_body(body: str) -> str:
     """
     pre = _rewrite_wikilinks(body)
     raw_html = _markdown.markdown(pre, extensions=['fenced_code'])
-    # Remove <script> blocks (including their content) before bleach,
-    # because bleach strip=True keeps inner text by default.
-    raw_html = _SCRIPT_TAG.sub('', raw_html)
+    # Remove raw-text element blocks (script, style, noscript, template, xmp, iframe)
+    # including their content, before bleach. Bleach with strip=True keeps inner
+    # text by default for these elements.
+    raw_html = _RAW_TEXT_TAG.sub('', raw_html)
     return bleach.clean(
         raw_html,
         tags=_ALLOWED_TAGS,
@@ -133,11 +138,6 @@ def make_preview(body: str) -> str:
     if len(stripped) > PREVIEW_MAX_CHARS:
         return stripped[:PREVIEW_MAX_CHARS] + '…'
     return stripped
-
-
-import json
-import sys
-from pathlib import Path
 
 
 REQUIRED_FIELD_NOTE_KEYS = {'date', 'reps', 'tags'}

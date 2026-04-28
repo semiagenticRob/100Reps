@@ -1,4 +1,7 @@
+import json
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -98,6 +101,17 @@ class TestRenderBody(unittest.TestCase):
         html = build_journal.render_body("[ok](https://example.com)\n")
         self.assertIn('href="https://example.com"', html)
 
+    def test_sanitization_strips_style_tags(self):
+        html = build_journal.render_body("<style>body{background:red}</style>Visible.\n")
+        self.assertNotIn('<style', html)
+        self.assertNotIn('background:red', html)
+        self.assertIn('Visible', html)
+
+    def test_sanitization_strips_iframe_tags(self):
+        html = build_journal.render_body('<iframe src="evil"></iframe>after\n')
+        self.assertNotIn('<iframe', html)
+        self.assertNotIn('evil', html)
+
 
 class TestMakePreview(unittest.TestCase):
 
@@ -115,12 +129,6 @@ class TestMakePreview(unittest.TestCase):
     def test_empty_body_returns_empty_string(self):
         self.assertEqual(build_journal.make_preview(''), '')
         self.assertEqual(build_journal.make_preview('\n\n'), '')
-
-
-import json
-import shutil
-import tempfile
-from pathlib import Path
 
 
 class TestBuildEndToEnd(unittest.TestCase):
