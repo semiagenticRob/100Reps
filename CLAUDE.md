@@ -50,6 +50,17 @@ Single self-contained file. Loads `js-yaml` from CDN, fetches `./reps.yaml` (the
 
 When changing rendering or adding a field, coordinate the schema change in `reps.yaml` + spec + this dashboard together — the dashboard tolerates unknown fields silently, but mismatches between expectations and data cause subtle UI breakage.
 
+## Field Notes & Lessons (the journal)
+
+In addition to `reps.yaml`, the repo carries a public reflection journal:
+
+- **`field-notes/YYYY-MM-DD.md`** — daily entries written by Robert's local Telegram agent (extension of `rep-update`). Append-only within a day. Renders in a left-side panel on the dashboard.
+- **`lessons/<slug>.md`** — curated insights Robert hand-writes when patterns crystallize. The agent NEVER writes here. Renders on `docs/lessons.html`.
+- **Schemas and rules:** `FIELD_NOTES_SPEC.md`. Same privacy bar as `next_step`/`blocker` — public-facing, sanitized.
+- **Build pipeline:** `scripts/build_journal.py` walks `field-notes/` and `lessons/`, renders markdown to bleach-sanitized HTML, and emits `docs/field-notes.json` + `docs/lessons.json`. The GH Action `.github/workflows/build-journal.yml` runs it on push.
+- **Local validation:** before pushing, run `python3 scripts/build_journal.py` and verify both JSONs are valid.
+- **Tests:** `python3 -m unittest tests.test_build_journal -v`.
+
 ## The `rep-update` skill
 
 `skills/universal/rep-update/SKILL.md` documents the operational protocol used by Robert's external workflow (Telegram updates, brain dumps, vault sync). It enforces a multi-write checklist: `reps.yaml` + `reps/NNN-name.md` + an external Obsidian vault Main Note at `~/second-brain/RW Vault/6 - Main Notes/`. The vault path is outside this repo — only the first two writes are in-tree.
@@ -59,3 +70,5 @@ When changing rendering or adding a field, coordinate the schema change in `reps
 - **Add a rep**: append to `reps.yaml` with `id = max+1`, increment `meta.total`, create `reps/NNN-name.md`, validate, commit. The Action syncs `docs/reps.yaml`.
 - **Update a rep**: edit fields in `reps.yaml` (always bump `last_action`), update the matching `reps/NNN-name.md`, validate, commit.
 - **Preview the dashboard locally**: `cd docs && python3 -m http.server 8000` then open `http://localhost:8000`. The page fetches `./reps.yaml` relatively, so serving from `docs/` is required.
+- **Add a field note**: write `field-notes/YYYY-MM-DD.md` with frontmatter (`date`, `reps`, `tags`, optional `mood`) and a markdown body. Run `python3 scripts/build_journal.py`. Verify locally at `http://localhost:8000`. Commit + push.
+- **Add a lesson**: write `lessons/<slug>.md` with frontmatter (`slug`, `title`, `reps`, `tags`, `first_seen`, `last_updated`) and a body. Same build/validate/push flow.
