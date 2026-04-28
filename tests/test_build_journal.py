@@ -117,5 +117,82 @@ class TestMakePreview(unittest.TestCase):
         self.assertEqual(build_journal.make_preview('\n\n'), '')
 
 
+import json
+import shutil
+import tempfile
+from pathlib import Path
+
+
+class TestBuildEndToEnd(unittest.TestCase):
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        (self.tmp / 'field-notes').mkdir()
+        (self.tmp / 'lessons').mkdir()
+        (self.tmp / 'docs').mkdir()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def _write(self, rel: str, content: str) -> None:
+        (self.tmp / rel).write_text(content)
+
+    def test_emits_field_notes_json_sorted_newest_first(self):
+        self._write('field-notes/2026-04-25.md',
+            "---\ndate: 2026-04-25\nreps: [3]\ntags: [hardware]\n---\nOlder day.\n")
+        self._write('field-notes/2026-04-26.md',
+            "---\ndate: 2026-04-26\nreps: [11]\ntags: [distribution]\n---\nNewer day.\n")
+        build_journal.build(repo_root=self.tmp)
+        data = json.loads((self.tmp / 'docs/field-notes.json').read_text())
+        self.assertEqual(len(data['entries']), 2)
+        self.assertEqual(data['entries'][0]['date'], '2026-04-26')
+        self.assertEqual(data['entries'][1]['date'], '2026-04-25')
+        self.assertIn('<p>Newer day.</p>', data['entries'][0]['html'])
+        self.assertEqual(data['entries'][0]['preview'], 'Newer day.')
+        self.assertEqual(data['entries'][0]['reps'], [11])
+        self.assertEqual(data['entries'][0]['tags'], ['distribution'])
+
+    def test_emits_lessons_json_sorted_by_last_updated_desc(self):
+        self._write('lessons/old.md',
+            "---\nslug: old\ntitle: Old\nreps: [1]\ntags: []\n"
+            "first_seen: 2026-01-01\nlast_updated: 2026-01-01\n---\nOld.\n")
+        self._write('lessons/new.md',
+            "---\nslug: new\ntitle: New\nreps: [2]\ntags: []\n"
+            "first_seen: 2026-04-01\nlast_updated: 2026-04-26\n---\nNew.\n")
+        build_journal.build(repo_root=self.tmp)
+        data = json.loads((self.tmp / 'docs/lessons.json').read_text())
+        self.assertEqual(len(data['lessons']), 2)
+        self.assertEqual(data['lessons'][0]['slug'], 'new')
+        self.assertEqual(data['lessons'][1]['slug'], 'old')
+
+    def test_skips_files_without_frontmatter_with_clear_error(self):
+        self._write('field-notes/2026-04-26.md', 'No frontmatter at all.\n')
+        with self.assertRaises(ValueError) as ctx:
+            build_journal.build(repo_root=self.tmp)
+        self.assertIn('2026-04-26.md', str(ctx.exception))
+
+    def test_filename_must_match_field_note_date(self):
+        self._write('field-notes/2026-04-26.md',
+            "---\ndate: 2026-04-25\nreps: []\ntags: []\n---\nMismatch.\n")
+        with self.assertRaises(ValueError) as ctx:
+            build_journal.build(repo_root=self.tmp)
+        self.assertIn('filename', str(ctx.exception).lower())
+
+    def test_lesson_filename_must_match_slug(self):
+        self._write('lessons/wrong-name.md',
+            "---\nslug: actual-slug\ntitle: T\nreps: []\ntags: []\n"
+            "first_seen: 2026-01-01\nlast_updated: 2026-01-01\n---\nBody.\n")
+        with self.assertRaises(ValueError) as ctx:
+            build_journal.build(repo_root=self.tmp)
+        self.assertIn('slug', str(ctx.exception).lower())
+
+    def test_empty_dirs_emit_empty_arrays(self):
+        build_journal.build(repo_root=self.tmp)
+        fn = json.loads((self.tmp / 'docs/field-notes.json').read_text())
+        ls = json.loads((self.tmp / 'docs/lessons.json').read_text())
+        self.assertEqual(fn['entries'], [])
+        self.assertEqual(ls['lessons'], [])
+
+
 if __name__ == '__main__':
     unittest.main()

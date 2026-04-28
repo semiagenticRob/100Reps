@@ -133,3 +133,106 @@ def make_preview(body: str) -> str:
     if len(stripped) > PREVIEW_MAX_CHARS:
         return stripped[:PREVIEW_MAX_CHARS] + '…'
     return stripped
+
+
+import json
+import sys
+from pathlib import Path
+
+
+REQUIRED_FIELD_NOTE_KEYS = {'date', 'reps', 'tags'}
+REQUIRED_LESSON_KEYS = {'slug', 'title', 'reps', 'tags', 'first_seen', 'last_updated'}
+
+
+def _load_field_note(path: Path) -> dict[str, Any]:
+    raw = path.read_text()
+    try:
+        meta, body = parse_frontmatter(raw)
+    except ValueError as exc:
+        raise ValueError(f'{path.name}: {exc}') from exc
+    missing = REQUIRED_FIELD_NOTE_KEYS - set(meta)
+    if missing:
+        raise ValueError(f'{path.name}: missing required keys {sorted(missing)}')
+    expected_date = path.stem
+    if meta['date'] != expected_date:
+        raise ValueError(
+            f'{path.name}: filename date does not match frontmatter date '
+            f'({expected_date} vs {meta["date"]})'
+        )
+    return {
+        'date': meta['date'],
+        'reps': meta.get('reps') or [],
+        'tags': meta.get('tags') or [],
+        'mood': meta.get('mood'),
+        'html': render_body(body),
+        'preview': make_preview(body),
+    }
+
+
+def _load_lesson(path: Path) -> dict[str, Any]:
+    raw = path.read_text()
+    try:
+        meta, body = parse_frontmatter(raw)
+    except ValueError as exc:
+        raise ValueError(f'{path.name}: {exc}') from exc
+    missing = REQUIRED_LESSON_KEYS - set(meta)
+    if missing:
+        raise ValueError(f'{path.name}: missing required keys {sorted(missing)}')
+    expected_slug = path.stem
+    if meta['slug'] != expected_slug:
+        raise ValueError(
+            f'{path.name}: filename slug does not match frontmatter slug '
+            f'({expected_slug} vs {meta["slug"]})'
+        )
+    return {
+        'slug': meta['slug'],
+        'title': meta['title'],
+        'reps': meta.get('reps') or [],
+        'tags': meta.get('tags') or [],
+        'first_seen': meta['first_seen'],
+        'last_updated': meta['last_updated'],
+        'html': render_body(body),
+    }
+
+
+def build(repo_root: Path | None = None) -> None:
+    """Walk field-notes/ and lessons/ and emit docs/*.json."""
+    repo_root = Path(repo_root) if repo_root else Path(__file__).resolve().parent.parent
+
+    fn_dir = repo_root / 'field-notes'
+    ls_dir = repo_root / 'lessons'
+    docs_dir = repo_root / 'docs'
+    docs_dir.mkdir(exist_ok=True)
+
+    field_notes: list[dict[str, Any]] = []
+    if fn_dir.is_dir():
+        for path in sorted(fn_dir.glob('*.md')):
+            field_notes.append(_load_field_note(path))
+    field_notes.sort(key=lambda e: e['date'], reverse=True)
+
+    lessons: list[dict[str, Any]] = []
+    if ls_dir.is_dir():
+        for path in sorted(ls_dir.glob('*.md')):
+            lessons.append(_load_lesson(path))
+    lessons.sort(key=lambda e: e['last_updated'], reverse=True)
+
+    (docs_dir / 'field-notes.json').write_text(
+        json.dumps({'entries': field_notes}, indent=2, ensure_ascii=False) + '\n'
+    )
+    (docs_dir / 'lessons.json').write_text(
+        json.dumps({'lessons': lessons}, indent=2, ensure_ascii=False) + '\n'
+    )
+
+
+def main() -> int:
+    try:
+        build()
+    except ValueError as exc:
+        print(f'BUILD FAILED: {exc}', file=sys.stderr)
+        return 1
+    print('OK: wrote docs/field-notes.json and docs/lessons.json')
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
