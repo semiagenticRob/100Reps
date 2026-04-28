@@ -215,6 +215,25 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
 </head>
 <body>
 
+<div class="app-shell">
+
+<aside class="journal" id="journalPanel">
+  <div class="journal-rail" id="journalRail">FIELD&nbsp;NOTES</div>
+  <div class="journal-head">
+    <div class="journal-title">FIELD NOTES <span id="journalStaleDot" class="journal-stale-dot" style="display:none" title="No entry in &gt;3 days"></span></div>
+    <button class="journal-toggle" id="journalToggle" title="Collapse panel">&laquo;</button>
+    <div class="journal-tabs">
+      <a class="journal-tab active" href="#" aria-current="page">Notes</a>
+      <a class="journal-tab" href="lessons.html">Lessons &rarr;</a>
+    </div>
+  </div>
+  <div class="journal-body" id="journalBody">
+    <div class="journal-empty">Loading…</div>
+  </div>
+</aside>
+
+<div class="dashboard-col">
+
 <div class="error-banner" id="errorBanner"></div>
 
 <div class="header">
@@ -277,6 +296,10 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
     <div class="help-close">Press ? or Esc to close</div>
   </div>
 </div>
+
+
+</div><!-- /.dashboard-col -->
+</div><!-- /.app-shell -->
 
 <noscript>
   <div style="padding:40px;color:#ff3333;font-family:monospace;text-align:center">
@@ -945,12 +968,134 @@ function computeLastActions() {
   return Promise.all(promises);
 }
 
+/* ── Journal panel ── */
+var FIELD_NOTES_URL = './field-notes.json';
+var fieldNotes = [];
+
+function fetchFieldNotes() {
+  return fetch(FIELD_NOTES_URL + '?t=' + Date.now())
+    .then(function(resp) {
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return resp.json();
+    })
+    .then(function(data) {
+      fieldNotes = (data && data.entries) || [];
+    })
+    .catch(function(err) {
+      console.warn('field-notes fetch failed:', err);
+      fieldNotes = [];
+    });
+}
+
+function renderJournal() {
+  var $body = document.getElementById('journalBody');
+  if (!$body) return;
+
+  var $dot = document.getElementById('journalStaleDot');
+  if ($dot) {
+    if (fieldNotes.length === 0) {
+      $dot.style.display = 'none';
+    } else {
+      var newestDate = new Date(fieldNotes[0].date);
+      var ageDays = Math.floor((new Date() - newestDate) / (1000 * 60 * 60 * 24));
+      $dot.style.display = ageDays > 3 ? 'inline-block' : 'none';
+    }
+  }
+
+  if (fieldNotes.length === 0) {
+    $body.innerHTML = '<div class="journal-empty">No field notes yet.</div>';
+    return;
+  }
+
+  // Build feed via DOM construction so user-facing text is set as textContent.
+  // The .html field is bleach-sanitized server-side (see scripts/build_journal.py)
+  // so it's safe to assign to innerHTML.
+  $body.textContent = '';
+  fieldNotes.forEach(function(entry, idx) {
+    var isNewest = idx === 0;
+
+    var $entry = document.createElement('div');
+    $entry.className = 'journal-entry';
+    $entry.dataset.date = entry.date;
+
+    var $date = document.createElement('div');
+    $date.className = 'journal-entry-date';
+    $date.textContent = entry.date;
+    $entry.appendChild($date);
+
+    var $meta = document.createElement('div');
+    $meta.className = 'journal-entry-meta';
+    (entry.reps || []).forEach(function(rid) {
+      var $chip = document.createElement('span');
+      $chip.className = 'rep-chip';
+      $chip.dataset.repId = String(rid);
+      $chip.textContent = String(rid).padStart(3, '0');
+      $meta.appendChild($chip);
+    });
+    (entry.tags || []).forEach(function(t) {
+      var $tag = document.createElement('span');
+      $tag.className = 'tag-chip';
+      $tag.textContent = '#' + t;
+      $meta.appendChild($tag);
+    });
+    $entry.appendChild($meta);
+
+    if (isNewest) {
+      var $bodyEl = document.createElement('div');
+      $bodyEl.className = 'journal-entry-body';
+      // entry.html is bleach-sanitized — safe for innerHTML
+      $bodyEl.innerHTML = entry.html;
+      $entry.appendChild($bodyEl);
+    } else {
+      var $prev = document.createElement('div');
+      $prev.className = 'journal-entry-preview';
+      $prev.dataset.expand = String(idx);
+      $prev.textContent = entry.preview || '';
+      $entry.appendChild($prev);
+    }
+
+    $body.appendChild($entry);
+  });
+
+  // Wire rep chips
+  $body.querySelectorAll('.rep-chip, a.wl-rep').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var rid = parseInt(el.dataset.repId);
+      if (!isNaN(rid)) scrollToRep(rid);
+    });
+  });
+
+  // Wire expand-on-click for non-newest previews
+  $body.querySelectorAll('.journal-entry-preview').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var idx = parseInt(el.dataset.expand);
+      if (isNaN(idx)) return;
+      var entry = fieldNotes[idx];
+      if (!entry) return;
+      var $bodyEl = document.createElement('div');
+      $bodyEl.className = 'journal-entry-body';
+      $bodyEl.innerHTML = entry.html; // sanitized server-side
+      el.parentNode.replaceChild($bodyEl, el);
+      // Bind any newly-revealed rep wikilinks
+      $bodyEl.querySelectorAll('a.wl-rep').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var rid = parseInt(a.dataset.repId);
+          if (!isNaN(rid)) scrollToRep(rid);
+        });
+      });
+    });
+  });
+}
+
 /* ── Init ── */
 fetchData(false).then(function() {
   render();
   computeLastActions().then(function() { render(); });
   setInterval(refresh, POLL_INTERVAL);
 });
+fetchFieldNotes().then(renderJournal);
 
 })();
 </script>
