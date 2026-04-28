@@ -579,6 +579,17 @@ function renderTable(filtered) {
     if (safeNext) {
       html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(safeNext)+'</div></div>';
     }
+    var repNotes = fieldNotesForRep(rep.id);
+    if (repNotes.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Field Notes ('+repNotes.length+')</div><div class="detail-text">';
+      repNotes.slice(0, 5).forEach(function(en) {
+        html += '<div style="margin-bottom:6px"><span style="color:var(--green);font-weight:700;font-size:11px">'+esc(en.date)+'</span> <span style="color:var(--text)">'+esc(en.preview || '')+'</span></div>';
+      });
+      if (repNotes.length > 5) {
+        html += '<div style="color:var(--dim);font-size:11px">+ '+(repNotes.length-5)+' older entries</div>';
+      }
+      html += '</div></div>';
+    }
     html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="timeline-'+rep.id+'">';
     if (rep.repo || rep.timeline.length > 0) {
       html += '<div class="timeline-loading">Loading history\u2026</div>';
@@ -1089,6 +1100,12 @@ function renderJournal() {
   });
 }
 
+function fieldNotesForRep(repId) {
+  return fieldNotes.filter(function(e) {
+    return (e.reps || []).indexOf(repId) >= 0;
+  });
+}
+
 function wireJournalChrome() {
   var $panel = document.getElementById('journalPanel');
   var $toggle = document.getElementById('journalToggle');
@@ -1133,7 +1150,10 @@ fetchData(false).then(function() {
   setInterval(refresh, POLL_INTERVAL);
 });
 wireJournalChrome();
-fetchFieldNotes().then(renderJournal);
+fetchFieldNotes().then(function() {
+  renderJournal();
+  if (reps.length > 0) render();
+});
 
 })();
 </script>
