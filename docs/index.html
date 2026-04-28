@@ -166,9 +166,73 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
   .progress-bar{width:140px}
   .search-wrap input{width:120px}
 }
+
+/* ── JOURNAL PANEL ── */
+:root{--panel-w:360px;--rail-w:32px}
+.app-shell{display:flex;align-items:flex-start;min-height:100vh}
+.journal{flex:0 0 var(--panel-w);background:var(--bg2);border-right:1px solid var(--grid);position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;transition:flex-basis .25s ease}
+.journal.collapsed{flex-basis:var(--rail-w)}
+.journal.collapsed .journal-body,.journal.collapsed .journal-head .journal-tabs,.journal.collapsed .journal-head .journal-title{display:none}
+.journal-head{padding:16px 14px 8px;border-bottom:1px solid var(--grid);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.journal-title{color:var(--green);font-size:12px;font-weight:700;letter-spacing:2px;flex:1}
+.journal-toggle{background:none;border:1px solid var(--grid);color:var(--green);font-family:var(--font);font-size:11px;padding:2px 6px;cursor:pointer;border-radius:2px}
+.journal-toggle:hover{background:var(--bg3)}
+.journal-stale-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-left:4px}
+.journal-tabs{display:flex;gap:4px;width:100%}
+.journal-tab{padding:3px 8px;font-size:10px;border:1px solid var(--grid);color:var(--dim);background:var(--bg3);border-radius:2px;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
+.journal-tab.active{color:var(--green);border-color:var(--green);background:var(--bg)}
+.journal-tab:hover{color:var(--text);text-decoration:none}
+.journal-body{padding:8px 14px 24px;flex:1}
+.journal-empty{color:var(--dim);font-size:11px;padding:14px 0}
+.journal-entry{padding:14px 0;border-bottom:1px dashed var(--grid)}
+.journal-entry:last-child{border-bottom:0}
+.journal-entry-date{color:var(--green);font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.journal-entry-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.rep-chip{display:inline-block;padding:1px 6px;font-size:10px;color:var(--green);background:var(--bg3);border:1px solid var(--grid);border-radius:2px;cursor:pointer;font-family:var(--font)}
+.rep-chip:hover{border-color:var(--green);background:var(--bg)}
+.tag-chip{display:inline-block;padding:1px 6px;font-size:10px;color:var(--blue);background:transparent;border:1px solid var(--grid);border-radius:2px}
+.journal-entry-body{color:var(--text);font-size:12px;line-height:1.5}
+.journal-entry-body p{margin-bottom:8px}
+.journal-entry-body p:last-child{margin-bottom:0}
+.journal-entry-preview{color:var(--text);font-size:12px;line-height:1.5;cursor:pointer}
+.journal-entry-preview:hover{color:#fff}
+.journal-entry .wl-rep{color:var(--green);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--green)}
+.journal-entry .wl-lesson{color:var(--magenta);text-decoration:none;border-bottom:1px dotted var(--magenta)}
+.journal-rail{display:none;writing-mode:vertical-rl;transform:rotate(180deg);color:var(--dim);font-size:10px;letter-spacing:3px;padding:14px 0;cursor:pointer;user-select:none}
+.journal.collapsed .journal-rail{display:block;text-align:center;width:var(--rail-w)}
+.journal.collapsed .journal-head{display:none}
+
+.dashboard-col{flex:1;min-width:0}
+
+@media(max-width:900px){
+  .app-shell{display:block}
+  .journal{position:fixed;top:0;left:0;height:100vh;z-index:50;flex-basis:var(--rail-w);width:var(--rail-w);border-right:1px solid var(--grid)}
+  .journal:not(.collapsed){width:min(420px,90vw);flex-basis:auto}
+  .journal.collapsed .journal-rail{display:block;height:100vh}
+  .dashboard-col{margin-left:var(--rail-w)}
+}
 </style>
 </head>
 <body>
+
+<div class="app-shell">
+
+<aside class="journal" id="journalPanel">
+  <div class="journal-rail" id="journalRail">FIELD&nbsp;NOTES</div>
+  <div class="journal-head">
+    <div class="journal-title">FIELD NOTES <span id="journalStaleDot" class="journal-stale-dot" style="display:none" title="No entry in &gt;3 days"></span></div>
+    <button class="journal-toggle" id="journalToggle" title="Collapse panel">&laquo;</button>
+    <div class="journal-tabs">
+      <a class="journal-tab active" href="#" aria-current="page">Notes</a>
+      <a class="journal-tab" href="lessons.html">Lessons &rarr;</a>
+    </div>
+  </div>
+  <div class="journal-body" id="journalBody">
+    <div class="journal-empty">Loading…</div>
+  </div>
+</aside>
+
+<div class="dashboard-col">
 
 <div class="error-banner" id="errorBanner"></div>
 
@@ -232,6 +296,10 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
     <div class="help-close">Press ? or Esc to close</div>
   </div>
 </div>
+
+
+</div><!-- /.dashboard-col -->
+</div><!-- /.app-shell -->
 
 <noscript>
   <div style="padding:40px;color:#ff3333;font-family:monospace;text-align:center">
@@ -510,6 +578,17 @@ function renderTable(filtered) {
     }
     if (safeNext) {
       html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(safeNext)+'</div></div>';
+    }
+    var repNotes = fieldNotesForRep(rep.id);
+    if (repNotes.length > 0) {
+      html += '<div class="detail-section"><div class="detail-label">Field Notes ('+repNotes.length+')</div><div class="detail-text">';
+      repNotes.slice(0, 5).forEach(function(en) {
+        html += '<div style="margin-bottom:6px"><span style="color:var(--green);font-weight:700;font-size:11px">'+esc(en.date)+'</span> <span style="color:var(--text)">'+esc(en.preview || '')+'</span></div>';
+      });
+      if (repNotes.length > 5) {
+        html += '<div style="color:var(--dim);font-size:11px">+ '+(repNotes.length-5)+' older entries</div>';
+      }
+      html += '</div></div>';
     }
     html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="timeline-'+rep.id+'">';
     if (rep.repo || rep.timeline.length > 0) {
@@ -900,11 +979,180 @@ function computeLastActions() {
   return Promise.all(promises);
 }
 
+/* ── Journal panel ── */
+var FIELD_NOTES_URL = './field-notes.json';
+var fieldNotes = [];
+
+function fetchFieldNotes() {
+  return fetch(FIELD_NOTES_URL + '?t=' + Date.now())
+    .then(function(resp) {
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      return resp.json();
+    })
+    .then(function(data) {
+      fieldNotes = (data && data.entries) || [];
+    })
+    .catch(function(err) {
+      console.warn('field-notes fetch failed:', err);
+      fieldNotes = [];
+    });
+}
+
+function renderJournal() {
+  var $body = document.getElementById('journalBody');
+  if (!$body) return;
+
+  var $dot = document.getElementById('journalStaleDot');
+  if ($dot) {
+    if (fieldNotes.length === 0) {
+      $dot.style.display = 'none';
+    } else {
+      var newestDate = new Date(fieldNotes[0].date);
+      var ageDays = Math.floor((new Date() - newestDate) / (1000 * 60 * 60 * 24));
+      $dot.style.display = ageDays > 3 ? 'inline-block' : 'none';
+    }
+  }
+
+  if (fieldNotes.length === 0) {
+    $body.innerHTML = '<div class="journal-empty">No field notes yet.</div>';
+    return;
+  }
+
+  // Build feed via DOM construction so user-facing text is set as textContent.
+  // The .html field is bleach-sanitized server-side (see scripts/build_journal.py)
+  // so it's safe to assign to innerHTML.
+  $body.textContent = '';
+  fieldNotes.forEach(function(entry, idx) {
+    var isNewest = idx === 0;
+
+    var $entry = document.createElement('div');
+    $entry.className = 'journal-entry';
+    $entry.dataset.date = entry.date;
+
+    var $date = document.createElement('div');
+    $date.className = 'journal-entry-date';
+    $date.textContent = entry.date;
+    $entry.appendChild($date);
+
+    var $meta = document.createElement('div');
+    $meta.className = 'journal-entry-meta';
+    (entry.reps || []).forEach(function(rid) {
+      var $chip = document.createElement('span');
+      $chip.className = 'rep-chip';
+      $chip.dataset.repId = String(rid);
+      $chip.textContent = String(rid).padStart(3, '0');
+      $meta.appendChild($chip);
+    });
+    (entry.tags || []).forEach(function(t) {
+      var $tag = document.createElement('span');
+      $tag.className = 'tag-chip';
+      $tag.textContent = '#' + t;
+      $meta.appendChild($tag);
+    });
+    $entry.appendChild($meta);
+
+    if (isNewest) {
+      var $bodyEl = document.createElement('div');
+      $bodyEl.className = 'journal-entry-body';
+      // entry.html is bleach-sanitized — safe for innerHTML
+      $bodyEl.innerHTML = entry.html;
+      $entry.appendChild($bodyEl);
+    } else {
+      var $prev = document.createElement('div');
+      $prev.className = 'journal-entry-preview';
+      $prev.dataset.expand = String(idx);
+      $prev.textContent = entry.preview || '';
+      $entry.appendChild($prev);
+    }
+
+    $body.appendChild($entry);
+  });
+
+  // Wire rep chips
+  $body.querySelectorAll('.rep-chip, a.wl-rep').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      var rid = parseInt(el.dataset.repId);
+      if (!isNaN(rid)) scrollToRep(rid);
+    });
+  });
+
+  // Wire expand-on-click for non-newest previews
+  $body.querySelectorAll('.journal-entry-preview').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var idx = parseInt(el.dataset.expand);
+      if (isNaN(idx)) return;
+      var entry = fieldNotes[idx];
+      if (!entry) return;
+      var $bodyEl = document.createElement('div');
+      $bodyEl.className = 'journal-entry-body';
+      $bodyEl.innerHTML = entry.html; // sanitized server-side
+      el.parentNode.replaceChild($bodyEl, el);
+      // Bind any newly-revealed rep wikilinks
+      $bodyEl.querySelectorAll('a.wl-rep').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          var rid = parseInt(a.dataset.repId);
+          if (!isNaN(rid)) scrollToRep(rid);
+        });
+      });
+    });
+  });
+}
+
+function fieldNotesForRep(repId) {
+  return fieldNotes.filter(function(e) {
+    return (e.reps || []).indexOf(repId) >= 0;
+  });
+}
+
+function wireJournalChrome() {
+  var $panel = document.getElementById('journalPanel');
+  var $toggle = document.getElementById('journalToggle');
+  var $rail = document.getElementById('journalRail');
+  if (!$panel) return;
+
+  function setCollapsed(collapsed) {
+    $panel.classList.toggle('collapsed', collapsed);
+    if ($toggle) {
+      $toggle.innerHTML = collapsed ? '&raquo;' : '&laquo;';
+      $toggle.title = collapsed ? 'Expand panel' : 'Collapse panel';
+    }
+    try { localStorage.setItem('journalCollapsed', collapsed ? '1' : '0'); } catch(e) {}
+  }
+
+  var stored;
+  try { stored = localStorage.getItem('journalCollapsed'); } catch(e) {}
+  if (stored === '1') {
+    setCollapsed(true);
+  } else if (stored === '0') {
+    setCollapsed(false);
+  } else if (window.matchMedia('(max-width: 900px)').matches) {
+    setCollapsed(true);
+  }
+
+  if ($toggle) {
+    $toggle.addEventListener('click', function() {
+      setCollapsed(!$panel.classList.contains('collapsed'));
+    });
+  }
+  if ($rail) {
+    $rail.addEventListener('click', function() {
+      setCollapsed(false);
+    });
+  }
+}
+
 /* ── Init ── */
 fetchData(false).then(function() {
   render();
   computeLastActions().then(function() { render(); });
   setInterval(refresh, POLL_INTERVAL);
+});
+wireJournalChrome();
+fetchFieldNotes().then(function() {
+  renderJournal();
+  if (reps.length > 0) render();
 });
 
 })();

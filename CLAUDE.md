@@ -7,15 +7,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Tracking system for the 100 Reps Project (100 product launches). It is **not** a conventional application — it is a data file plus a static dashboard that renders it.
 
 - `reps.yaml` — **single source of truth**. Drives the public dashboard at 100repsproject.com.
-- `docs/index.html` — single-file vanilla-JS dashboard (no build step) served via GitHub Pages. Fetches `docs/reps.yaml` at runtime via `js-yaml`, then enriches each rep by hitting the GitHub commits API using the `repo` field.
+- `docs/index.html` — single-file vanilla-JS dashboard (no front-end build) served via GitHub Pages. Fetches `docs/reps.yaml` at runtime via `js-yaml`, enriches each rep with GitHub commit history, and renders a left-side journal panel from `docs/field-notes.json`.
 - `docs/reps.yaml` — a copy of the root `reps.yaml`, auto-synced by `.github/workflows/sync-reps-yaml.yml` on every push to `main` that changes `reps.yaml`. **Do not hand-edit `docs/reps.yaml`** — edit the root file and let CI sync it.
 - `reps/NNN-name.md` — companion human-readable summary per rep. Must stay in sync with `reps.yaml`.
+- `field-notes/YYYY-MM-DD.md` — daily public reflection entries (see "Field Notes & Lessons" below).
+- `lessons/<slug>.md` — curated insights distilled from field notes (see "Field Notes & Lessons" below).
 - `README.md` — hand-maintained public index of projects by status. Update when reps change status.
 
 ## Commands
 
 ```bash
-npm run dev      # Serves docs/ on http://localhost:3000 (http-server) — only way to "run" the dashboard locally
+npm run dev      # Serves docs/ on http://localhost:3000 (http-server) — preview the dashboard
 npx js-yaml reps.yaml > /dev/null    # Validate YAML syntax — REQUIRED before committing reps.yaml
 ```
 
@@ -25,7 +27,14 @@ Stronger validation (also checks `meta.total` matches reps count):
 python3 -c "import yaml; d=yaml.safe_load(open('reps.yaml')); assert len(d['reps'])==d['meta']['total']; print('VALID')"
 ```
 
-There is no build, lint, or test suite.
+Journal pipeline (field-notes/lessons → JSON consumed by the dashboard):
+
+```bash
+python3 scripts/build_journal.py                # regenerate docs/field-notes.json and docs/lessons.json
+python3 -m unittest discover tests -v           # run the build-script tests
+```
+
+There is no front-end build or lint suite — only the Python tests above for the journal pipeline.
 
 ## Editing `reps.yaml` — critical rules
 
@@ -51,3 +60,19 @@ Three files must move together. The `rep-update` skill at `skills/universal/rep-
 4. **`README.md`** — update the status tables if a rep moved between sections.
 
 Validate YAML before committing. Commit message convention (see recent log): `Rep NNN <Name>: <what changed>, next_step updated`.
+
+## Field Notes & Lessons (the journal)
+
+In addition to `reps.yaml`, the repo carries a public reflection journal rendered on the dashboard:
+
+- **`field-notes/YYYY-MM-DD.md`** — daily entries written by Robert's local Telegram agent (extension of `rep-update`). Append-only within a day. Renders in a left-side panel on the dashboard.
+- **`lessons/<slug>.md`** — curated insights Robert hand-writes when patterns crystallize. The agent NEVER writes here. Renders on `docs/lessons.html`.
+- **Schemas and rules:** `FIELD_NOTES_SPEC.md`. Same privacy bar as `next_step`/`blocker` — public-facing, sanitized.
+- **Build pipeline:** `scripts/build_journal.py` walks `field-notes/` and `lessons/`, renders markdown to bleach-sanitized HTML, and emits `docs/field-notes.json` + `docs/lessons.json`. The GH Action `.github/workflows/build-journal.yml` runs it on push.
+- **Local validation:** before pushing, run `python3 scripts/build_journal.py` and verify both JSONs are valid.
+- **Briefing for the local agent:** `AGENT_BRIEFING.md` summarizes the field-notes pipeline; the canonical operating manual is `skills/universal/rep-update/SKILL.md`.
+
+### Adding journal content
+
+- **Add a field note**: write `field-notes/YYYY-MM-DD.md` with frontmatter (`date`, `reps`, `tags`, optional `mood`) and a markdown body. Run `python3 scripts/build_journal.py`. Verify locally. Commit + push.
+- **Add a lesson**: write `lessons/<slug>.md` with frontmatter (`slug`, `title`, `reps`, `tags`, `first_seen`, `last_updated`) and a body. Same build/validate/push flow.

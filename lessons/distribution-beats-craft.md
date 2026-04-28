@@ -1,0 +1,11 @@
+---
+slug: distribution-beats-craft
+title: Distribution Beats Craft for Physical-Product and Personal-Service Reps
+reps: [9, 11, 14]
+tags: [distribution]
+first_seen: 2026-04-27
+last_updated: 2026-04-27
+---
+Across multiple reps, the same failure mode keeps showing up: I build the product carefully and assume distribution will follow from quality. It doesn't. The only motion that has ever moved a needle on these reps is hand-cranked cold outreach — direct DMs, calls, in-person.
+
+The lesson: for any rep where the buyer isn't already in a search-driven funnel (App Store, Google, marketplace), the first 90 days of work should be 70% distribution and 30% product, not the inverse.
