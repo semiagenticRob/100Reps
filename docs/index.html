@@ -166,6 +166,51 @@ tbody td.next-cell{white-space:normal;max-width:250px;overflow:hidden;text-overf
   .progress-bar{width:140px}
   .search-wrap input{width:120px}
 }
+
+/* ── JOURNAL PANEL ── */
+:root{--panel-w:360px;--rail-w:32px}
+.app-shell{display:flex;align-items:flex-start;min-height:100vh}
+.journal{flex:0 0 var(--panel-w);background:var(--bg2);border-right:1px solid var(--grid);position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;transition:flex-basis .25s ease}
+.journal.collapsed{flex-basis:var(--rail-w)}
+.journal.collapsed .journal-body,.journal.collapsed .journal-head .journal-tabs,.journal.collapsed .journal-head .journal-title{display:none}
+.journal-head{padding:16px 14px 8px;border-bottom:1px solid var(--grid);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.journal-title{color:var(--green);font-size:12px;font-weight:700;letter-spacing:2px;flex:1}
+.journal-toggle{background:none;border:1px solid var(--grid);color:var(--green);font-family:var(--font);font-size:11px;padding:2px 6px;cursor:pointer;border-radius:2px}
+.journal-toggle:hover{background:var(--bg3)}
+.journal-stale-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-left:4px}
+.journal-tabs{display:flex;gap:4px;width:100%}
+.journal-tab{padding:3px 8px;font-size:10px;border:1px solid var(--grid);color:var(--dim);background:var(--bg3);border-radius:2px;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
+.journal-tab.active{color:var(--green);border-color:var(--green);background:var(--bg)}
+.journal-tab:hover{color:var(--text);text-decoration:none}
+.journal-body{padding:8px 14px 24px;flex:1}
+.journal-empty{color:var(--dim);font-size:11px;padding:14px 0}
+.journal-entry{padding:14px 0;border-bottom:1px dashed var(--grid)}
+.journal-entry:last-child{border-bottom:0}
+.journal-entry-date{color:var(--green);font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.journal-entry-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.rep-chip{display:inline-block;padding:1px 6px;font-size:10px;color:var(--green);background:var(--bg3);border:1px solid var(--grid);border-radius:2px;cursor:pointer;font-family:var(--font)}
+.rep-chip:hover{border-color:var(--green);background:var(--bg)}
+.tag-chip{display:inline-block;padding:1px 6px;font-size:10px;color:var(--blue);background:transparent;border:1px solid var(--grid);border-radius:2px}
+.journal-entry-body{color:var(--text);font-size:12px;line-height:1.5}
+.journal-entry-body p{margin-bottom:8px}
+.journal-entry-body p:last-child{margin-bottom:0}
+.journal-entry-preview{color:var(--text);font-size:12px;line-height:1.5;cursor:pointer}
+.journal-entry-preview:hover{color:#fff}
+.journal-entry .wl-rep{color:var(--green);font-weight:700;text-decoration:none;border-bottom:1px dotted var(--green)}
+.journal-entry .wl-lesson{color:var(--magenta);text-decoration:none;border-bottom:1px dotted var(--magenta)}
+.journal-rail{display:none;writing-mode:vertical-rl;transform:rotate(180deg);color:var(--dim);font-size:10px;letter-spacing:3px;padding:14px 0;cursor:pointer;user-select:none}
+.journal.collapsed .journal-rail{display:block;text-align:center;width:var(--rail-w)}
+.journal.collapsed .journal-head{display:none}
+
+.dashboard-col{flex:1;min-width:0}
+
+@media(max-width:900px){
+  .app-shell{display:block}
+  .journal{position:fixed;top:0;left:0;height:100vh;z-index:50;flex-basis:var(--rail-w);width:var(--rail-w);border-right:1px solid var(--grid)}
+  .journal:not(.collapsed){width:min(420px,90vw);flex-basis:auto}
+  .journal.collapsed .journal-rail{display:block;height:100vh}
+  .dashboard-col{margin-left:var(--rail-w)}
+}
 </style>
 </head>
 <body>
