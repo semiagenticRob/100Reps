@@ -1,6 +1,6 @@
 ---
 name: rep-update
-description: Enforces the two-write checklist for rep state changes. Use this skill whenever a rep's status, blocker, next_step, or any other state field changes — whether from a Telegram update, todo completion, or brain dump containing rep progress. Never update reps.yaml without also updating the vault Main Note.
+description: Enforces the multi-write checklist for rep state changes AND processes daily voice-memo field notes for the public reflection journal. Use this skill whenever a rep's status, blocker, next_step, or any other state field changes — whether from a Telegram update, todo completion, or brain dump — and when Robert sends a daily voice memo intended as a field-note entry.
 ---
 
 # Rep Update
@@ -17,6 +17,7 @@ Processes rep state changes with a mandatory two-write protocol. This ensures `r
 - A todo prefixed with "Rep NNN" is completed
 - Any rep field changes (status, blocker, next_step, last_action, due)
 - A brain dump contains rep-level progress or decisions
+- **Robert sends a daily voice memo / transcript intended as a field-note reflection** (treat any free-form reflective transcript that mentions one or more reps as a field-note candidate, not a rep update — see the Field Notes section below)
 
 ---
 
@@ -207,6 +208,76 @@ After both writes and the commit, reply to Robert with:
 2. **What was appended to the Main Note** — the dated entry or summary
 3. **Tags/links added** — any new tags or cross-links
 4. **Implications noticed** — if this update affects other reps (e.g., clearing a blocker that gates another rep), flag it
+
+---
+
+## Field Notes & Lessons Protocol
+
+For daily reflection voice memos, follow this pipeline. The agent writes ONLY to `field-notes/`. Lessons are Robert's domain — never write to `lessons/`.
+
+### Steps
+
+1. **Receive** voice memo + transcript via Telegram.
+
+2. **Sanitize** the transcript per public-field privacy rules. Same rules that apply to `next_step` and `blocker`:
+   - No personal names (first + last). The existing `sanitizeNextStep` JS function in `docs/index.html` is the canonical reference for which name patterns must be stripped.
+   - No email addresses, phone numbers, or private internal references.
+   - When in doubt, strip. The journal is public.
+
+3. **Identify rep references and tags.** Reps may be referenced by id ("rep 011"), name ("Estate Sale Helper"), or shorthand. Tags are themes — lowercase, hyphen-separated.
+
+4. **Write `field-notes/YYYY-MM-DD.md`**:
+   - If the file does NOT exist, create it with frontmatter:
+     ```yaml
+     ---
+     date: YYYY-MM-DD
+     reps: [<ids>]
+     tags: [<tags>]
+     mood: <optional one-word>
+     ---
+     ```
+     Body: cleaned-up markdown of the transcript, with `[[rep:NNN]]` and `[[lesson:slug]]` wikilinks where appropriate.
+   - If the file EXISTS for today, **append** to the body. Never overwrite. Append separator and timestamp heading:
+     ```markdown
+
+     ---
+
+     ## YYYY-MM-DD HH:MM
+
+     <new content>
+     ```
+     Frontmatter is preserved; merge new rep ids and tags into the arrays.
+
+5. **Compare against existing lessons.** The agent NEVER writes to `lessons/`. Surface in the Telegram reply:
+   - **Lessons reinforced:** if the entry restates an existing lesson, propose a `last_updated` bump, additions to `reps`, and any one-line evidence note. Robert decides whether to apply.
+   - **New lesson candidates:** if the entry suggests a *new* lesson, propose a slug, title, one-paragraph rationale, and contributing rep ids. Robert decides whether to hand-create `lessons/<slug>.md`.
+
+6. **Validate** before committing:
+   ```bash
+   python3 scripts/build_journal.py
+   ```
+   Must exit 0 and regenerate `docs/field-notes.json` and `docs/lessons.json`. If it fails, fix before committing.
+
+7. **Commit and push** the field-note change:
+   ```bash
+   git -C ~/100reps add field-notes/YYYY-MM-DD.md docs/field-notes.json docs/lessons.json
+   git -C ~/100reps commit -m "field-notes: YYYY-MM-DD reflection (reps NNN, NNN)"
+   git -C ~/100reps push
+   ```
+
+8. **Reply to Robert** in Telegram with:
+   - Entry written or appended
+   - Reps tagged
+   - Lessons reinforced (with proposed updates)
+   - New lesson candidates
+   - Anything sanitization stripped
+
+### Key invariants
+
+- The agent only writes to `field-notes/` (and the regenerated JSONs in `docs/`). Never to `lessons/`.
+- Entries are append-only within a day.
+- The build script must pass before commit. Treat its exit code as the gate.
+- Public sanitization is non-negotiable.
 
 ---
 
