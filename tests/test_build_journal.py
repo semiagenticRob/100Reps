@@ -57,5 +57,65 @@ class TestParseFrontmatter(unittest.TestCase):
         self.assertEqual(meta['date'], '2026-04-26')
 
 
+class TestRenderBody(unittest.TestCase):
+
+    def test_renders_paragraphs(self):
+        html = build_journal.render_body("First paragraph.\n\nSecond paragraph.\n")
+        self.assertIn('<p>First paragraph.</p>', html)
+        self.assertIn('<p>Second paragraph.</p>', html)
+
+    def test_renders_lists(self):
+        html = build_journal.render_body("- one\n- two\n")
+        self.assertIn('<li>one</li>', html)
+        self.assertIn('<li>two</li>', html)
+
+    def test_rewrites_rep_wikilinks(self):
+        html = build_journal.render_body("See [[rep:011]] for context.\n")
+        self.assertIn('class="wl-rep"', html)
+        self.assertIn('data-rep-id="11"', html)
+        self.assertIn('>011<', html)
+
+    def test_rewrites_lesson_wikilinks(self):
+        html = build_journal.render_body("Echoes [[lesson:distribution-beats-craft]].\n")
+        self.assertIn('class="wl-lesson"', html)
+        self.assertIn('href="lessons.html#distribution-beats-craft"', html)
+
+    def test_sanitization_strips_script_tags(self):
+        html = build_journal.render_body("Hello <script>alert(1)</script> world.\n")
+        self.assertNotIn('<script', html)
+        self.assertNotIn('alert', html)
+
+    def test_sanitization_strips_inline_event_handlers(self):
+        # raw HTML in markdown
+        html = build_journal.render_body('<a href="x" onclick="evil()">link</a>\n')
+        self.assertNotIn('onclick', html)
+
+    def test_sanitization_strips_dangerous_href_schemes(self):
+        html = build_journal.render_body("[bad](javascript:alert(1))\n")
+        self.assertNotIn('javascript:', html)
+
+    def test_sanitization_preserves_safe_anchors(self):
+        html = build_journal.render_body("[ok](https://example.com)\n")
+        self.assertIn('href="https://example.com"', html)
+
+
+class TestMakePreview(unittest.TestCase):
+
+    def test_returns_first_paragraph_stripped_of_markdown(self):
+        body = "First **bold** sentence about [a thing](http://x).\n\nSecond paragraph.\n"
+        preview = build_journal.make_preview(body)
+        self.assertEqual(preview, 'First bold sentence about a thing.')
+
+    def test_truncates_long_first_paragraph_with_ellipsis(self):
+        body = ('a' * 200) + '\n\nNext.\n'
+        preview = build_journal.make_preview(body)
+        self.assertTrue(preview.endswith('…'))
+        self.assertLessEqual(len(preview), 141)
+
+    def test_empty_body_returns_empty_string(self):
+        self.assertEqual(build_journal.make_preview(''), '')
+        self.assertEqual(build_journal.make_preview('\n\n'), '')
+
+
 if __name__ == '__main__':
     unittest.main()
