@@ -119,7 +119,7 @@ reps:
     next_step: "Send partnership email (docs/plans/feigenbaum-partnership-email.md) May 5-7, 3-5 days before meeting. Read feigenbaum-background-brief.md + docs/plans/siddur-competitive-landscape.md before meeting. ZmanimHeader + EntryPath still need building (specs in docs/feature-specs/). Meeting is May 10."
     due: null
     blocker: null
-    last_action: 2026-04-27
+    last_action: 2026-04-28
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -154,6 +154,8 @@ reps:
         event: "CEO Agent: Feigenbaum background brief authored — Rabbi Yitzchak Feigenbaum's biography (Darche Noam co-founder, first Mashgiach at Aish HaTorah), siddur pedagogy (FAQ feature, modern English, teen-focused), comparison to ArtScroll/Koren, talking points for May 10. Saved to docs/plans/feigenbaum-background-brief.md."
       - date: 2026-04-27
         event: "CEO Agent: Siddur competitive landscape authored — ArtScroll, Koren, Sefaria, iSiddur feature comparison table, DavenAlong's 7 differentiators, risks, and positioning statement for Feigenbaum meeting. Saved to docs/plans/siddur-competitive-landscape.md."
+      - date: 2026-04-28
+        event: "CEO Agent: First prayer audio sample generated using Kokoro TTS (am_fenrir voice) — Modeh Ani with transliteration + English. Committed to audio/samples/modeh-ani-am-fenrir.wav."
 
   - id: 7
     name: "WritersRoom.ai"
@@ -272,7 +274,7 @@ reps:
     next_step: "Send LinkedIn outreach — personalized messages for 6 Denver targets in docs/outreach/linkedin-messages.md. When a prospect asks what you do, share docs/sales/workshop-overview.md. After a call, send proposal within 24-48h using docs/sales/proposal-template.md. Quiz completions get AI Readiness Report from docs/assessment/ai-readiness-report-template.md."
     due: null
     blocker: null
-    last_action: 2026-04-27
+    last_action: 2026-04-28
     repo: semiagenticRob/coloradoailab
     links:
       website: https://coloradoailab.com
@@ -295,6 +297,8 @@ reps:
         event: "CEO Agent: Engagement proposal template authored — post-discovery call fill-in-the-blank proposal with three pricing tiers (workshop, pilot, partnership), objection handling, and follow-up protocol. Saved to docs/sales/proposal-template.md."
       - date: 2026-04-27
         event: "CEO Agent: Workshop overview one-pager authored — 2-page PDF-ready doc covering workshop blocks, who it's for, deliverables, pricing table, and LinkedIn DM script for sharing. Saved to docs/sales/workshop-overview.md."
+      - date: 2026-04-28
+        event: "CEO Agent: LinkedIn workshop banner graphic generated (FLUX.1 Schnell, Denver skyline + AI aesthetic). Saved to docs/assets/linkedin-workshop-banner.jpg."
 
   - id: 15
     name: "Hodl For What"
@@ -315,10 +319,10 @@ reps:
     status: building
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — full targeting guide in docs/marketing/facebook-groups-strategy.md. Then set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. Plan 2 paid PDF content (Weeks 3-4, 14 dinners) ready at docs/launch/paid-pdf-plan2.md. All content ready to post the moment landing page is live."
+    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — guide in docs/marketing/facebook-groups-strategy.md. Set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. All 3 paid PDF plans now complete (Plans 1-3, 42 total dinners). Bundle pricing ready ($40 for all). Pinterest pin 1 generated at docs/assets/pinterest-pin-1.jpg."
     due: null
     blocker: null
-    last_action: 2026-04-27
+    last_action: 2026-04-28
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -357,6 +361,8 @@ reps:
         event: "CEO Agent: Manifest updated — free-pdf-content.md deliverable logged. Critical path remains Beehiiv setup + Facebook group joins."
       - date: 2026-04-27
         event: "CEO Agent: Plan 2 paid PDF content authored — 14 new dinners for Weeks 3-4 (Greek chicken, Korean beef, honey garlic salmon, Thai basil turkey, shrimp scampi, BBQ pork, white bean chicken soup + 7 more). Saved to docs/launch/paid-pdf-plan2.md."
+      - date: 2026-04-28
+        event: "CEO Agent: Plan 3 paid PDF content authored — 14 new dinners for Weeks 5-6 with full recipes, shopping list (~$595-660), and bundle pricing section ($40 for all 42 dinners). Saved to docs/launch/paid-pdf-plan3.md. Pinterest pin 1 generated (FLUX.1) and saved to docs/assets/pinterest-pin-1.jpg."
 
   - id: 17
     name: "Solar Miner"
@@ -433,11 +439,13 @@ reps:
     status: idea
     pita: 3
     summary: "EDDM co-op postcard business targeting Denver home service businesses via Facebook groups. Oversized 9x12 postcards filled with local ads (one business per category), distributed to 10,000+ homes via USPS Every Door Direct Mail. Upsell path to AI-powered local marketing services (web, Google Ads, SEO)."
-    next_step: "Post in 3 Denver business Facebook groups Thursday at 7pm; measure DM response before spending a dollar"
+    next_step: "Post in 3 Denver business Facebook groups Thursday at 7pm using posts in docs/marketing/facebook-group-posts.md. Target 3+ DM replies as go signal. Zero spend until validated."
     due: null
     blocker: null
-    last_action: 2026-04-23
+    last_action: 2026-04-28
     repo: semiagenticRob/near-me-mail
     timeline:
       - date: 2026-04-23
         event: "Rep added — assessed via startup-assessor. Unit economics confirmed (47% gross margin, ~$4,200 profit per 10K-home mailing). Entry lane open: no solo EDDM+Facebook operators identified in Denver. Upsell path to local marketing services identified as highest-ceiling play."
+      - date: 2026-04-28
+        event: "CEO Agent: Facebook group validation posts drafted — 3 distinct posts for Denver Small Business, Denver Contractors, and local community groups. Copy-paste ready for Thursday 7pm posting. Saved to docs/marketing/facebook-group-posts.md."
