@@ -1,6 +1,25 @@
 {
   "entries": [
     {
+      "date": "2026-04-28",
+      "reps": [
+        2,
+        14,
+        18
+      ],
+      "tags": [
+        "holding-pattern",
+        "execution-bottleneck",
+        "selling",
+        "human-in-the-loop",
+        "scaling",
+        "rep-burnout"
+      ],
+      "mood": "stretched",
+      "html": "<p>Milestone: 20 reps. And with it, the first real sense of rep fatigue — not from volume, but from a pattern emerging in how reps stall.</p>\n<h2>The Holding-Pattern Problem</h2>\n<p>Reps seem to hit a plateau state where progress requires one of two things:</p>\n<ol>\n<li>\n<p><strong>Product execution</strong> — building new features, improving the core experience. <a class=\"wl-rep\" data-rep-id=\"2\" href=\"#rep-2\">002</a> is the example here: it's live, but the next level requires shipping more functionality. That work falls on the human.</p>\n</li>\n<li>\n<p><strong>Active selling</strong> — going out and closing. <a class=\"wl-rep\" data-rep-id=\"14\" href=\"#rep-14\">014</a> is the example: the funnel exists, the assets are ready, but someone has to actually send the messages and get on calls. That also falls on the human.</p>\n</li>\n</ol>\n<p>Both bottlenecks currently require human execution, and at 20 reps, those accumulate faster than they clear.</p>\n<p><a class=\"wl-rep\" data-rep-id=\"18\" href=\"#rep-18\">018</a> is the outlier — it's in a stable holding state that doesn't demand either. It just exists and works. That's a different kind of rep.</p>\n<h2>The Question</h2>\n<p>Is there a useful new categorization for reps in this plateau state? Something beyond <code>live</code> that signals <em>what kind of human action is blocking the next level</em> — execution vs. selling? And is there an AI leverage point that could absorb one or both of those gaps over time?</p>\n<p>No answers yet. Just noticing the shape of the problem at 20 reps.</p>",
+      "preview": "Milestone: 20 reps. And with it, the first real sense of rep fatigue — not from volume, but from a pattern emerging in how reps stall."
+    },
+    {
       "date": "2026-04-27",
       "reps": [
         11,
