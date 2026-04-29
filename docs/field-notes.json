@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "date": "2026-04-29",
+      "reps": [
+        16
+      ],
+      "tags": [
+        "product-thinking",
+        "process-first",
+        "pantry-tracking",
+        "unlock",
+        "lead-magnet",
+        "ai-limitations"
+      ],
+      "mood": "clear",
+      "html": "<p>Working on <a class=\"wl-rep\" data-rep-id=\"16\" href=\"#rep-16\">016</a> today and hit a clarifying moment that's worth recording.</p>\n<h2>AI Speeds You Up Into the Wrong Place</h2>\n<p>AI is a powerful accelerator — but it accelerates you toward <em>building</em>, not toward <em>thinking</em>. The risk is that you move fast into the wrong direction before you've done the hard work of understanding the process your users actually go through.</p>\n<p>That's what happened here. The early hours went into designing an app — menus, meal types, one-off cooking vs. weekly prep. It felt like progress. It looked like progress. But it was building the end product before understanding the entry point.</p>\n<h2>The Real Unlock: Pantry Tracking</h2>\n<p>The core insight today: the most valuable thing Stock Up Dinners can do is not tell people what to cook — it's tracking what they already have.</p>\n<p>Once the pantry is tracked:\n- Shopping lists write themselves (buy what you're actually missing)\n- Recipe recommendations become immediately relevant (use what's already there)\n- The product gets smarter the more someone uses it</p>\n<p>Everything else — the 14 meal plans, the Costco shopping list lead magnet, the recipe browsing — these are acquisition surfaces. The pantry tracker is the retention engine and the value core.</p>\n<h2>Process Before Product</h2>\n<p>The lead magnet work (Costco staples list + 14 meals) turned out to be generative, not just promotional. Building it forced the question: <em>after</em> someone downloads this and cooks a few meals, what does the ongoing relationship with this product look like?</p>\n<p>That question led directly to pantry tracking as the answer.</p>\n<p>The lesson isn't to skip product thinking — it's to start with the user's ongoing process, not the final feature set. The app design got complicated because it started in the wrong place. Now there's a clear foundation to rebuild from.</p>",
+      "preview": "Working on [[rep:016]] today and hit a clarifying moment that's worth recording."
+    },
+    {
       "date": "2026-04-28",
       "reps": [
         2,
