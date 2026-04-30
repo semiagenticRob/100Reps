@@ -1,6 +1,27 @@
 {
   "entries": [
     {
+      "date": "2026-04-30",
+      "reps": [
+        14,
+        16
+      ],
+      "tags": [
+        "build-philosophy",
+        "throw-away",
+        "foundations",
+        "v2",
+        "architecture",
+        "design-first",
+        "colorado-ai-lab",
+        "stock-up-dinners",
+        "problem-first"
+      ],
+      "mood": "clear",
+      "html": "<h2>Build to Throw Away</h2>\n<p>As easy as it is to build, it's just as easy to throw away.</p>\n<p>Spent a good chunk of this morning remapping Stock Up Dinners against the new understanding of what the product actually needs to be — and landed on the conclusion that the existing build has to be gutted. Not patched. Not extended. Rebuilt from a new foundation.</p>\n<p>This isn't a failure. It's the natural consequence of building before designing. The work moved fast; the direction was wrong. When the foundation is wrong, there's no reasonable expectation the thing on top of it will succeed. Better to recognize it early and reset than to keep building on a cracked slab.</p>\n<p>The lesson: be ready to throw it away. Not recklessly — but without attachment. The hard work is appropriate design and putting the elements in the right places. Speed of execution only matters if the execution is pointed at something real.</p>\n<h2>AI Architecture Is the Missing Piece</h2>\n<p>Had a conversation with Rabbi Leban today through Colorado AI Lab. What stood out: people can intuit that AI has clear benefits for their organization — they feel it. What they're missing is the architecture.</p>\n<p>The questions that come up are real and disorienting: Do I throw everything away? Do I rebuild? Do I add new tools on top of what I have? Do I just improve what's already there?</p>\n<p>Organizations need a way to think about this, not just a list of tools. The worst thing you can do is throw a bunch of AI solutions at someone who doesn't yet understand the problem they're solving for. The tools are the easy part. The architecture — understanding which problems to solve, in what order, with what approach — is where the actual value is created.</p>\n<p>That's the work Colorado AI Lab is positioned to do.</p>",
+      "preview": "## Build to Throw Away"
+    },
+    {
       "date": "2026-04-29",
       "reps": [
         16
