@@ -10,6 +10,7 @@
 |---|---------|-----------|
 | 002 | [Estate Sale Helper](https://github.com/semiagenticRob/estate-sale-helper) | Launch promotion campaign |
 | 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
+| 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 
 ## Building
 

@@ -1,6 +1,6 @@
 # Rep 016 — Stock Up Dinners
 
-**Status:** Building
+**Status:** Live
 **Repo:** [semiagenticRob/stock-up-dinners](https://github.com/semiagenticRob/stock-up-dinners)
 **Website:** [stockupdinners.com](https://stockupdinners.com)
 
@@ -38,11 +38,9 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 
 ## Next Steps
 
-- *Do now:* Join 6 Costco and meal-planning Facebook groups (approval delays) — full targeting list + post format in `docs/marketing/facebook-groups-strategy.md`
-- Set up Beehiiv account — step-by-step guide in `docs/launch/beehiiv-setup-guide.md`. Website is a GoDaddy "Launching Soon" placeholder — Beehiiv is the only gate.
-- Complete Task 6 Canva brand assets — full brief in `docs/design/canva-brand-brief.md` (60-90 min)
-- Set up Gumroad listing — copy in `docs/launch/gumroad-listing.md`; grab URL and drop into Email 3
-- After Beehiiv live: test funnel, then post across Reddit, Pinterest, and Facebook groups simultaneously
+- Drive organic distribution — Facebook groups, Reddit, Pinterest
+- Validate demand before committing to paid ads
+- AI-assisted paid ads playbook to follow once organic signal confirmed
 
 ## Deliverables
 
@@ -73,3 +71,4 @@ Full sequencing rationale saved to vault Stock Up Dinners.md.
 - 2026-04-25: CEO Agent — Full free PDF lead magnet content authored. All 14 dinners, shopping lists, cook-day workflows, page text ready to paste into Canva. Saved to docs/launch/free-pdf-content.md.
 - 2026-04-26: CEO Agent — Manifest updated. Free PDF deliverable logged. Critical path: Beehiiv setup + Facebook group joins.
 - 2026-04-27: CEO Agent — Plan 2 paid PDF content authored. 14 new Costco dinners for Weeks 3-4 with new flavor profiles. Saved to docs/launch/paid-pdf-plan2.md. First installment of actual paid product content.
+- 2026-05-05: Officially launched. Status moved to live.
