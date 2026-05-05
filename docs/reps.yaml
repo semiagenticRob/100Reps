@@ -316,13 +316,13 @@ reps:
 
   - id: 16
     name: "Stock Up Dinners"
-    status: building
+    status: live
     pita: 5
     summary: "Costco-anchored dinner meal plan info product. Free 14-dinner lead magnet + $25 Gumroad PDF (6-week system). Target 200 email signups in 30 days."
-    next_step: "Join 6 Costco and meal-planning Facebook groups NOW (approval delays) — guide in docs/marketing/facebook-groups-strategy.md. Set up Beehiiv — guide in docs/launch/beehiiv-setup-guide.md. All 3 paid PDF plans now complete (Plans 1-3, 42 total dinners). Bundle pricing ready ($40 for all). Pinterest pin 1 generated at docs/assets/pinterest-pin-1.jpg."
+    next_step: "Drive organic distribution — Facebook groups, Reddit, Pinterest. Validate demand before committing to paid ads. AI-assisted paid ads playbook to follow once organic signal confirmed."
     due: null
     blocker: null
-    last_action: 2026-04-28
+    last_action: 2026-05-05
     repo: semiagenticRob/stock-up-dinners
     links:
       website: https://stockupdinners.com
@@ -363,6 +363,8 @@ reps:
         event: "CEO Agent: Plan 2 paid PDF content authored — 14 new dinners for Weeks 3-4 (Greek chicken, Korean beef, honey garlic salmon, Thai basil turkey, shrimp scampi, BBQ pork, white bean chicken soup + 7 more). Saved to docs/launch/paid-pdf-plan2.md."
       - date: 2026-04-28
         event: "CEO Agent: Plan 3 paid PDF content authored — 14 new dinners for Weeks 5-6 with full recipes, shopping list (~$595-660), and bundle pricing section ($40 for all 42 dinners). Saved to docs/launch/paid-pdf-plan3.md. Pinterest pin 1 generated (FLUX.1) and saved to docs/assets/pinterest-pin-1.jpg."
+      - date: 2026-05-05
+        event: "Officially launched. Status moved to live. Organic distribution next — Facebook groups, Reddit, Pinterest — demand validation before paid ads."
 
   - id: 17
     name: "Solar Miner"
