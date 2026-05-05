@@ -10,6 +10,7 @@
 |---|---------|-----------|
 | 002 | [Estate Sale Helper](https://github.com/semiagenticRob/estate-sale-helper) | Launch promotion campaign |
 | 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
+| 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Post on Reddit (due May 8) |
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 
 ## Building
@@ -28,7 +29,6 @@
 |---|---------|-----------|
 | 009 | Colorado Totes | Cold-call 10 Denver PMs |
 | 012 | STR Intel | Set up Beehiiv |
-| 013 | [Civic Transparency Tool](https://github.com/semiagenticRob/civic-transparency-tool) | Run first Arvada issue |
 
 ## Idea
 
