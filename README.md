@@ -17,7 +17,6 @@
 
 | # | Project | Next Step |
 |---|---------|-----------|
-| 003 | [Stack Tracker](https://github.com/semiagenticRob/stack-tracker) | V1 QA on physical device |
 | 005 | [Route Mapper](https://github.com/semiagenticRob/cardio-route-finder) | Continue building |
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
@@ -28,7 +27,6 @@
 | # | Project | Next Step |
 |---|---------|-----------|
 | 009 | Colorado Totes | Cold-call 10 Denver PMs |
-| 012 | STR Intel | Set up Beehiiv |
 
 ## Idea
 
@@ -46,6 +44,8 @@
 | # | Project |
 |---|---------|
 | 001 | Pipe Acquisition |
+| 003 | Stack Tracker |
+| 012 | STR Accountable |
 
 ---
 

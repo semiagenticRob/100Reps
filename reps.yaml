@@ -65,19 +65,21 @@ reps:
 
   - id: 3
     name: "Stack Tracker"
-    status: assessed
+    status: dead
     pita: 2
     summary: "Self-experiment logging and correlation. Track supplements, peptides, practices — surface what works."
-    next_step: "Revisit when capacity opens up — V1 scaffold complete and ready to resume"
+    next_step: null
     due: null
     blocker: null
-    last_action: 2026-04-10
+    last_action: 2026-05-07
     repo: semiagenticRob/stack-tracker
     timeline:
       - date: 2026-03-25
         event: "V1 scaffold complete"
       - date: 2026-04-10
         event: "Moved to assessed — benched to focus on live reps"
+      - date: 2026-05-07
+        event: "Killed — scope off, adjacent territory covered by n-of-one (Rep 021)"
 
   - id: 4
     name: "Runtime"
@@ -241,19 +243,21 @@ reps:
 
   - id: 12
     name: "STR Accountable"
-    status: idea
+    status: dead
     pita: 3
     summary: "Coordination tool for neighbors impacted by nuisance short-term rentals. Regulatory lookup, collective reporting, and community advocacy — hyperlocal but universal."
-    next_step: "Research existing advocacy tools and define the product interface"
+    next_step: null
     due: null
     blocker: null
-    last_action: 2026-04-12
+    last_action: 2026-05-07
     repo: null
     timeline:
       - date: 2026-03-27
         event: "Original concept as STR Intel (paid newsletter)"
       - date: 2026-04-12
         event: "Pivoted to STR Accountable — neighbor coordination tool for nuisance Airbnb accountability"
+      - date: 2026-05-07
+        event: "Killed — existing municipal tools cover the space; not an area Rob wants to pursue"
 
   - id: 13
     name: "Civic Transparency Tool"
