@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 20
+  total: 21
   target: 100
 
 reps:
@@ -458,3 +458,17 @@ reps:
         event: "Rep added — assessed via startup-assessor. Unit economics confirmed (47% gross margin, ~$4,200 profit per 10K-home mailing). Entry lane open: no solo EDDM+Facebook operators identified in Denver. Upsell path to local marketing services identified as highest-ceiling play."
       - date: 2026-04-28
         event: "CEO Agent: Facebook group validation posts drafted — 3 distinct posts for Denver Small Business, Denver Contractors, and local community groups. Copy-paste ready for Thursday 7pm posting. Saved to docs/marketing/facebook-group-posts.md."
+
+  - id: 21
+    name: "n-of-one"
+    status: idea
+    pita: 3
+    summary: "Personal health intelligence tool. Aggregates Strava, Coros watch, manual weight/peptide tracking, mood check-ins, and nutrition data to surface n-of-1 insights — patterns specific to the individual, not population averages."
+    next_step: "Define MVP data model and check-in UX. Prioritize: Strava API integration + daily Telegram check-in (mood, weight, diet score 1-5) + weekly AI insight report."
+    due: null
+    blocker: null
+    last_action: 2026-05-07
+    repo: semiagenticRob/n-of-one
+    timeline:
+      - date: 2026-05-07
+        event: "Rep conceived — brainstorm session with Rob. Repo created at github.com/semiagenticRob/n-of-one."

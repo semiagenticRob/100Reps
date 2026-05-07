@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 16 / 100**
+**Progress: 17 / 100**
 
 ## Live
 
@@ -10,7 +10,7 @@
 |---|---------|-----------|
 | 002 | [Estate Sale Helper](https://github.com/semiagenticRob/estate-sale-helper) | Launch promotion campaign |
 | 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
-| 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Post on Reddit (due May 8) |
+| 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Grow subscriber base organically |
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 
 ## Building
@@ -39,6 +39,7 @@
 | 008 | Declutter Truck | |
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
+| 021 | [n-of-one](reps/021-n-of-one.md) | Personal health intelligence — n-of-1 insights from Strava, Coros, mood, weight, peptides |
 
 ## Dead
 

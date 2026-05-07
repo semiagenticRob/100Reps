@@ -8,7 +8,6 @@ AI local government accountability newsletter. YouTube transcript → Claude ana
 
 ## Next Steps
 
-- Post Eyes on Arvada on Reddit (due 2026-05-08)
 - Grow subscriber base organically
 - Send Mike the civic transparency tool
 
@@ -16,3 +15,5 @@ AI local government accountability newsletter. YouTube transcript → Claude ana
 
 - 2026-04-08: Assessed — Arvada pipeline built, YouTube transcript → Claude → Beehiiv flow ready
 - 2026-05-05: Officially launched as Eyes on Arvada newsletter. Status moved to live.
+- 2026-05-07: Posted on r/ArvadaCO — https://www.reddit.com/r/ArvadaCO/comments/1t68wwz/newsletter_for_better_city_council_visibility/
+- 2026-05-07: Emailed all 7 Arvada city council members (Mayor Simpson, Moorman, Ambrose, Lovisone, Fifer, Davis, Griffith)
