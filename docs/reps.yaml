@@ -257,14 +257,21 @@ reps:
 
   - id: 13
     name: "Civic Transparency Tool"
-    status: assessed
+    status: live
     pita: 4
-    summary: "AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live."
-    next_step: "Run first Arvada issue — PROCEED, pipeline ready, just needs execution"
-    due: 2026-04-15
+    summary: "AI local government accountability newsletter. YouTube transcript → Claude analysis → Beehiiv. Arvada pipeline live. Published as Eyes on Arvada."
+    next_step: "Post Eyes on Arvada on Reddit (due 2026-05-08). Grow subscriber base organically."
+    due: null
     blocker: null
-    last_action: 2026-04-08
+    last_action: 2026-05-05
     repo: semiagenticRob/civic-transparency-tool
+    links:
+      website: https://eyes-on-arvada.beehiiv.com
+    timeline:
+      - date: 2026-04-08
+        event: "Assessed — Arvada pipeline built, YouTube transcript → Claude → Beehiiv flow ready"
+      - date: 2026-05-05
+        event: "Officially launched as Eyes on Arvada newsletter. Status moved to live."
 
   - id: 14
     name: "Colorado AI Lab"
