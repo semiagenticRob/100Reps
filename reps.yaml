@@ -472,9 +472,9 @@ reps:
     due: null
     blocker: null
     last_action: 2026-05-07
-    repo: semiagenticRob/n-of-one
+    repo: semiagenticRob/n-of-one-template
     timeline:
       - date: 2026-05-07
-        event: "Rep conceived — brainstorm session with Rob. Repo created at github.com/semiagenticRob/n-of-one."
+        event: "Rep conceived — brainstorm session with Rob. Public template repo: github.com/semiagenticRob/n-of-one-template."
       - date: 2026-05-07
         event: "Moved to building — full technical spec written."
