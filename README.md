@@ -12,6 +12,7 @@
 | 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
 | 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Grow subscriber base organically |
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
+| 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
 
 ## Building
 
@@ -21,7 +22,6 @@
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
-| 021 | [n-of-one](reps/021-n-of-one.md) | Build MVP: Strava integration + Telegram check-ins + weekly AI report |
 
 ## Assessed
 

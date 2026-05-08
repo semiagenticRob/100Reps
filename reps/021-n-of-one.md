@@ -1,6 +1,6 @@
 # Rep 021 — n-of-one
 
-**Status:** Building
+**Status:** Live
 **Repo:** [semiagenticRob/n-of-one-template](https://github.com/semiagenticRob/n-of-one-template)
 
 Personal health intelligence tool. Aggregates multiple self-tracked data sources to surface n-of-1 insights — patterns specific to the individual, not population averages.
@@ -18,12 +18,10 @@ Personal health intelligence tool. Aggregates multiple self-tracked data sources
 
 ## Next Steps
 
-- Define MVP data model
-- Strava API integration (automated workout pull)
-- Daily Telegram check-in UX (mood + weight + diet score)
-- Weekly AI-generated insight report
+- Publish template publicly and share with potential users.
 
 ## Milestones
 
 - 2026-05-07: Rep conceived — brainstorm session. Repo created.
 - 2026-05-07: Moved to building — full technical spec written.
+- 2026-05-08: Live — full system running: Strava backfill, daily check-ins, nightly sync, weekly AI report.

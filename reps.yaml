@@ -465,16 +465,18 @@ reps:
 
   - id: 21
     name: "n-of-one"
-    status: building
+    status: live
     pita: 3
     summary: "Personal health intelligence tool. Aggregates Strava, Coros watch, manual weight/peptide tracking, mood check-ins, and nutrition data to surface n-of-1 insights — patterns specific to the individual, not population averages."
-    next_step: "Build MVP: Strava API integration + daily Telegram check-in (mood, weight, diet score 1-5) + weekly AI insight report."
+    next_step: "Publish template publicly and share with potential users."
     due: null
     blocker: null
-    last_action: 2026-05-07
+    last_action: 2026-05-08
     repo: semiagenticRob/n-of-one-template
     timeline:
       - date: 2026-05-07
         event: "Rep conceived — brainstorm session with Rob. Public template repo: github.com/semiagenticRob/n-of-one-template."
       - date: 2026-05-07
         event: "Moved to building — full technical spec written."
+      - date: 2026-05-08
+        event: "Moved to live — full system running: Strava backfill, daily check-ins, nightly sync, weekly AI report."
