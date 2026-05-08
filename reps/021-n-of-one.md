@@ -1,6 +1,6 @@
 # Rep 021 — n-of-one
 
-**Status:** Idea
+**Status:** Building
 **Repo:** [semiagenticRob/n-of-one](https://github.com/semiagenticRob/n-of-one)
 
 Personal health intelligence tool. Aggregates multiple self-tracked data sources to surface n-of-1 insights — patterns specific to the individual, not population averages.
@@ -26,3 +26,4 @@ Personal health intelligence tool. Aggregates multiple self-tracked data sources
 ## Milestones
 
 - 2026-05-07: Rep conceived — brainstorm session. Repo created.
+- 2026-05-07: Moved to building — full technical spec written.

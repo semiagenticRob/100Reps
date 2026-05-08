@@ -21,6 +21,7 @@
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
+| 021 | [n-of-one](reps/021-n-of-one.md) | Build MVP: Strava integration + Telegram check-ins + weekly AI report |
 
 ## Assessed
 
@@ -37,7 +38,6 @@
 | 008 | Declutter Truck | |
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
-| 021 | [n-of-one](reps/021-n-of-one.md) | Personal health intelligence — n-of-1 insights from Strava, Coros, mood, weight, peptides |
 
 ## Dead
 
