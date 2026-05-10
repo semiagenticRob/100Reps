@@ -121,7 +121,7 @@ reps:
     next_step: "Send partnership email (docs/plans/feigenbaum-partnership-email.md) May 5-7, 3-5 days before meeting. Read feigenbaum-background-brief.md + docs/plans/siddur-competitive-landscape.md before meeting. ZmanimHeader + EntryPath still need building (specs in docs/feature-specs/). Meeting is May 10."
     due: null
     blocker: null
-    last_action: 2026-04-28
+    last_action: 2026-05-10
     repo: semiagenticRob/teshuvah-read-along
     timeline:
       - date: 2026-03-24
@@ -158,6 +158,8 @@ reps:
         event: "CEO Agent: Siddur competitive landscape authored — ArtScroll, Koren, Sefaria, iSiddur feature comparison table, DavenAlong's 7 differentiators, risks, and positioning statement for Feigenbaum meeting. Saved to docs/plans/siddur-competitive-landscape.md."
       - date: 2026-04-28
         event: "CEO Agent: First prayer audio sample generated using Kokoro TTS (am_fenrir voice) — Modeh Ani with transliteration + English. Committed to audio/samples/modeh-ani-am-fenrir.wav."
+      - date: 2026-05-10
+        event: "Feigenbaum call — positive outcome. Rabbi agreed to share siddur PDF for Rob to draft DavenAlong integration and return for review. Batya (his daughter) also on the call. Thank-you email and draft queued as next steps."
 
   - id: 7
     name: "WritersRoom.ai"
