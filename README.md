@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 17 / 100**
+**Progress: 18 / 100**
 
 ## Live
 
@@ -38,6 +38,7 @@
 | 008 | Declutter Truck | |
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
+| 022 | [No Knock](reps/022-no-knock.md) | Community enforcement layer for no-soliciting ordinances. Arvada pilot, scale to municipalities. |
 
 ## Dead
 
