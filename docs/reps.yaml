@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 21
+  total: 22
   target: 100
 
 reps:
@@ -484,3 +484,17 @@ reps:
         event: "Moved to building — full technical spec written."
       - date: 2026-05-08
         event: "Moved to live — full system running: Strava backfill, daily check-ins, nightly sync, weekly AI report."
+
+  - id: 22
+    name: No Knock
+    status: idea
+    pita: 3
+    summary: Community enforcement layer for no-soliciting ordinances. Address registry, QR-enabled signs, one-tap violation reporting, and city dashboard. Arvada pilot with scale-to-municipalities path.
+    next_step: Book meeting with Arvada city council contact to gauge appetite for official partnership.
+    due: null
+    blocker: null
+    last_action: 2026-05-11
+    repo: semiagenticRob/no-knock
+    timeline:
+      - date: 2026-05-11
+        event: "Rep conceived — brainstorm with Rob. Arvada §62-61 is the legal hook; Castle Rock No Knock program is the model. Repo created with full preliminary notes."
