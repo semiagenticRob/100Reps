@@ -46,6 +46,7 @@
 | 001 | Pipe Acquisition |
 | 003 | Stack Tracker |
 | 012 | STR Accountable |
+| 018 | Stupid Simple Agentic CRM |
 
 ---
 
