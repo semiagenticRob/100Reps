@@ -399,13 +399,13 @@ reps:
 
   - id: 18
     name: "Stupid Simple Agentic CRM"
-    status: live
+    status: dead
     pita: 2
     summary: "Lightweight agent-operated personal CRM inside a GitHub repo. YAML files as source of truth, CSV index auto-generated, AI agent reads README and commits changes."
     next_step: null
     due: null
     blocker: null
-    last_action: 2026-04-20
+    last_action: 2026-05-11
     repo: semiagenticRob/stupid-simple-agentic-crm
     timeline:
       - date: 2026-04-15
@@ -422,6 +422,8 @@ reps:
         event: "CEO Agent: 0 stars/forks confirmed (5 days post-launch). Sunday r/selfhosted window passed. r/devtools and r/LocalLLaMA posts ready to send any day this week."
       - date: 2026-04-20
         event: "Rob: Internal tool only going forward — no outbound marketing. Will continue to refine."
+      - date: 2026-05-11
+        event: "Killed — HubSpot free tier with agent API access and crons solves the same problems with more functionality and no infrastructure to maintain."
 
   - id: 19
     name: "Goose Helper"
