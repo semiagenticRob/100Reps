@@ -321,11 +321,13 @@ reps:
     next_step: "Validate concept with Bitcoin community — does this resonate with stackers?"
     due: null
     blocker: null
-    last_action: 2026-04-10
-    repo: null
+    last_action: 2026-05-26
+    repo: semiagenticRob/hodlforwhat
     timeline:
       - date: 2026-04-10
         event: "Concept captured — brain dump processed"
+      - date: 2026-05-26
+        event: "Repo linked — semiagenticRob/hodlforwhat"
 
   - id: 16
     name: "Stock Up Dinners"
