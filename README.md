@@ -14,7 +14,7 @@
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 | 015 | [Hodl For What](https://github.com/semiagenticRob/hodlforwhat) | Polish UX and frontend |
 | 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
-| 023 | [Multi-Agent Orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator) | Run first rep end-to-end through the orchestrator |
+| 023 | [Multi-Agent Orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator) | Run all new reps through the orchestrator |
 
 ## Building
 

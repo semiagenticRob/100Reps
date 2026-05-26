@@ -7,7 +7,7 @@ Programmer multi-agent operator — a system for orchestrating multiple AI agent
 
 ## Next Steps
 
-- Run first rep end-to-end through the orchestrator
+- Run all new reps through the orchestrator
 
 ## Milestones
 

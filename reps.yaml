@@ -508,7 +508,7 @@ reps:
     status: live
     pita: 3
     summary: "Programmer multi-agent operator — a system for orchestrating multiple AI agents to handle complex, multi-step software development tasks."
-    next_step: "Run first rep end-to-end through the orchestrator"
+    next_step: "Run all new reps through the orchestrator"
     due: null
     blocker: null
     last_action: 2026-05-26
