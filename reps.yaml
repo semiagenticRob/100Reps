@@ -505,10 +505,10 @@ reps:
 
   - id: 23
     name: Multi-Agent Orchestrator
-    status: building
+    status: live
     pita: 3
     summary: "Programmer multi-agent operator — a system for orchestrating multiple AI agents to handle complex, multi-step software development tasks."
-    next_step: "Continue building the multi-agent orchestration system."
+    next_step: "Run first rep end-to-end through the orchestrator"
     due: null
     blocker: null
     last_action: 2026-05-26
@@ -518,3 +518,5 @@ reps:
         event: "Rep conceived — Rob added as Rep 023. Repo created at github.com/semiagenticRob/multi-agent-orchestrator."
       - date: 2026-05-26
         event: "Moved to building — Rob is actively building."
+      - date: 2026-05-26
+        event: "Status → live."

@@ -14,6 +14,7 @@
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 | 015 | [Hodl For What](https://github.com/semiagenticRob/hodlforwhat) | Polish UX and frontend |
 | 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
+| 023 | [Multi-Agent Orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator) | Run first rep end-to-end through the orchestrator |
 
 ## Building
 
@@ -23,7 +24,6 @@
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
-| 023 | [Multi-Agent Orchestrator](reps/023-multi-agent-orchestrator.md) | Continue building the multi-agent orchestration system |
 
 ## Assessed
 
