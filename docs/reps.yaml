@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 22
+  total: 23
   target: 100
 
 reps:
@@ -498,3 +498,17 @@ reps:
     timeline:
       - date: 2026-05-11
         event: "Rep conceived — brainstorm with Rob. Arvada §62-61 is the legal hook; Castle Rock No Knock program is the model. Repo created with full preliminary notes."
+
+  - id: 23
+    name: Multi-Agent Orchestrator
+    status: idea
+    pita: 3
+    summary: "Programmer multi-agent operator — a system for orchestrating multiple AI agents to handle complex, multi-step software development tasks."
+    next_step: "Define architecture and scope for the multi-agent orchestration system."
+    due: null
+    blocker: null
+    last_action: 2026-05-26
+    repo: semiagenticRob/multi-agent-orchestrator
+    timeline:
+      - date: 2026-05-26
+        event: "Rep conceived — Rob added as Rep 023. Repo created at github.com/semiagenticRob/multi-agent-orchestrator."
