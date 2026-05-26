@@ -39,6 +39,7 @@
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
 | 022 | [No Knock](reps/022-no-knock.md) | Community enforcement layer for no-soliciting ordinances. Arvada pilot, scale to municipalities. |
+| 023 | [Multi-Agent Orchestrator](reps/023-multi-agent-orchestrator.md) | Programmer multi-agent operator for complex, multi-step software development tasks. |
 
 ## Dead
 
