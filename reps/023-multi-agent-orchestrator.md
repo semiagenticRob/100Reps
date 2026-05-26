@@ -1,6 +1,6 @@
 # Rep 023 — Multi-Agent Orchestrator
 
-**Status:** Idea
+**Status:** Building
 **Repo:** [semiagenticRob/multi-agent-orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator)
 
 Programmer multi-agent operator — a system for orchestrating multiple AI agents to handle complex, multi-step software development tasks.
