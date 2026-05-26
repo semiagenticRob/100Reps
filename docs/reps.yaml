@@ -315,17 +315,21 @@ reps:
 
   - id: 15
     name: "Hodl For What"
-    status: idea
+    status: live
     pita: 2
     summary: "Bitcoin spending planner for long-term holders. Set price targets for life purchases so you sell at the right level, not the wrong time."
-    next_step: "Validate concept with Bitcoin community — does this resonate with stackers?"
+    next_step: "Polish UX and frontend"
     due: null
     blocker: null
-    last_action: 2026-04-10
-    repo: null
+    last_action: 2026-05-26
+    repo: semiagenticRob/hodlforwhat
     timeline:
       - date: 2026-04-10
         event: "Concept captured — brain dump processed"
+      - date: 2026-05-26
+        event: "Repo linked — semiagenticRob/hodlforwhat"
+      - date: 2026-05-26
+        event: "Status → live. UX and frontend polish still needed."
 
   - id: 16
     name: "Stock Up Dinners"
@@ -501,10 +505,10 @@ reps:
 
   - id: 23
     name: Multi-Agent Orchestrator
-    status: building
+    status: live
     pita: 3
     summary: "Programmer multi-agent operator — a system for orchestrating multiple AI agents to handle complex, multi-step software development tasks."
-    next_step: "Continue building the multi-agent orchestration system."
+    next_step: "Run all new reps through the orchestrator"
     due: null
     blocker: null
     last_action: 2026-05-26
@@ -514,3 +518,5 @@ reps:
         event: "Rep conceived — Rob added as Rep 023. Repo created at github.com/semiagenticRob/multi-agent-orchestrator."
       - date: 2026-05-26
         event: "Moved to building — Rob is actively building."
+      - date: 2026-05-26
+        event: "Status → live."
