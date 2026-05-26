@@ -12,6 +12,7 @@
 | 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
 | 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Grow subscriber base organically |
 | 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
+| 015 | [Hodl For What](https://github.com/semiagenticRob/hodlforwhat) | Polish UX and frontend |
 | 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
 
 ## Building
