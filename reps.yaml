@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 23
+  total: 24
   target: 100
 
 reps:
@@ -520,3 +520,17 @@ reps:
         event: "Moved to building — Rob is actively building."
       - date: 2026-05-26
         event: "Status → live."
+
+  - id: 24
+    name: Day Trip Planner
+    status: idea
+    pita: 3
+    summary: "Set a travel home base and plan day trips or overnights from that location. Destination discovery, distance/drive-time filtering, and itinerary building radiating from a chosen base."
+    next_step: "Define scope and core feature set."
+    due: null
+    blocker: null
+    last_action: 2026-05-29
+    repo: semiagenticRob/day-trip-planner
+    timeline:
+      - date: 2026-05-29
+        event: "Rep conceived — home base + day trip/overnight planning tool. Repo created at github.com/semiagenticRob/day-trip-planner."

@@ -41,6 +41,7 @@
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
 | 022 | [No Knock](reps/022-no-knock.md) | Community enforcement layer for no-soliciting ordinances. Arvada pilot, scale to municipalities. |
+| 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Set a home base and plan day trips or overnights radiating from that location. |
 
 ## Dead
 
