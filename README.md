@@ -24,6 +24,7 @@
 | 006 | [Teshuvah Read Along](https://github.com/semiagenticRob/teshuvah-read-along) | UpStart, NCSY, Moskowitz follow-up |
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
+| 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Continue building the Day Trip Planner |
 
 ## Assessed
 
@@ -41,7 +42,6 @@
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
 | 022 | [No Knock](reps/022-no-knock.md) | Community enforcement layer for no-soliciting ordinances. Arvada pilot, scale to municipalities. |
-| 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Set a home base and plan day trips or overnights radiating from that location. |
 
 ## Dead
 

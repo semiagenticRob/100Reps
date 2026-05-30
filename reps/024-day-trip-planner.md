@@ -1,6 +1,6 @@
 # Rep 024 — Day Trip Planner
 
-**Status:** Idea
+**Status:** Building
 **Repo:** [semiagenticRob/day-trip-planner](https://github.com/semiagenticRob/day-trip-planner)
 
 Set a travel home base and plan day trips or overnights from that location. Destination discovery, distance/drive-time filtering, and itinerary building radiating from a chosen base.
