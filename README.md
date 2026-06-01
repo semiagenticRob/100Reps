@@ -25,6 +25,7 @@
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
 | 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Continue building the Day Trip Planner |
+| 025 | [KaufCare Outreach](reps/025-kaufcare-outreach.md) | Define outreach strategy and initial AI-empowered tactics |
 
 ## Assessed
 
