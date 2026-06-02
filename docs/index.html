@@ -46,6 +46,11 @@ a:hover{text-decoration:underline}
 .search-wrap label{font-size:12px;color:var(--text-3)}
 .search-input{padding:6px 12px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-family:var(--font);font-size:12px;color:var(--text);outline:none;width:180px}
 .search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.sort-wrap{display:flex;align-items:center;gap:4px;margin-left:8px}
+.sort-wrap label{font-size:11px;color:var(--text-3);white-space:nowrap}
+.sort-btn{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text-3);font-family:var(--font);transition:all .15s;white-space:nowrap}
+.sort-btn:hover{border-color:var(--accent-dim);color:var(--text)}
+.sort-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 
 /* ERROR BANNER */
 .error-banner{display:none;padding:10px 24px;background:#dc2626;color:#fff;font-weight:700;text-align:center;font-size:12px}
@@ -238,6 +243,12 @@ a:hover{text-decoration:underline}
 
 <div class="filter-row" id="filterRow">
   <div id="statusCounts" style="display:contents"></div>
+  <div class="sort-wrap">
+    <label>Sort:</label>
+    <button class="sort-btn active" id="sortStatus">Status</button>
+    <button class="sort-btn" id="sortPita">PITA</button>
+    <button class="sort-btn" id="sortAction">Recent</button>
+  </div>
   <div class="search-wrap">
     <label for="searchInput">Search</label>
     <input type="text" id="searchInput" class="search-input" placeholder="Filter reps…" autocomplete="off">
@@ -317,10 +328,6 @@ var YAML_URL = './reps.yaml';
 var POLL_INTERVAL = 5 * 60 * 1000;
 var STATUS_ORDER = ['idea','assessed','building','live','pmf','dead'];
 var STATUS_SORT_ORDER = ['pmf','live','building','assessed','idea','dead'];
-var STATUS_COLORS = {
-  idea:'#4a9eff', assessed:'#ff9900', building:'#ffff00',
-  live:'#00ff41', pmf:'#ff00ff', dead:'#666666'
-};
 var STATUS_ICONS = {
   idea:'\u25CB', assessed:'\u25CE', building:'\u2699',
   live:'\u2713', pmf:'\u2605', dead:'\u2717'
@@ -386,27 +393,15 @@ var $cardsView = null; // cardsView removed — renderCards is a no-op until Tas
 var $cardGrid = document.getElementById('cardGrid');
 var $counts = document.getElementById('statusCounts');
 var $search = document.getElementById('searchInput');
+var $sortStatus = document.getElementById('sortStatus');
+var $sortPita = document.getElementById('sortPita');
+var $sortAction = document.getElementById('sortAction');
 var $countLabel = document.getElementById('countLabel');
 var $progressFill = document.getElementById('progressFill');
 var $lastUpdated = document.getElementById('lastUpdated');
 var $feedFlash = document.getElementById('feedFlash');
 var $errorBanner = document.getElementById('errorBanner');
 var $helpOverlay = document.getElementById('helpOverlay');
-
-/* ── PITA color scale (1=green → 10=red) ── */
-function pitaColor(n) {
-  if (!n || n < 1) return 'var(--dim)';
-  n = Math.max(1, Math.min(10, n));
-  var r, g;
-  if (n <= 5) {
-    r = Math.round(255 * (n - 1) / 4);
-    g = 255;
-  } else {
-    r = 255;
-    g = Math.round(255 * (10 - n) / 5);
-  }
-  return 'rgb(' + r + ',' + g + ',0)';
-}
 
 /* ── Escape helper (XSS-safe for controlled YAML data) ── */
 function esc(str) {
@@ -816,17 +811,6 @@ function renderTimelineEntries(container, entries, repId) {
 }
 
 
-function renderLinksCell(rep) {
-  var entries = buildLinkEntries(rep);
-  if (entries.length === 0) return '<span style="color:var(--dim)">\u2014</span>';
-  var html = '<div class="links-cell">';
-  entries.forEach(function(l) {
-    html += '<a class="link-tag" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
-  });
-  html += '</div>';
-  return html;
-}
-
 function domainFromUrl(url) {
   try { return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, ''); }
   catch(e) { return url; }
@@ -891,13 +875,21 @@ function setSort(col) {
     currentSort = col;
     sortAsc = true;
   }
-  document.querySelectorAll('thead th').forEach(function(th) {
-    th.classList.toggle('sorted', th.dataset.col === col);
-    var ind = th.querySelector('.sort-ind');
-    if (ind && th.dataset.col === col) {
-      ind.innerHTML = sortAsc ? '&#9650;' : '&#9660;';
-    }
+  // Update sort button active states
+  var sortMap = { status: 'sortStatus', pita: 'sortPita', last_action: 'sortAction' };
+  ['sortStatus','sortPita','sortAction'].forEach(function(id) {
+    var btn = document.getElementById(id);
+    if (btn) btn.classList.remove('active');
   });
+  var activeId = sortMap[col];
+  if (activeId) {
+    var activeBtn = document.getElementById(activeId);
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+      activeBtn.textContent = activeBtn.textContent.replace(/ [▲▼]$/, '') +
+        (sortAsc ? ' ▲' : ' ▼');
+    }
+  }
   render();
 }
 
@@ -1215,6 +1207,17 @@ fetchData(false).then(function() {
   render();
   computeLastActions().then(function() { render(); });
   setInterval(refresh, POLL_INTERVAL);
+});
+// Wire sort buttons
+[['sortStatus','status'],['sortPita','pita'],['sortAction','last_action']].forEach(function(pair) {
+  var btn = document.getElementById(pair[0]);
+  if (btn) btn.addEventListener('click', function() { setSort(pair[1]); });
+});
+// Re-render on resize so card grid columns and expander placement stay correct
+var resizeTimer;
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(render, 150);
 });
 wireJournalChrome();
 fetchFieldNotes().then(function() {
