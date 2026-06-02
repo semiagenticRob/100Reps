@@ -294,6 +294,21 @@ a:hover{text-decoration:underline}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" crossorigin="anonymous"></script>
 <script>
+// Global handlers for image fallback chain (called from onerror/onload attributes)
+window.__imgNext = function(repId, idx, imgEl, status, initial) {
+  var candidates = window.__imgCandidates && window.__imgCandidates[repId];
+  if (!candidates) { window.__imgFallback(repId, imgEl, status, initial); return; }
+  if (idx >= candidates.length) { window.__imgFallback(repId, imgEl, status, initial); return; }
+  imgEl.src = candidates[idx];
+  imgEl.onerror = function() { window.__imgNext(repId, idx + 1, imgEl, status, initial); };
+};
+window.__imgFallback = function(repId, imgEl, status, initial) {
+  if (window.__imgCache) window.__imgCache[repId] = null;
+  imgEl.outerHTML = '<div class="rc-avatar av-' + status + '">' + initial + '</div>';
+};
+window.__imgDone = function(repId, src) {
+  if (window.__imgCache) window.__imgCache[repId] = src;
+};
 (function(){
 'use strict';
 
@@ -331,6 +346,40 @@ var selectedIdx = -1;
 var expandedId = null;
 var timelineSvgCache = {};
 var gitCommitCache = {}; // keyed by rep id, stores fetched commit arrays
+var imageCache = {}; // keyed by rep id: url string | null (null = use avatar)
+window.__imgCache = imageCache;
+window.__imgCandidates = {}; // keyed by rep id: array of fallback URL strings
+var LOGO_PATHS = ['logo.png','logo.svg','logo.jpg','public/logo.png','assets/logo.png'];
+
+function buildImageHtml(rep) {
+  var initial = esc(rep.name.charAt(0).toUpperCase());
+  var avatarHtml = '<div class="rc-avatar av-' + rep.status + '">' + initial + '</div>';
+
+  // Already resolved — use cached result
+  if (imageCache[rep.id] === null) return avatarHtml;
+  if (imageCache[rep.id]) {
+    return '<img class="rc-image" src="' + esc(imageCache[rep.id]) + '" alt="" ' +
+      'onerror="window.__imgFallback(' + rep.id + ',this,\'' + rep.status + '\',\'' + initial + '\')">';
+  }
+
+  // No image field and no repo → avatar immediately
+  if (!rep.image && !rep.repo) {
+    imageCache[rep.id] = null;
+    return avatarHtml;
+  }
+
+  // Build candidate list
+  var candidates = rep.image ? [rep.image] :
+    LOGO_PATHS.map(function(p) {
+      return 'https://raw.githubusercontent.com/' + rep.repo + '/HEAD/' + p;
+    });
+  // Store fallback candidates (idx 1+) for the global handler
+  window.__imgCandidates[rep.id] = candidates.slice(1);
+
+  return '<img class="rc-image" src="' + esc(candidates[0]) + '" alt="" ' +
+    'onerror="window.__imgNext(' + rep.id + ',0,this,\'' + rep.status + '\',\'' + initial + '\')" ' +
+    'onload="window.__imgDone(' + rep.id + ',this.src)">';
+}
 
 /* ── DOM refs ── */
 var $body = null; // tableBody removed — renderTable is a no-op until Task 3
@@ -530,9 +579,7 @@ function buildCardHtml(rep, idx) {
     ? '<span class="rc-stale">' + staleDays + 'd</span>'
     : '';
 
-  // Image area: letter avatar (Task 4 adds real images)
-  var imgHtml = '<div class="rc-avatar av-' + rep.status + '">' +
-    esc(rep.name.charAt(0).toUpperCase()) + '</div>';
+  var imgHtml = buildImageHtml(rep);
 
   var nextHtml = safeNext
     ? '<div class="rc-next"><span style="flex-shrink:0;opacity:.6">&#8594;</span> ' + truncate(safeNext, 60) + '</div>'
