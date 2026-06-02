@@ -60,6 +60,7 @@ a:hover{text-decoration:underline}
 .rep-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:box-shadow .15s,transform .15s,border-color .15s}
 .rep-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
 .rep-card.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(79,70,229,.2),var(--shadow-md);transform:translateY(-1px)}
+.rep-card.kb-selected{border-color:var(--accent-dim);box-shadow:0 0 0 2px rgba(165,180,252,.3),var(--shadow-sm)}
 .rep-card.dead-card{opacity:.5}
 .rc-image{width:100%;height:90px;object-fit:cover;display:block}
 .rc-avatar{width:100%;height:90px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800;color:#fff;letter-spacing:-1px;flex-shrink:0}
@@ -513,16 +514,6 @@ function renderHeader() {
 }
 
 
-/* \u2500\u2500 Avatar color helper \u2500\u2500 */
-var AVATAR_GRADIENT = {
-  idea:'linear-gradient(135deg,#4f46e5,#a5b4fc)',
-  assessed:'linear-gradient(135deg,#6b7280,#9ca3af)',
-  building:'linear-gradient(135deg,#d97706,#fbbf24)',
-  live:'linear-gradient(135deg,#059669,#34d399)',
-  pmf:'linear-gradient(135deg,#7e22ce,#c084fc)',
-  dead:'linear-gradient(135deg,#9ca3af,#d1d5db)'
-};
-
 function buildCardHtml(rep, idx) {
   var isDead = rep.status === 'dead';
   var staleDays = daysSince(rep.last_action);
@@ -532,7 +523,7 @@ function buildCardHtml(rep, idx) {
   var cardClass = 'rep-card' +
     (isDead ? ' dead-card' : '') +
     (isSelected ? ' selected' : '') +
-    (isSelectedIdx && !isSelected ? ' selected' : '');
+    (isSelectedIdx && !isSelected ? ' kb-selected' : '');
 
   var safeNext = sanitizeNextStep(rep.next_step);
   var staleHtml = (!isDead && staleDays > 14)
@@ -838,7 +829,7 @@ document.addEventListener('keydown', function(e) {
       if (selectedIdx < filtered.length - 1) {
         selectedIdx++;
         render();
-        var sel = $cardGrid.querySelector('.rep-card.selected');
+        var sel = $cardGrid.querySelector('.rep-card.kb-selected') || $cardGrid.querySelector('.rep-card.selected');
         if (sel) sel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       break;
@@ -848,7 +839,7 @@ document.addEventListener('keydown', function(e) {
       if (selectedIdx > 0) {
         selectedIdx--;
         render();
-        var sel2 = $cardGrid.querySelector('.rep-card.selected');
+        var sel2 = $cardGrid.querySelector('.rep-card.kb-selected') || $cardGrid.querySelector('.rep-card.selected');
         if (sel2) sel2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       break;
