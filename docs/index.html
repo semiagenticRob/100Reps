@@ -383,7 +383,8 @@ function buildImageHtml(rep) {
   // Store fallback candidates (idx 1+) for the global handler
   window.__imgCandidates[rep.id] = candidates.slice(1);
 
-  return '<img class="rc-image" src="' + esc(candidates[0]) + '" alt="" ' +
+  return '<img class="rc-image" alt="" ' +
+    'data-src="' + esc(candidates[0]) + '" ' +
     'data-rep-id="' + rep.id + '" data-rep-status="' + esc(rep.status) + '" data-initial="' + esc(initial) + '">';
 }
 
@@ -624,7 +625,8 @@ function renderCardGrid(filtered) {
   });
   $cardGrid.innerHTML = html;
 
-  // Wire image fallback chain imperatively (avoids inline onerror/onload attributes)
+  // Wire image fallback chain imperatively, then set src AFTER listener attachment
+  // to avoid the race condition where error fires before the listener is registered.
   $cardGrid.querySelectorAll('img.rc-image[data-rep-id]').forEach(function(img) {
     var repId = parseInt(img.dataset.repId, 10);
     var status = img.dataset.repStatus;
@@ -635,6 +637,7 @@ function renderCardGrid(filtered) {
     img.addEventListener('load', function() {
       window.__imgDone(repId, img.src);
     });
+    if (img.dataset.src) img.src = img.dataset.src;
   });
 
   // Bind card click events
