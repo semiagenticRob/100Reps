@@ -219,94 +219,74 @@ a:hover{text-decoration:underline}
 </head>
 <body>
 
-<div class="app-shell">
-
-<aside class="journal" id="journalPanel">
-  <div class="journal-rail" id="journalRail">FIELD&nbsp;NOTES</div>
-  <div class="journal-head">
-    <div class="journal-title">FIELD NOTES <span id="journalStaleDot" class="journal-stale-dot" style="display:none" title="No entry in &gt;3 days"></span></div>
-    <button class="journal-toggle" id="journalToggle" title="Collapse panel">&laquo;</button>
-    <div class="journal-tabs">
-      <a class="journal-tab active" href="#" aria-current="page">Notes</a>
-      <a class="journal-tab" href="lessons.html">Lessons &rarr;</a>
-    </div>
-  </div>
-  <div class="journal-body" id="journalBody">
-    <div class="journal-empty">Loading…</div>
-  </div>
-</aside>
-
-<div class="dashboard-col">
-
 <div class="error-banner" id="errorBanner"></div>
 
 <div class="header">
   <div class="header-top">
-    <div><div class="header-title">100 REPS PROJECT</div><div class="header-sub"><a href="https://100reps.substack.com/" target="_blank" rel="noopener">One guy, 100 AI-powered businesses &mdash; can a solo founder with AI actually build something massive?</a></div></div>
-    <div class="header-right">
-      <div class="progress-label"><span id="countLabel">0/100</span></div>
-      <div class="progress-bar" id="progressBar"></div>
+    <div>
+      <div class="brand-title">100 Reps Project</div>
+      <div class="header-sub"><a href="https://100reps.substack.com/" target="_blank" rel="noopener">One guy, 100 AI-powered businesses &mdash; can a solo founder with AI actually build something massive?</a></div>
+    </div>
+    <div class="progress-area">
+      <div class="progress-label" id="countLabel">0/100</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     </div>
   </div>
-  <div class="status-counts" id="statusCounts"></div>
-  <div class="last-updated">LAST UPDATED: <span id="lastUpdated"></span> <span class="feed-flash" id="feedFlash">FEED UPDATED</span></div>
+  <div class="last-updated">Updated: <span id="lastUpdated"></span> <span class="feed-flash" id="feedFlash">FEED UPDATED</span></div>
 </div>
 
-<div class="controls">
-  <button class="view-toggle" id="viewToggle">CARDS</button>
+<div class="filter-row" id="filterRow">
+  <div id="statusCounts" style="display:contents"></div>
   <div class="search-wrap">
-    <label>&gt; SEARCH:</label>
-    <input type="text" id="searchInput" placeholder="" autocomplete="off">
+    <label>Search</label>
+    <input type="text" id="searchInput" class="search-input" placeholder="Filter reps…" autocomplete="off">
   </div>
 </div>
 
-<div class="table-wrap table-active" id="tableWrap">
-  <table role="grid">
-    <thead>
-      <tr>
-        <th data-col="id"># <span class="sort-ind">&#9650;</span></th>
-        <th data-col="name">NAME <span class="sort-ind">&#9650;</span></th>
-        <th>LINKS</th>
-        <th data-col="status" class="sorted">STATUS <span class="sort-ind">&#9650;</span></th>
-        <th data-col="pita" title="Pain In The Ass Index — operational lift to continuously run (1=low, 10=high)">PITA <span class="sort-ind">&#9650;</span></th>
-        <th>SUMMARY</th>
-        <th>NEXT STEP</th>
-        <th data-col="last_action">LAST ACTION <span class="sort-ind">&#9650;</span></th>
-      </tr>
-    </thead>
-    <tbody id="tableBody">
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-      <tr class="skeleton-row"><td><div class="skeleton-bar skel-id"></div></td><td><div class="skeleton-bar skel-name"></div></td><td><div class="skeleton-bar skel-links"></div></td><td><div class="skeleton-bar skel-status"></div></td><td><div class="skeleton-bar" style="width:30px"></div></td><td><div class="skeleton-bar skel-summary"></div></td><td><div class="skeleton-bar skel-next"></div></td><td><div class="skeleton-bar skel-date"></div></td></tr>
-    </tbody>
-  </table>
+<div class="app-shell">
+
+  <div class="grid-col">
+    <div class="card-grid" id="cardGrid">
+      <!-- skeleton cards shown while loading -->
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-bar skel-id"></div><div class="skeleton-bar skel-name"></div><div class="skeleton-bar skel-summary"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-bar skel-id"></div><div class="skeleton-bar skel-name"></div><div class="skeleton-bar skel-summary"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-bar skel-id"></div><div class="skeleton-bar skel-name"></div><div class="skeleton-bar skel-summary"></div></div></div>
+    </div>
+  </div>
+
+  <aside class="journal" id="journalPanel">
+    <div class="journal-rail" id="journalRail">FIELD&nbsp;NOTES</div>
+    <div class="journal-head">
+      <div class="journal-title">Field Notes <span id="journalStaleDot" class="journal-stale-dot" style="display:none" title="No entry in &gt;3 days"></span></div>
+      <button class="journal-toggle" id="journalToggle" title="Collapse panel">&laquo;</button>
+      <div class="journal-tabs">
+        <a class="journal-tab active" href="#">Notes</a>
+        <a class="journal-tab" href="lessons.html">Lessons &rarr;</a>
+      </div>
+    </div>
+    <div class="journal-body" id="journalBody">
+      <div class="journal-empty">Loading&hellip;</div>
+    </div>
+  </aside>
+
 </div>
-
-<div class="cards-view" id="cardsView"></div>
-
 
 <div class="help-overlay" id="helpOverlay">
   <div class="help-box">
-    <h2>KEYBOARD SHORTCUTS</h2>
+    <h2>Keyboard Shortcuts</h2>
     <div class="help-row"><span class="help-key">j / k</span><span class="help-desc">Move selection down / up</span></div>
-    <div class="help-row"><span class="help-key">Enter</span><span class="help-desc">Expand / collapse selected row</span></div>
+    <div class="help-row"><span class="help-key">Enter</span><span class="help-desc">Expand / collapse selected card</span></div>
     <div class="help-row"><span class="help-key">Esc</span><span class="help-desc">Collapse all / close help</span></div>
     <div class="help-row"><span class="help-key">/</span><span class="help-desc">Focus search</span></div>
     <div class="help-row"><span class="help-key">?</span><span class="help-desc">Toggle this help</span></div>
     <div class="help-row"><span class="help-key">1-6</span><span class="help-desc">Filter by status</span></div>
     <div class="help-row"><span class="help-key">0</span><span class="help-desc">Show all</span></div>
-    <div class="help-close">Press ? or Esc to close</div>
+    <div class="help-close" onclick="document.getElementById('helpOverlay').classList.remove('show')">Click or press Esc to close</div>
   </div>
 </div>
 
-
-</div><!-- /.dashboard-col -->
-</div><!-- /.app-shell -->
-
 <noscript>
-  <div style="padding:40px;color:#ff3333;font-family:monospace;text-align:center">
+  <div style="padding:40px;color:#dc2626;text-align:center;font-family:sans-serif">
     JavaScript is required to load the 100 Reps dashboard.
   </div>
 </noscript>
@@ -348,25 +328,20 @@ var sortAsc = true;
 var searchTerm = '';
 var selectedIdx = -1;
 var expandedIds = {};
-var viewMode = 'table';
 var timelineSvgCache = {};
 var gitCommitCache = {}; // keyed by rep id, stores fetched commit arrays
 
 /* ── DOM refs ── */
-var $body = document.getElementById('tableBody');
+var $body = null; // tableBody removed — renderTable is a no-op until Task 3
+var $cardsView = null; // cardsView removed — renderCards is a no-op until Task 3
 var $counts = document.getElementById('statusCounts');
-var $filterBtns = null;
-var $clearFilter = null;
 var $search = document.getElementById('searchInput');
 var $countLabel = document.getElementById('countLabel');
-var $progressBar = document.getElementById('progressBar');
+var $progressFill = document.getElementById('progressFill');
 var $lastUpdated = document.getElementById('lastUpdated');
 var $feedFlash = document.getElementById('feedFlash');
 var $errorBanner = document.getElementById('errorBanner');
 var $helpOverlay = document.getElementById('helpOverlay');
-var $tableWrap = document.getElementById('tableWrap');
-var $cardsView = document.getElementById('cardsView');
-var $viewToggle = document.getElementById('viewToggle');
 
 /* ── PITA color scale (1=green → 10=red) ── */
 function pitaColor(n) {
@@ -516,19 +491,11 @@ function renderHeader() {
   STATUS_ORDER.forEach(function(s) { counts[s] = 0; });
   reps.forEach(function(r) { if (counts[r.status] !== undefined) counts[r.status]++; });
 
-  // Segmented progress bar
-  var barHtml = '';
-  STATUS_ORDER.forEach(function(s) {
-    if (counts[s] > 0) {
-      var pct = ((counts[s] / target) * 100).toFixed(1);
-      barHtml += '<div class="seg" style="width:'+pct+'%;background:'+STATUS_COLORS[s]+'" title="'+s+': '+counts[s]+'"></div>';
-    }
-  });
+  // Single fill bar showing overall progress
   var filled = 0;
   STATUS_ORDER.forEach(function(s) { filled += counts[s]; });
-  var emptyPct = (((target - filled) / target) * 100).toFixed(1);
-  barHtml += '<div class="seg" style="width:'+emptyPct+'%;background:var(--bg3)"></div>';
-  $progressBar.innerHTML = barHtml;
+  var fillPct = ((filled / target) * 100).toFixed(1);
+  if ($progressFill) $progressFill.style.width = fillPct + '%';
 
   // Status pills (with ALL filter)
   var pillsHtml = '';
@@ -821,11 +788,6 @@ function setSort(col) {
   render();
 }
 
-/* ── Column header sort binding ── */
-document.querySelectorAll('thead th[data-col]').forEach(function(th) {
-  th.addEventListener('click', function() { setSort(th.dataset.col); });
-});
-
 /* ── Expand / Collapse ── */
 function toggleExpand(id, idx) {
   if (expandedIds[id]) {
@@ -843,15 +805,6 @@ function scrollToRep(id) {
   var row = document.querySelector('tr[data-id="'+id+'"]');
   if (row) row.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-
-/* ── View toggle ── */
-function toggleViewMode() {
-  viewMode = viewMode === 'table' ? 'cards' : 'table';
-  $viewToggle.textContent = viewMode === 'table' ? 'CARDS' : 'TABLE';
-  $tableWrap.className = 'table-wrap ' + (viewMode === 'table' ? 'table-active' : 'cards-active');
-  $cardsView.className = 'cards-view ' + (viewMode === 'table' ? 'table-active' : 'cards-active');
-}
-$viewToggle.addEventListener('click', toggleViewMode);
 
 /* ── Helpers ── */
 function daysSince(val) {
