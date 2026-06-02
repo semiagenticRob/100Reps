@@ -657,22 +657,108 @@ function renderCardGrid(filtered) {
     var expandedRep2 = filtered.filter(function(r) { return r.id === expandedId; })[0];
     if (expandedRep2) loadTimeline(expandedRep2);
   }
+
+  // Expand field note previews on click within the detail panel
+  $cardGrid.querySelectorAll('.fn-preview').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var date = el.dataset.fnDate;
+      var entry = fieldNotes.filter(function(e) { return e.date === date; })[0];
+      if (!entry) return;
+      var $bodyEl = document.createElement('div');
+      $bodyEl.className = 'fn-body';
+      $bodyEl.innerHTML = entry.html; // sanitized server-side by build_journal.py
+      $bodyEl.querySelectorAll('a.wl-rep').forEach(function(a) {
+        a.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          var rid = parseInt(a.dataset.repId, 10);
+          if (!isNaN(rid)) scrollToRep(rid);
+        });
+      });
+      el.parentNode.replaceChild($bodyEl, el);
+    });
+  });
 }
 
-/* Placeholder \u2014 replaced in Task 5 */
 function buildDetailExpander(rep) {
-  return '<div class="detail-bridge">' +
+  var safeNext = sanitizeNextStep(rep.next_step);
+  var repNotes = fieldNotesForRep(rep.id);
+
+  // Thumb: cached image or avatar
+  var thumbHtml = imageCache[rep.id]
+    ? '<img class="dh-thumb" src="' + esc(imageCache[rep.id]) + '" alt="">'
+    : '<div class="dh-thumb-av av-' + rep.status + '">' +
+        esc(rep.name.charAt(0).toUpperCase()) + '</div>';
+
+  // Left column: summary, blocker, next step, links
+  var leftHtml = '';
+
+  leftHtml += '<div class="d-section"><div class="d-label">Summary</div>' +
+    '<div class="d-text">' + esc(rep.summary) + '</div></div>';
+
+  if (rep.blocker) {
+    leftHtml += '<div class="d-section"><div class="d-label">Blocker</div>' +
+      '<div class="d-blocker">' + esc(rep.blocker) + '</div></div>';
+  }
+
+  if (safeNext) {
+    leftHtml += '<div class="d-section"><div class="d-label">Next Step</div>' +
+      '<div class="d-next">&#8594; ' + esc(safeNext) + '</div></div>';
+  }
+
+  var linkEntries = buildLinkEntries(rep);
+  if (linkEntries.length > 0) {
+    leftHtml += '<div class="d-section"><div class="d-label">Links</div>' +
+      '<div class="link-chips">';
+    linkEntries.forEach(function(l) {
+      leftHtml += '<a class="link-chip" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+        l.svg + ' ' + esc(l.short) + '</a>';
+    });
+    leftHtml += '</div></div>';
+  }
+
+  // Right column: field notes, timeline
+  var rightHtml = '';
+
+  if (repNotes.length > 0) {
+    rightHtml += '<div class="d-section"><div class="d-label">Field Notes (' + repNotes.length + ')</div>';
+    repNotes.slice(0, 5).forEach(function(en) {
+      rightHtml += '<div class="fn-entry">' +
+        '<div class="fn-date">' + esc(en.date) + '</div>' +
+        '<div class="fn-preview" data-fn-date="' + esc(en.date) + '">' +
+          esc(en.preview || '') + '</div>' +
+      '</div>';
+    });
+    if (repNotes.length > 5) {
+      rightHtml += '<div style="color:var(--text-3);font-size:11px">+ ' +
+        (repNotes.length - 5) + ' older entries</div>';
+    }
+    rightHtml += '</div>';
+  }
+
+  var timelineContainerId = 'tl-' + rep.id;
+  rightHtml += '<div class="d-section"><div class="d-label">Timeline</div>' +
+    '<div class="timeline-full" id="' + timelineContainerId + '">' +
+      '<div class="timeline-loading">Loading history&hellip;</div>' +
+    '</div></div>';
+
+  return '<div class="detail-bridge" data-expander="' + rep.id + '">' +
     '<div class="detail-header">' +
-      '<div class="dh-thumb-av av-' + rep.status + '">' + esc(rep.name.charAt(0).toUpperCase()) + '</div>' +
-      '<div><div class="dh-name">' + esc(rep.name) + '</div>' +
+      thumbHtml +
+      '<div>' +
+        '<div class="dh-name">' + esc(rep.name) + '</div>' +
         '<div class="dh-meta">Rep ' + String(rep.id).padStart(3,'0') +
           (rep.pita ? ' &middot; PITA ' + rep.pita : '') +
-          (rep.last_action ? ' &middot; Last: ' + esc(formatDate(rep.last_action)) : '') +
-        '</div></div>' +
-      '<span class="rc-tag tag-' + rep.status + ' dh-tag">' + STATUS_ICONS[rep.status] + ' ' + rep.status + '</span>' +
+          (rep.last_action ? ' &middot; Last action: ' + esc(formatDate(rep.last_action)) : '') +
+        '</div>' +
+      '</div>' +
+      '<span class="rc-tag tag-' + rep.status + ' dh-tag">' +
+        STATUS_ICONS[rep.status] + ' ' + rep.status + '</span>' +
       '<button class="dh-close" title="Close">&times;</button>' +
     '</div>' +
-    '<div style="padding:16px 20px;color:var(--text-3);font-size:12px">Detail panel coming in Task 5&hellip;</div>' +
+    '<div class="detail-body">' +
+      '<div class="detail-col">' + leftHtml + '</div>' +
+      '<div class="detail-col">' + rightHtml + '</div>' +
+    '</div>' +
   '</div>';
 }
 
@@ -682,13 +768,8 @@ var timelineExpandedIds = {};
 function loadTimeline(rep) {
   fetchGitHistory(rep).then(function(gitCommits) {
     var merged = mergeTimelines(rep.timeline, gitCommits);
-    var containers = [
-      document.getElementById('timeline-' + rep.id),
-      document.getElementById('card-timeline-' + rep.id)
-    ];
-    containers.forEach(function(el) {
-      if (el) renderTimelineEntries(el, merged, rep.id);
-    });
+    var el = document.getElementById('tl-' + rep.id);
+    if (el) renderTimelineEntries(el, merged, rep.id);
   });
 }
 
