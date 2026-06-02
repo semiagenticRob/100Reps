@@ -327,13 +327,14 @@ var currentSort = 'status';
 var sortAsc = true;
 var searchTerm = '';
 var selectedIdx = -1;
-var expandedIds = {};
+var expandedId = null;
 var timelineSvgCache = {};
 var gitCommitCache = {}; // keyed by rep id, stores fetched commit arrays
 
 /* ── DOM refs ── */
 var $body = null; // tableBody removed — renderTable is a no-op until Task 3
 var $cardsView = null; // cardsView removed — renderCards is a no-op until Task 3
+var $cardGrid = document.getElementById('cardGrid');
 var $counts = document.getElementById('statusCounts');
 var $search = document.getElementById('searchInput');
 var $countLabel = document.getElementById('countLabel');
@@ -477,8 +478,7 @@ function simpleHash(str) {
 function render() {
   var filtered = getFilteredSorted();
   renderHeader();
-  renderTable(filtered);
-  renderCards(filtered);
+  renderCardGrid(filtered);
   updateTimestamp();
 }
 
@@ -513,148 +513,117 @@ function renderHeader() {
 }
 
 
-function renderTable(filtered) {
-  if (!$body) return;
+/* \u2500\u2500 Avatar color helper \u2500\u2500 */
+var AVATAR_GRADIENT = {
+  idea:'linear-gradient(135deg,#4f46e5,#a5b4fc)',
+  assessed:'linear-gradient(135deg,#6b7280,#9ca3af)',
+  building:'linear-gradient(135deg,#d97706,#fbbf24)',
+  live:'linear-gradient(135deg,#059669,#34d399)',
+  pmf:'linear-gradient(135deg,#7e22ce,#c084fc)',
+  dead:'linear-gradient(135deg,#9ca3af,#d1d5db)'
+};
+
+function buildCardHtml(rep, idx) {
+  var isDead = rep.status === 'dead';
+  var staleDays = daysSince(rep.last_action);
+  var isSelected = rep.id === expandedId;
+  var isSelectedIdx = selectedIdx === idx;
+
+  var cardClass = 'rep-card' +
+    (isDead ? ' dead-card' : '') +
+    (isSelected ? ' selected' : '') +
+    (isSelectedIdx && !isSelected ? ' selected' : '');
+
+  var safeNext = sanitizeNextStep(rep.next_step);
+  var staleHtml = (!isDead && staleDays > 14)
+    ? '<span class="rc-stale">' + staleDays + 'd</span>'
+    : '';
+
+  // Image area: letter avatar (Task 4 adds real images)
+  var imgHtml = '<div class="rc-avatar av-' + rep.status + '">' +
+    esc(rep.name.charAt(0).toUpperCase()) + '</div>';
+
+  var nextHtml = safeNext
+    ? '<div class="rc-next"><span style="flex-shrink:0;opacity:.6">&#8594;</span> ' + truncate(safeNext, 60) + '</div>'
+    : '';
+
+  return '<div class="' + cardClass + '" data-id="' + rep.id + '" data-idx="' + idx + '">' +
+    imgHtml +
+    '<div class="rc-body">' +
+      '<div class="rc-meta">' +
+        '<span class="rc-id">Rep ' + String(rep.id).padStart(3,'0') + '</span>' +
+        '<span class="rc-tag tag-' + rep.status + '">' +
+          STATUS_ICONS[rep.status] + ' ' + rep.status + '</span>' +
+      '</div>' +
+      '<div class="rc-name">' + esc(rep.name) + staleHtml + '</div>' +
+      '<div class="rc-summary">' + truncate(rep.summary, 80) + '</div>' +
+      nextHtml +
+    '</div>' +
+  '</div>';
+}
+
+function renderCardGrid(filtered) {
+  var cols = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
   var html = '';
   filtered.forEach(function(rep, idx) {
-    var isDead = rep.status === 'dead';
-    var staleDays = daysSince(rep.last_action);
-    var rowClass = '';
-    if (isDead) rowClass += ' dead-row';
-    if (!isDead && staleDays > 30) rowClass += ' stale-30';
-    else if (!isDead && staleDays > 14) rowClass += ' stale-14';
-    if (selectedIdx === idx) rowClass += ' selected';
-
-    var staleLabel = (!isDead && staleDays > 14) ? '<span class="stale-badge">'+staleDays+'d</span>' : '';
-    var safeNext = sanitizeNextStep(rep.next_step);
-
-    html += '<tr class="'+rowClass.trim()+'" data-id="'+rep.id+'" data-idx="'+idx+'">';
-    html += '<td class="id-cell">'+String(rep.id).padStart(3,'0')+'</td>';
-    html += '<td class="name-cell">'+esc(rep.name)+'</td>';
-    html += '<td>'+renderLinksCell(rep)+'</td>';
-    html += '<td><span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+STATUS_ICONS[rep.status]+' '+rep.status.toUpperCase()+'</span></td>';
-    var pc = pitaColor(rep.pita);
-    html += '<td class="pita-cell">'+(rep.pita ? '<span class="pita-badge" style="background:'+pc+'22;color:'+pc+'">'+rep.pita+'</span>' : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
-    html += '<td class="summary-cell" title="'+esc(rep.summary)+'">'+truncate(rep.summary, 90)+'</td>';
-    html += '<td class="next-cell" title="'+esc(safeNext)+'">'+( safeNext ? truncate(safeNext, 55) : '<span style="color:var(--dim)">\u2014</span>')+'</td>';
-    html += '<td>'+(rep.last_action ? formatDate(rep.last_action) : '\u2014')+staleLabel+'</td>';
-    html += '</tr>';
-
-    // Detail row
-    var isOpen = !!expandedIds[rep.id];
-    html += '<tr class="detail-row'+(isOpen?' open':'')+'" data-detail="'+rep.id+'"><td colspan="8">';
-    html += '<div class="detail-content">';
-    html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
-    if (rep.blocker) {
-      html += '<div class="detail-section"><div class="detail-label">Blocker</div><div class="detail-text detail-blocker">'+esc(rep.blocker)+'</div></div>';
-    }
-    if (safeNext) {
-      html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(safeNext)+'</div></div>';
-    }
-    var repNotes = fieldNotesForRep(rep.id);
-    if (repNotes.length > 0) {
-      html += '<div class="detail-section"><div class="detail-label">Field Notes ('+repNotes.length+')</div><div class="detail-text">';
-      repNotes.slice(0, 5).forEach(function(en) {
-        html += '<div style="margin-bottom:6px"><span style="color:var(--green);font-weight:700;font-size:11px">'+esc(en.date)+'</span> <span style="color:var(--text)">'+esc(en.preview || '')+'</span></div>';
+    html += buildCardHtml(rep, idx);
+    var isLastInRow = (idx % cols === cols - 1) || (idx === filtered.length - 1);
+    if (isLastInRow && expandedId !== null) {
+      var rowStart = idx - (idx % cols);
+      var inThisRow = filtered.slice(rowStart, idx + 1).some(function(r) {
+        return r.id === expandedId;
       });
-      if (repNotes.length > 5) {
-        html += '<div style="color:var(--dim);font-size:11px">+ '+(repNotes.length-5)+' older entries</div>';
+      if (inThisRow) {
+        var expandedRep = filtered.filter(function(r) { return r.id === expandedId; })[0];
+        if (expandedRep) html += buildDetailExpander(expandedRep);
       }
-      html += '</div></div>';
     }
-    html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="timeline-'+rep.id+'">';
-    if (rep.repo || rep.timeline.length > 0) {
-      html += '<div class="timeline-loading">Loading history\u2026</div>';
-    } else {
-      html += '<div class="timeline-loading">No history available</div>';
-    }
-    html += '</div></div>';
-    var linkEntries = buildLinkEntries(rep);
-    if (linkEntries.length > 0) {
-      html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
-      linkEntries.forEach(function(l) {
-        html += '<a class="detail-link" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
-      });
-      html += '</div></div>';
-    }
-    html += '</div></td></tr>';
   });
+  $cardGrid.innerHTML = html;
 
-  $body.innerHTML = html;
-
-  // Bind row click events
-  $body.querySelectorAll('tr[data-id]').forEach(function(tr) {
-    if (tr.classList.contains('detail-row')) return;
-    tr.addEventListener('click', function(e) {
-      if (e.target.closest('a') || e.target.closest('.timeline-show-more')) return;
-      var id = parseInt(tr.dataset.id);
-      var idx = parseInt(tr.dataset.idx);
+  // Bind card click events
+  $cardGrid.querySelectorAll('.rep-card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('a') || e.target.closest('.timeline-show-more') ||
+          e.target.closest('.dh-close')) return;
+      var id = parseInt(card.dataset.id);
+      var idx = parseInt(card.dataset.idx);
       toggleExpand(id, idx);
     });
   });
 
-  // Load timelines for expanded rows
-  filtered.forEach(function(rep) {
-    if (expandedIds[rep.id]) loadTimeline(rep);
-  });
+  // Wire close button in expander
+  var closeBtn = $cardGrid.querySelector('.dh-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      expandedId = null;
+      render();
+    });
+  }
+
+  // Load timeline for expanded rep
+  if (expandedId !== null) {
+    var expandedRep2 = filtered.filter(function(r) { return r.id === expandedId; })[0];
+    if (expandedRep2) loadTimeline(expandedRep2);
+  }
 }
 
-function renderCards(filtered) {
-  if (!$cardsView) return;
-  var html = '';
-  filtered.forEach(function(rep) {
-    var isDead = rep.status === 'dead';
-    var staleDays = daysSince(rep.last_action);
-    var isOpen = !!expandedIds[rep.id];
-
-    html += '<div class="card'+(isDead?' dead-row':'')+'" data-id="'+rep.id+'">';
-    html += '<div class="card-header"><span class="card-id">#'+String(rep.id).padStart(3,'0')+'</span>';
-    html += '<span class="status-badge" style="background:'+STATUS_COLORS[rep.status]+'22;color:'+STATUS_COLORS[rep.status]+'">'+rep.status.toUpperCase()+'</span>';
-    if (rep.pita) { var cpc = pitaColor(rep.pita); html += ' <span class="pita-badge" style="background:'+cpc+'22;color:'+cpc+'">PITA:'+rep.pita+'</span>'; }
-    html += '</div>';
-    html += '<div class="card-name">'+esc(rep.name)+'</div>';
-    html += '<div class="card-summary">'+truncate(rep.summary, 80)+'</div>';
-    html += '<div class="card-footer">';
-    if (rep.last_action) html += '<span>Last: '+esc(formatDate(rep.last_action))+'</span>';
-    if (!isDead && staleDays > 14) html += '<span style="color:var(--amber)">'+staleDays+'d stale</span>';
-    html += '</div>';
-
-    var cardSafeNext = sanitizeNextStep(rep.next_step);
-    html += '<div class="card-detail'+(isOpen?' open':'')+'">';
-    html += '<div class="detail-section"><div class="detail-label">Summary</div><div class="detail-text">'+esc(rep.summary)+'</div></div>';
-    if (rep.blocker) html += '<div class="detail-section"><div class="detail-label">Blocker</div><div class="detail-text detail-blocker">'+esc(rep.blocker)+'</div></div>';
-    if (cardSafeNext) html += '<div class="detail-section"><div class="detail-label">Next Step</div><div class="detail-text">'+esc(cardSafeNext)+'</div></div>';
-    html += '<div class="detail-section"><div class="detail-label">Timeline</div><div class="timeline-full" id="card-timeline-'+rep.id+'">';
-    if (rep.repo || rep.timeline.length > 0) {
-      html += '<div class="timeline-loading">Loading history\u2026</div>';
-    } else {
-      html += '<div class="timeline-loading">No history available</div>';
-    }
-    html += '</div></div>';
-    var linkEntries = buildLinkEntries(rep);
-    if (linkEntries.length > 0) {
-      html += '<div class="detail-section"><div class="detail-label">Links</div><div class="detail-links">';
-      linkEntries.forEach(function(l) {
-        html += '<a class="detail-link" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+l.svg+' '+esc(l.short)+'</a>';
-      });
-      html += '</div></div>';
-    }
-    html += '</div></div>';
-  });
-  $cardsView.innerHTML = html;
-
-  // Bind card clicks
-  $cardsView.querySelectorAll('.card').forEach(function(card) {
-    card.addEventListener('click', function(e) {
-      if (e.target.closest('a') || e.target.closest('.timeline-show-more')) return;
-      toggleExpand(parseInt(card.dataset.id));
-    });
-  });
-
-  // Load timelines for expanded cards
-  filtered.forEach(function(rep) {
-    if (expandedIds[rep.id]) loadTimeline(rep);
-  });
+/* Placeholder \u2014 replaced in Task 5 */
+function buildDetailExpander(rep) {
+  return '<div class="detail-bridge">' +
+    '<div class="detail-header">' +
+      '<div class="dh-thumb-av av-' + rep.status + '">' + esc(rep.name.charAt(0).toUpperCase()) + '</div>' +
+      '<div><div class="dh-name">' + esc(rep.name) + '</div>' +
+        '<div class="dh-meta">Rep ' + String(rep.id).padStart(3,'0') +
+          (rep.pita ? ' &middot; PITA ' + rep.pita : '') +
+          (rep.last_action ? ' &middot; Last: ' + esc(formatDate(rep.last_action)) : '') +
+        '</div></div>' +
+      '<span class="rc-tag tag-' + rep.status + ' dh-tag">' + STATUS_ICONS[rep.status] + ' ' + rep.status + '</span>' +
+      '<button class="dh-close" title="Close">&times;</button>' +
+    '</div>' +
+    '<div style="padding:16px 20px;color:var(--text-3);font-size:12px">Detail panel coming in Task 5&hellip;</div>' +
+  '</div>';
 }
 
 var TIMELINE_INITIAL = 10;
@@ -792,20 +761,16 @@ function setSort(col) {
 
 /* ── Expand / Collapse ── */
 function toggleExpand(id, idx) {
-  if (expandedIds[id]) {
-    delete expandedIds[id];
-  } else {
-    expandedIds[id] = true;
-  }
+  expandedId = (expandedId === id) ? null : id;
   if (idx !== undefined) selectedIdx = idx;
   render();
 }
 
 function scrollToRep(id) {
-  expandedIds[id] = true;
+  expandedId = id;
   render();
-  var row = document.querySelector('tr[data-id="'+id+'"]');
-  if (row) row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  var card = $cardGrid.querySelector('.rep-card[data-id="' + id + '"]');
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 /* ── Helpers ── */
@@ -856,7 +821,8 @@ document.addEventListener('keydown', function(e) {
         $search.value = '';
         render();
       } else {
-        expandedIds = {};
+        expandedId = null;
+        selectedIdx = -1;
         render();
       }
       break;
@@ -872,7 +838,7 @@ document.addEventListener('keydown', function(e) {
       if (selectedIdx < filtered.length - 1) {
         selectedIdx++;
         render();
-        var sel = document.querySelector('tr.selected');
+        var sel = $cardGrid.querySelector('.rep-card.selected');
         if (sel) sel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       break;
@@ -882,7 +848,7 @@ document.addEventListener('keydown', function(e) {
       if (selectedIdx > 0) {
         selectedIdx--;
         render();
-        var sel2 = document.querySelector('tr.selected');
+        var sel2 = $cardGrid.querySelector('.rep-card.selected');
         if (sel2) sel2.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       break;
