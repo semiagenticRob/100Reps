@@ -359,7 +359,7 @@ function buildImageHtml(rep) {
   if (imageCache[rep.id] === null) return avatarHtml;
   if (imageCache[rep.id]) {
     return '<img class="rc-image" src="' + esc(imageCache[rep.id]) + '" alt="" ' +
-      'onerror="window.__imgFallback(' + rep.id + ',this,\'' + rep.status + '\',\'' + initial + '\')">';
+      'data-rep-id="' + rep.id + '" data-rep-status="' + esc(rep.status) + '" data-initial="' + esc(initial) + '">';
   }
 
   // No image field and no repo → avatar immediately
@@ -377,8 +377,7 @@ function buildImageHtml(rep) {
   window.__imgCandidates[rep.id] = candidates.slice(1);
 
   return '<img class="rc-image" src="' + esc(candidates[0]) + '" alt="" ' +
-    'onerror="window.__imgNext(' + rep.id + ',0,this,\'' + rep.status + '\',\'' + initial + '\')" ' +
-    'onload="window.__imgDone(' + rep.id + ',this.src)">';
+    'data-rep-id="' + rep.id + '" data-rep-status="' + esc(rep.status) + '" data-initial="' + esc(initial) + '">';
 }
 
 /* ── DOM refs ── */
@@ -618,6 +617,19 @@ function renderCardGrid(filtered) {
     }
   });
   $cardGrid.innerHTML = html;
+
+  // Wire image fallback chain imperatively (avoids inline onerror/onload attributes)
+  $cardGrid.querySelectorAll('img.rc-image[data-rep-id]').forEach(function(img) {
+    var repId = parseInt(img.dataset.repId, 10);
+    var status = img.dataset.repStatus;
+    var initial = img.dataset.initial;
+    img.addEventListener('error', function() {
+      window.__imgNext(repId, 0, img, status, initial);
+    });
+    img.addEventListener('load', function() {
+      window.__imgDone(repId, img.src);
+    });
+  });
 
   // Bind card click events
   $cardGrid.querySelectorAll('.rep-card').forEach(function(card) {
