@@ -500,20 +500,21 @@ function renderHeader() {
   // Status pills (with ALL filter)
   var pillsHtml = '';
   var allActive = currentFilter === 'all';
-  pillsHtml += '<span class="status-pill'+(allActive?' active':'')+'" style="background:var(--bg3);color:var(--text);border-color:'+(allActive?'#fff':'transparent')+'" data-status="all">ALL: '+total+'</span>';
+  pillsHtml += '<span class="filter-pill'+(allActive?' active':'')+'" style="background:var(--bg3);color:var(--text);border-color:'+(allActive?'#fff':'transparent')+'" data-status="all">ALL: '+total+'</span>';
   STATUS_ORDER.forEach(function(s) {
     var isActive = currentFilter === s;
-    pillsHtml += '<span class="status-pill'+(isActive?' active':'')+'" style="background:'+STATUS_COLORS[s]+'22;color:'+STATUS_COLORS[s]+';border-color:'+(isActive?STATUS_COLORS[s]:'transparent')+'" data-status="'+s+'">'+s.toUpperCase()+': '+counts[s]+'</span>';
+    pillsHtml += '<span class="filter-pill'+(isActive?' active':'')+'" style="background:'+STATUS_COLORS[s]+'22;color:'+STATUS_COLORS[s]+';border-color:'+(isActive?STATUS_COLORS[s]:'transparent')+'" data-status="'+s+'">'+s.toUpperCase()+': '+counts[s]+'</span>';
   });
   $counts.innerHTML = pillsHtml;
   // Bind pill clicks
-  $counts.querySelectorAll('.status-pill').forEach(function(el) {
+  $counts.querySelectorAll('.filter-pill').forEach(function(el) {
     el.addEventListener('click', function() { setFilter(el.dataset.status); });
   });
 }
 
 
 function renderTable(filtered) {
+  if (!$body) return;
   var html = '';
   filtered.forEach(function(rep, idx) {
     var isDead = rep.status === 'dead';
@@ -599,6 +600,7 @@ function renderTable(filtered) {
 }
 
 function renderCards(filtered) {
+  if (!$cardsView) return;
   var html = '';
   filtered.forEach(function(rep) {
     var isDead = rep.status === 'dead';
