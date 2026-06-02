@@ -42,6 +42,9 @@ Every rep entry MUST have these fields in this exact order:
 These fields are OPTIONAL and appear after `repo` when present:
 
 ```yaml
+    image:       # string or null — URL or relative path to a logo/screenshot image
+                 # e.g. "docs/images/002.jpg" or "https://example.com/logo.png"
+                 # Omit if no image. Falls back to GitHub repo logo lookup then letter avatar.
     links:       # map of asset URLs (only public-facing properties)
       website:   # URL or null
       app_store: # URL or null
@@ -100,35 +103,37 @@ These fields are OPTIONAL and appear after `repo` when present:
     
     Omit the entire `timeline` block if there are no milestones. Do not include empty arrays (`timeline: []`).
 
+12. **image** — Optional. A URL or relative path (`docs/images/NNN.{ext}`) pointing to a logo or screenshot for this rep. Displayed as the card image on the dashboard. When absent, the dashboard first checks for common logo filenames in the `repo` (e.g., `logo.png`), then falls back to a letter avatar. Omit the field entirely if no image is available. Store screenshots in `docs/images/` using the rep ID as the filename.
+
 ### Formatting Rules
 
-12. **Indentation** — 2 spaces. No tabs. Every field indented 4 spaces from the left margin (nested under the `- id:` list item).
+13. **Indentation** — 2 spaces. No tabs. Every field indented 4 spaces from the left margin (nested under the `- id:` list item).
 
-13. **Quoting** — String values do NOT need quotes unless they contain special YAML characters (`: { } [ ] , & * # ? | - < > = ! % @`). Timeline `event` values should always be quoted.
+14. **Quoting** — String values do NOT need quotes unless they contain special YAML characters (`: { } [ ] , & * # ? | - < > = ! % @`). Timeline `event` values should always be quoted.
 
-14. **Null values** — Use the literal `null`, not empty string, not `~`, not omission.
+15. **Null values** — Use the literal `null`, not empty string, not `~`, not omission.
 
-15. **Dates** — Always `YYYY-MM-DD`. Bare dates without quotes. YAML parsers (including js-yaml) auto-parse these as Date objects. Never use datetime formats like `2026-04-08T00:00:00Z`.
+16. **Dates** — Always `YYYY-MM-DD`. Bare dates without quotes. YAML parsers (including js-yaml) auto-parse these as Date objects. Never use datetime formats like `2026-04-08T00:00:00Z`.
 
-16. **Field order** — Maintain the exact field order shown in the schema above. The dashboard doesn't depend on order, but consistency prevents merge conflicts and keeps diffs clean.
+17. **Field order** — Maintain the exact field order shown in the schema above. The dashboard doesn't depend on order, but consistency prevents merge conflicts and keeps diffs clean.
 
-17. **Blank lines** — One blank line between rep entries. No blank lines within a rep entry.
+18. **Blank lines** — One blank line between rep entries. No blank lines within a rep entry.
 
-18. **No trailing whitespace** or trailing newlines beyond one final newline at EOF.
+19. **No trailing whitespace** or trailing newlines beyond one final newline at EOF.
 
 ### Operational Rules
 
-19. **Adding a rep** — Append to the end of the `reps` array. Assign `id = max(existing ids) + 1`. Increment `meta.total`. Include all required fields.
+20. **Adding a rep** — Append to the end of the `reps` array. Assign `id = max(existing ids) + 1`. Increment `meta.total`. Include all required fields.
 
-20. **Removing a rep** — Set `status: dead` instead of deleting. Decrement `meta.total` only if you truly delete the entry (not recommended). Dead reps are dimmed on the dashboard and preserved for history.
+21. **Removing a rep** — Set `status: dead` instead of deleting. Decrement `meta.total` only if you truly delete the entry (not recommended). Dead reps are dimmed on the dashboard and preserved for history.
 
-21. **Updating a rep** — Change only the fields that need updating. Always update `last_action` to today's date when making any change.
+22. **Updating a rep** — Change only the fields that need updating. Always update `last_action` to today's date when making any change.
 
-22. **Do not rename or add top-level keys** — The only valid top-level keys are `meta` and `reps`. Adding others will not break the parser but creates drift.
+23. **Do not rename or add top-level keys** — The only valid top-level keys are `meta` and `reps`. Adding others will not break the parser but creates drift.
 
-23. **Do not add new fields to a rep** — The dashboard ignores unknown fields, but they add noise and may cause confusion. If a new field is needed, coordinate with the dashboard code in `docs/index.html` first.
+24. **Do not add new fields to a rep** — The dashboard ignores unknown fields, but they add noise and may cause confusion. If a new field is needed, coordinate with the dashboard code in `docs/index.html` first.
 
-24. **Validate before committing** — Run `npx js-yaml reps.yaml > /dev/null` or equivalent to confirm the file is valid YAML. A syntax error here takes the entire dashboard offline.
+25. **Validate before committing** — Run `npx js-yaml reps.yaml > /dev/null` or equivalent to confirm the file is valid YAML. A syntax error here takes the entire dashboard offline.
 
 ---
 
