@@ -625,18 +625,16 @@ function renderCardGrid(filtered) {
   });
   $cardGrid.innerHTML = html;
 
-  // Wire image fallback chain imperatively, then set src AFTER listener attachment
-  // to avoid the race condition where error fires before the listener is registered.
+  // Wire image fallback chain via onerror/onload property (not addEventListener).
+  // __imgNext reassigns img.onerror on each failure; addEventListener would
+  // permanently re-trigger idx=0 and fight the chain, causing an infinite loop.
+  // Set src last so the handler is in place before the first request fires.
   $cardGrid.querySelectorAll('img.rc-image[data-rep-id]').forEach(function(img) {
     var repId = parseInt(img.dataset.repId, 10);
     var status = img.dataset.repStatus;
     var initial = img.dataset.initial;
-    img.addEventListener('error', function() {
-      window.__imgNext(repId, 0, img, status, initial);
-    });
-    img.addEventListener('load', function() {
-      window.__imgDone(repId, img.src);
-    });
+    img.onerror = function() { window.__imgNext(repId, 0, img, status, initial); };
+    img.onload  = function() { window.__imgDone(repId, img.src); };
     if (img.dataset.src) img.src = img.dataset.src;
   });
 

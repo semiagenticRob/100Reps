@@ -42,8 +42,8 @@ Every rep entry MUST have these fields in this exact order:
 These fields are OPTIONAL and appear after `repo` when present:
 
 ```yaml
-    image:       # string or null — URL or relative path to a logo/screenshot image
-                 # e.g. "docs/images/002.jpg" or "https://example.com/logo.png"
+    image:       # string or null — URL or path relative to docs/ for a logo/screenshot
+                 # e.g. "images/002.jpg" (stored in docs/images/) or "https://example.com/logo.png"
                  # Omit if no image. Falls back to GitHub repo logo lookup then letter avatar.
     links:       # map of asset URLs (only public-facing properties)
       website:   # URL or null
@@ -103,7 +103,7 @@ These fields are OPTIONAL and appear after `repo` when present:
     
     Omit the entire `timeline` block if there are no milestones. Do not include empty arrays (`timeline: []`).
 
-12. **image** — Optional. A URL or relative path (`docs/images/NNN.{ext}`) pointing to a logo or screenshot for this rep. Displayed as the card image on the dashboard. When absent, the dashboard first checks for common logo filenames in the `repo` (e.g., `logo.png`), then falls back to a letter avatar. Omit the field entirely if no image is available. Store screenshots in `docs/images/` using the rep ID as the filename.
+12. **image** — Optional. A URL or a path relative to `docs/` (e.g. `images/NNN.png`) pointing to a logo or screenshot for this rep. Displayed as the card image on the dashboard. When absent, the dashboard first checks for common logo filenames in the `repo` (e.g., `logo.png`), then falls back to a letter avatar. Omit the field entirely if no image is available. Store image files in `docs/images/` using the rep ID as the filename.
 
 ### Formatting Rules
 
