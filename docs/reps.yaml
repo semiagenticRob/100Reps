@@ -523,19 +523,21 @@ reps:
 
   - id: 24
     name: Day Trip Planner
-    status: building
+    status: live
     pita: 3
     summary: "Set a travel home base and plan day trips or overnights from that location. Destination discovery, distance/drive-time filtering, and itinerary building radiating from a chosen base."
-    next_step: "Continue building the Day Trip Planner."
+    next_step: "Drive early user feedback and promote organically."
     due: null
     blocker: null
-    last_action: 2026-05-30
+    last_action: 2026-06-02
     repo: semiagenticRob/day-trip-planner
     timeline:
       - date: 2026-05-29
         event: "Rep conceived — home base + day trip/overnight planning tool. Repo created at github.com/semiagenticRob/day-trip-planner."
       - date: 2026-05-30
         event: "Moved to building — Rob is actively building."
+      - date: 2026-06-02
+        event: "Status → live."
 
   - id: 25
     name: KaufCare Boots on the Ground Support
