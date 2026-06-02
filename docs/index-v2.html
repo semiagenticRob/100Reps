@@ -239,7 +239,7 @@ a:hover{text-decoration:underline}
 <div class="filter-row" id="filterRow">
   <div id="statusCounts" style="display:contents"></div>
   <div class="search-wrap">
-    <label>Search</label>
+    <label for="searchInput">Search</label>
     <input type="text" id="searchInput" class="search-input" placeholder="Filter reps…" autocomplete="off">
   </div>
 </div>
@@ -261,7 +261,7 @@ a:hover{text-decoration:underline}
       <div class="journal-title">Field Notes <span id="journalStaleDot" class="journal-stale-dot" style="display:none" title="No entry in &gt;3 days"></span></div>
       <button class="journal-toggle" id="journalToggle" title="Collapse panel">&laquo;</button>
       <div class="journal-tabs">
-        <a class="journal-tab active" href="#">Notes</a>
+        <a class="journal-tab active" href="#" aria-current="page">Notes</a>
         <a class="journal-tab" href="lessons.html">Lessons &rarr;</a>
       </div>
     </div>
@@ -540,22 +540,33 @@ function renderHeader() {
   STATUS_ORDER.forEach(function(s) { counts[s] = 0; });
   reps.forEach(function(r) { if (counts[r.status] !== undefined) counts[r.status]++; });
 
-  // Single fill bar showing overall progress
+  // Progress fill
   var filled = 0;
   STATUS_ORDER.forEach(function(s) { filled += counts[s]; });
-  var fillPct = ((filled / target) * 100).toFixed(1);
-  if ($progressFill) $progressFill.style.width = fillPct + '%';
+  if ($progressFill) $progressFill.style.width = ((filled / target) * 100).toFixed(1) + '%';
 
-  // Status pills (with ALL filter)
+  // Filter pills
+  var STATUS_PILL_COLORS = {
+    idea:'#ede9fe|#6d28d9', assessed:'#f3f4f6|#374151',
+    building:'#fef9c3|#92400e', live:'#d1fae5|#065f46',
+    pmf:'#fae8ff|#7e22ce', dead:'#f3f4f6|#9ca3af'
+  };
   var pillsHtml = '';
   var allActive = currentFilter === 'all';
-  pillsHtml += '<span class="filter-pill'+(allActive?' active':'')+'" style="background:var(--bg3);color:var(--text);border-color:'+(allActive?'#fff':'transparent')+'" data-status="all">ALL: '+total+'</span>';
+  pillsHtml += '<button class="filter-pill' + (allActive ? ' active' : '') + '" data-status="all">' +
+    'All ' + total + '</button>';
   STATUS_ORDER.forEach(function(s) {
+    if (counts[s] === 0) return;
     var isActive = currentFilter === s;
-    pillsHtml += '<span class="filter-pill'+(isActive?' active':'')+'" style="background:'+STATUS_COLORS[s]+'22;color:'+STATUS_COLORS[s]+';border-color:'+(isActive?STATUS_COLORS[s]:'transparent')+'" data-status="'+s+'">'+s.toUpperCase()+': '+counts[s]+'</span>';
+    var colors = (STATUS_PILL_COLORS[s] || '#f3f4f6|#374151').split('|');
+    var style = isActive ? '' :
+      'background:' + colors[0] + ';color:' + colors[1];
+    pillsHtml += '<button class="filter-pill' + (isActive ? ' active' : '') + '" ' +
+      'style="' + style + '" data-status="' + s + '">' +
+      STATUS_ICONS[s] + ' ' + s.charAt(0).toUpperCase() + s.slice(1) + ' ' + counts[s] +
+      '</button>';
   });
   $counts.innerHTML = pillsHtml;
-  // Bind pill clicks
   $counts.querySelectorAll('.filter-pill').forEach(function(el) {
     el.addEventListener('click', function() { setFilter(el.dataset.status); });
   });
