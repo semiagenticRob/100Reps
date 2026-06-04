@@ -9,10 +9,10 @@
 | # | Project | Next Step |
 |---|---------|-----------|
 | 002 | [Estate Sale Helper](https://github.com/semiagenticRob/estate-sale-helper) | Launch promotion campaign |
-| 011 | [myvoiceprofile.com](https://github.com/semiagenticRob/myvoiceprofile) | First real customer order |
+| 011 | [myvoiceprofile.com](https://myvoiceprofile.com) | Drive traffic and convert first paying customers |
 | 013 | [Eyes on Arvada](https://eyes-on-arvada.beehiiv.com) | Grow subscriber base organically |
-| 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 | 015 | [Hodl For What](https://github.com/semiagenticRob/hodlforwhat) | Polish UX and frontend |
+| 016 | [Stock Up Dinners](https://github.com/semiagenticRob/stock-up-dinners) | Organic distribution — Facebook groups, Reddit, Pinterest |
 | 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
 | 023 | [Multi-Agent Orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator) | Run all new reps through the orchestrator |
 | 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Drive early user feedback and promote organically |
@@ -39,7 +39,6 @@
 | # | Project | Description |
 |---|---------|-------------|
 | 004 | Runtime | |
-| 007 | WritersRoom.ai | |
 | 008 | Declutter Truck | |
 | 010 | AI Diary | |
 | 020 | [Near Me Mail](reps/020-near-me-mail.md) | EDDM co-op postcard + local marketing services upsell |
@@ -51,7 +50,9 @@
 |---|---------|
 | 001 | Pipe Acquisition |
 | 003 | Stack Tracker |
+| 007 | WritersRoom.ai |
 | 012 | STR Accountable |
+| 017 | Solar Miner |
 | 018 | Stupid Simple Agentic CRM |
 
 ---

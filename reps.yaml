@@ -165,15 +165,17 @@ reps:
 
   - id: 7
     name: "WritersRoom.ai"
-    status: idea
+    status: dead
     pita: 7
     summary: "Transcript-to-content-stack service. AI production, human account manager final pass."
     next_step: null
     due: null
     blocker: null
-    last_action: 2026-03-23
+    last_action: 2026-06-04
     repo: null
-    image: images/007.png
+    timeline:
+      - date: 2026-06-04
+        event: "Killed — Rob elected to remove."
 
   - id: 8
     name: "Declutter Truck"
@@ -219,14 +221,15 @@ reps:
 
   - id: 11
     name: "myvoiceprofile.com"
-    status: dead
+    status: live
     pita: 6
     summary: "Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment. Pricing $9.99 Starter / $14.99 Pro."
-    next_step: null
+    next_step: Drive traffic and convert first paying customers.
     due: null
     blocker: null
-    last_action: 2026-04-24
+    last_action: 2026-06-04
     repo: semiagenticRob/myvoiceprofile
+    image: images/011.png
     links:
       website: https://myvoiceprofile.com
     timeline:
@@ -246,6 +249,8 @@ reps:
         event: "CEO Agent: Customer sourcing guide authored — where to find newsletter writers, blog writers, and grant writers across Substack, LinkedIn, Reddit, and specialized communities. Saved to docs/customer-sourcing-guide.md."
       - date: 2026-04-24
         event: "Killed — Rob elected to remove."
+      - date: 2026-06-04
+        event: "Revived — status moved back to live."
 
   - id: 12
     name: "STR Accountable"

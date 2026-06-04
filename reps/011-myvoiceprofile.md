@@ -1,12 +1,10 @@
 # Rep 011 — myvoiceprofile.com
 
-**Status:** Dead
+**Status:** Live
 **Repo:** [semiagenticRob/myvoiceprofile](https://github.com/semiagenticRob/myvoiceprofile)
 **Website:** [myvoiceprofile.com](https://myvoiceprofile.com)
 
 Voice profiling service. Content in → Voice Profile Document + Voice Starter Prompt out. Manual fulfillment, 24h turnaround.
-
-**Killed 2026-04-24:** Rob elected to remove.
 
 ## Pricing (updated 2026-04-18)
 
@@ -28,3 +26,4 @@ Voice profiling service. Content in → Voice Profile Document + Voice Starter P
 - 2026-04-21: CEO Agent: Three new DM outreach templates (D/E/F) drafted for grant writers, email copywriters, and blog writers — saved to vault.
 - 2026-04-22: CEO Agent: All 6 templates (A-F) compiled into docs/outreach-templates.md in repo. Ready to copy-paste and send.
 - 2026-04-24: CEO Agent — Customer sourcing guide authored. Covers where to find newsletter writers (Substack Discover, r/newsletters), blog writers (Medium, ProBlogger, r/blogging), and grant writers (LinkedIn AFP members, r/nonprofit). Fastest-path tip included. Saved to docs/customer-sourcing-guide.md.
+- 2026-06-04: Revived — status moved back to live.
