@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 25
+  total: 26
   target: 100
 
 reps:
@@ -554,3 +554,17 @@ reps:
     timeline:
       - date: 2026-06-01
         event: "Rep conceived — AI-powered local outreach support for KaufCare urgent care clinic, Denver. Repo created at github.com/semiagenticRob/kaufcare-outreach."
+
+  - id: 26
+    name: Monetizing the Megawatt
+    status: building
+    pita: 2
+    summary: Interactive visualizer for a Bitcoin mining economics paper. Sankey diagram model showing how energy producers monetize megawatts via hashrate, heat credits, and load credits.
+    next_step: Build the interactive Sankey diagram with adjustable sliders and three case study presets (Megawatt, Cholla Innovation Lab, Upstream Data).
+    due: null
+    blocker: null
+    last_action: 2026-06-04
+    repo: semiagenticRob/monetizing-the-megawatt
+    timeline:
+      - date: 2026-06-04
+        event: "Rep conceived — interactive visualizer for the Monetizing the Megawatt paper published at Bitcoin Park. Repo created at github.com/semiagenticRob/monetizing-the-megawatt."

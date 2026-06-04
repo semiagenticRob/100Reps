@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 18 / 100**
+**Progress: 19 / 100**
 
 ## Live
 
@@ -26,6 +26,7 @@
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
 | 025 | [KaufCare Outreach](reps/025-kaufcare-outreach.md) | Define outreach strategy and initial AI-empowered tactics |
+| 026 | [Monetizing the Megawatt](reps/026-monetizing-the-megawatt.md) | Build interactive Sankey diagram with sliders and case study presets |
 
 ## Assessed
 
