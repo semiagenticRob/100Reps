@@ -582,6 +582,7 @@ reps:
     blocker: null
     last_action: 2026-06-04
     repo: semiagenticRob/monetizing-the-megawatt
+    image: images/026.jpg
     timeline:
       - date: 2026-06-04
         event: "Rep conceived — interactive visualizer for the Monetizing the Megawatt paper published at Bitcoin Park. Repo created at github.com/semiagenticRob/monetizing-the-megawatt."
