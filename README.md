@@ -16,6 +16,7 @@
 | 021 | [n-of-one](reps/021-n-of-one.md) | Publish template publicly and share with potential users |
 | 023 | [Multi-Agent Orchestrator](https://github.com/semiagenticRob/multi-agent-orchestrator) | Run all new reps through the orchestrator |
 | 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Drive early user feedback and promote organically |
+| 026 | [Monetizing the Megawatt](reps/026-monetizing-the-megawatt.md) | Drive early user feedback and share with Bitcoin mining and energy producer communities |
 
 ## Building
 
@@ -26,7 +27,6 @@
 | 014 | [Colorado AI Lab](https://github.com/semiagenticRob/coloradoailab) | Finalize landing page and go live |
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
 | 025 | [KaufCare Outreach](reps/025-kaufcare-outreach.md) | Define outreach strategy and initial AI-empowered tactics |
-| 026 | [Monetizing the Megawatt](reps/026-monetizing-the-megawatt.md) | Build interactive Sankey diagram with sliders and case study presets |
 
 ## Assessed
 
