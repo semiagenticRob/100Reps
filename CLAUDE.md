@@ -30,11 +30,21 @@ python3 -c "import yaml; d=yaml.safe_load(open('reps.yaml')); assert len(d['reps
 Journal pipeline (field-notes/lessons → JSON consumed by the dashboard):
 
 ```bash
+source venv/bin/activate                        # activate venv (first time: pip install -r requirements.txt)
 python3 scripts/build_journal.py                # regenerate docs/field-notes.json and docs/lessons.json
-python3 -m unittest discover tests -v           # run the build-script tests
+python3 -c "import json; json.load(open('docs/field-notes.json')); json.load(open('docs/lessons.json')); print('VALID')"
+python3 -m unittest discover tests -v           # run all build-script tests
+python3 -m unittest tests.test_build_journal.TestRenderBody -v  # run a single test class
 ```
 
 There is no front-end build or lint suite — only the Python tests above for the journal pipeline.
+
+## CI workflows (both auto-commit to `main`)
+
+- `.github/workflows/sync-reps-yaml.yml` — triggers on `reps.yaml` changes, copies it to `docs/reps.yaml` and commits.
+- `.github/workflows/build-journal.yml` — triggers on `field-notes/`, `lessons/`, or `scripts/build_journal.py` changes, regenerates `docs/field-notes.json` and `docs/lessons.json` and commits.
+
+Do not manually commit `docs/reps.yaml`, `docs/field-notes.json`, or `docs/lessons.json` — CI owns those files.
 
 ## Editing `reps.yaml` — critical rules
 

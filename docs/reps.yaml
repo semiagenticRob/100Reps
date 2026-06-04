@@ -34,6 +34,7 @@ reps:
     blocker: null
     last_action: 2026-04-25
     repo: semiagenticRob/estate-sale-helper
+    image: images/002.png
     links:
       website: https://www.estatesalehelper.com
       app_store: https://apps.apple.com/us/app/estate-sale-helper/id6761272980
@@ -123,6 +124,7 @@ reps:
     blocker: null
     last_action: 2026-05-10
     repo: semiagenticRob/teshuvah-read-along
+    image: images/006.png
     timeline:
       - date: 2026-03-24
         event: "Rabbi outreach sent — Rabbi Wolf, Rabbi Ross, Alex Amchislavskiy"
@@ -171,6 +173,7 @@ reps:
     blocker: null
     last_action: 2026-03-23
     repo: null
+    image: images/007.png
 
   - id: 8
     name: "Declutter Truck"
@@ -196,6 +199,7 @@ reps:
     blocker: null
     last_action: 2026-04-17
     repo: semiagenticRob/colorado-totes
+    image: images/009.png
     timeline:
       - date: 2026-03-25
         event: "Assessment completed"
@@ -271,6 +275,7 @@ reps:
     blocker: null
     last_action: 2026-05-05
     repo: semiagenticRob/civic-transparency-tool
+    image: images/013.png
     links:
       website: https://eyes-on-arvada.beehiiv.com
     timeline:
@@ -289,6 +294,7 @@ reps:
     blocker: null
     last_action: 2026-04-28
     repo: semiagenticRob/coloradoailab
+    image: images/014.png
     links:
       website: https://coloradoailab.com
     timeline:
@@ -341,6 +347,7 @@ reps:
     blocker: null
     last_action: 2026-05-05
     repo: semiagenticRob/stock-up-dinners
+    image: images/016.jpg
     links:
       website: https://stockupdinners.com
     timeline:
@@ -439,6 +446,7 @@ reps:
     blocker: null
     last_action: 2026-04-27
     repo: semiagenticRob/goose-helper
+    image: images/019.png
     timeline:
       - date: 2026-04-22
         event: "Repo created — React/TypeScript/Vite prototype with mock data. Company-level and team-level cards, utilization thresholds, per-person breakdowns."
@@ -481,6 +489,7 @@ reps:
     blocker: null
     last_action: 2026-05-08
     repo: semiagenticRob/n-of-one-template
+    image: images/021.png
     timeline:
       - date: 2026-05-07
         event: "Rep conceived — brainstorm session with Rob. Public template repo: github.com/semiagenticRob/n-of-one-template."
@@ -513,6 +522,7 @@ reps:
     blocker: null
     last_action: 2026-05-26
     repo: semiagenticRob/multi-agent-orchestrator
+    image: images/023.png
     timeline:
       - date: 2026-05-26
         event: "Rep conceived — Rob added as Rep 023. Repo created at github.com/semiagenticRob/multi-agent-orchestrator."
@@ -523,19 +533,22 @@ reps:
 
   - id: 24
     name: Day Trip Planner
-    status: building
+    status: live
     pita: 3
     summary: "Set a travel home base and plan day trips or overnights from that location. Destination discovery, distance/drive-time filtering, and itinerary building radiating from a chosen base."
-    next_step: "Continue building the Day Trip Planner."
+    next_step: "Drive early user feedback and promote organically."
     due: null
     blocker: null
-    last_action: 2026-05-30
+    last_action: 2026-06-02
     repo: semiagenticRob/day-trip-planner
+    image: images/024.png
     timeline:
       - date: 2026-05-29
         event: "Rep conceived — home base + day trip/overnight planning tool. Repo created at github.com/semiagenticRob/day-trip-planner."
       - date: 2026-05-30
         event: "Moved to building — Rob is actively building."
+      - date: 2026-06-02
+        event: "Status → live."
 
   - id: 25
     name: KaufCare Boots on the Ground Support
@@ -547,6 +560,7 @@ reps:
     blocker: null
     last_action: 2026-06-01
     repo: semiagenticRob/kaufcare-outreach
+    image: images/025.png
     links:
       website: https://kaufcare.com
     timeline:
