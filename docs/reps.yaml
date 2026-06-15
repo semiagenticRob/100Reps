@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 26
+  total: 27
   target: 100
 
 reps:
@@ -574,10 +574,10 @@ reps:
 
   - id: 26
     name: Monetizing the Megawatt
-    status: building
+    status: live
     pita: 2
     summary: Interactive visualizer for a Bitcoin mining economics paper. Sankey diagram model showing how energy producers monetize megawatts via hashrate, heat credits, and load credits.
-    next_step: Build the interactive Sankey diagram with adjustable sliders and three case study presets (Megawatt, Cholla Innovation Lab, Upstream Data).
+    next_step: Drive early user feedback and share with Bitcoin mining and energy producer communities.
     due: null
     blocker: null
     last_action: 2026-06-04
@@ -586,3 +586,20 @@ reps:
     timeline:
       - date: 2026-06-04
         event: "Rep conceived — interactive visualizer for the Monetizing the Megawatt paper published at Bitcoin Park. Repo created at github.com/semiagenticRob/monetizing-the-megawatt."
+      - date: 2026-06-04
+        event: "Status → live."
+
+  - id: 27
+    name: Digital Siddur
+    status: building
+    pita: 2
+    summary: Faithful reproduction of the Feigenbaum Teen Siddur in app form. A weekday siddur app built on the DavenAlong framework with licensed Feigenbaum editorial content.
+    next_step: Build the app — implement Feigenbaum Teen Siddur content using DavenAlong as the base.
+    due: null
+    blocker: null
+    last_action: 2026-06-15
+    repo: semiagenticRob/digital-siddur
+    image: images/027.jpg
+    timeline:
+      - date: 2026-06-15
+        event: "Rep conceived — faithful reproduction of the Feigenbaum Teen Siddur in app form, variation of DavenAlong (Rep 006)."
