@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 27
+  total: 28
   target: 100
 
 reps:
@@ -603,3 +603,17 @@ reps:
     timeline:
       - date: 2026-06-15
         event: "Rep conceived — faithful reproduction of the Feigenbaum Teen Siddur in app form, variation of DavenAlong (Rep 006)."
+
+  - id: 28
+    name: Voice Profiler Skill
+    status: live
+    pita: 1
+    summary: Free Claude Code skill that analyzes a speaker or author's text corpus to extract idiolectal markers, producing forensic sociolinguistic voice profiles and multi-context voice system prompts.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-06-18
+    repo: semiagenticRob/voice-profiler-skill
+    timeline:
+      - date: 2026-06-18
+        event: "Rep conceived and launched — free Claude Code skill for forensic sociolinguistic voice profiling. Repo published publicly at github.com/semiagenticRob/voice-profiler-skill."
