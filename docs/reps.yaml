@@ -614,6 +614,7 @@ reps:
     blocker: null
     last_action: 2026-06-18
     repo: semiagenticRob/voice-profiler-skill
+    image: images/028.jpg
     timeline:
       - date: 2026-06-18
         event: "Rep conceived and launched — free Claude Code skill for forensic sociolinguistic voice profiling. Repo published publicly at github.com/semiagenticRob/voice-profiler-skill."
