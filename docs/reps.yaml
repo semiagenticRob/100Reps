@@ -402,8 +402,8 @@ reps:
     summary: "Two Bitmain S19 miners throttled automatically to consume only excess rooftop solar production. Monetizes otherwise wasted electricity with zero incremental grid cost."
     next_step: null
     due: null
-    blocker: "Net metering is not revenue-generating; model does not work under current net metering structure"
-    last_action: 2026-04-13
+    blocker: "One to one net metering is not revenue-generating; model does not work under current net metering structure"
+    last_action: 2026-07-02
     repo: semiagenticRob/solar-miner
     timeline:
       - date: 2026-04-11
