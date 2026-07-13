@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 28
+  total: 29
   target: 100
 
 reps:
@@ -603,6 +603,21 @@ reps:
     timeline:
       - date: 2026-06-15
         event: "Rep conceived — faithful reproduction of the Feigenbaum Teen Siddur in app form, variation of DavenAlong (Rep 006)."
+
+  - id: 29
+    name: Listing Research Skill
+    status: building
+    pita: 2
+    summary: AI-powered skill that identifies items found at thrift stores, estate sales, and garage sales, researches resale market value, and produces a structured listing ready for a sales partner to act on.
+    next_step: Build the full skill workflow — photo in, listing table out, auto-populate inventory tracker.
+    due: null
+    blocker: null
+    last_action: 2026-07-13
+    repo: semiagenticRob/listing-research-skill
+    image: images/rep-029-listing-research.jpg
+    timeline:
+      - date: 2026-07-13
+        event: "Rep conceived — AI skill for rapid item research and listing at estate sales and thrift stores. Repo created at github.com/semiagenticRob/listing-research-skill."
 
   - id: 28
     name: Voice Profiler Skill
