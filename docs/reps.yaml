@@ -606,10 +606,10 @@ reps:
 
   - id: 29
     name: Listing Research Skill
-    status: building
+    status: live
     pita: 2
     summary: AI-powered skill that identifies items found at thrift stores, estate sales, and garage sales, researches resale market value, and produces a structured listing ready for a sales partner to act on.
-    next_step: Build the full skill workflow — photo in, listing table out, auto-populate inventory tracker.
+    next_step: null
     due: null
     blocker: null
     last_action: 2026-07-13
