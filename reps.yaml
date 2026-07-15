@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 29
+  total: 30
   target: 100
 
 reps:
@@ -633,3 +633,18 @@ reps:
     timeline:
       - date: 2026-06-18
         event: "Rep conceived and launched — free Claude Code skill for forensic sociolinguistic voice profiling. Repo published publicly at github.com/semiagenticRob/voice-profiler-skill."
+
+  - id: 30
+    name: I Am Not A Trader, Bot
+    status: building
+    pita: 3
+    summary: A project at the intersection of AI and trading — exploring what automated systems can and can't do in financial markets. Not trading advice; a rep about building and learning.
+    next_step: Define scope and initial build direction.
+    due: null
+    blocker: null
+    last_action: 2026-07-15
+    repo: semiagenticRob/i-am-not-a-trader-bot
+    image: images/030.jpg
+    timeline:
+      - date: 2026-07-15
+        event: "Rep conceived — AI and trading intersection project. Repo created at github.com/semiagenticRob/i-am-not-a-trader-bot."
