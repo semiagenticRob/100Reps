@@ -29,6 +29,7 @@
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
 | 025 | [KaufCare Outreach](reps/025-kaufcare-outreach.md) | Define outreach strategy and initial AI-empowered tactics |
 | 027 | [Digital Siddur](reps/027-digital-siddur.md) | Build the app — implement Feigenbaum Teen Siddur content using DavenAlong as the base |
+| 030 | [I Am Not A Trader, Bot](reps/030-i-am-not-a-trader-bot.md) | Run shadow mode toward the funding gate, then Phase 2 runbook |
 
 ## Assessed
 

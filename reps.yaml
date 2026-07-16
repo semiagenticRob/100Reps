@@ -635,16 +635,20 @@ reps:
         event: "Rep conceived and launched — free Claude Code skill for forensic sociolinguistic voice profiling. Repo published publicly at github.com/semiagenticRob/voice-profiler-skill."
 
   - id: 30
-    name: I Am Not A Trader, Bot
+    name: "I Am Not A Trader, Bot"
     status: building
-    pita: 3
-    summary: A project at the intersection of AI and trading — exploring what automated systems can and can't do in financial markets. Not trading advice; a rep about building and learning.
-    next_step: Define scope and initial build direction.
+    pita: 5
+    summary: "Evidence-gated Polymarket BTC 5-minute trading system. Strategies trade on paper, earn capital only after clearing a statistical funding gate, then evolve via champion/challenger promotion."
+    next_step: "Run shadow mode to accumulate 100+ trades toward the funding gate, then work through the Phase 2 runbook before any real capital trades."
     due: null
     blocker: null
-    last_action: 2026-07-15
+    last_action: 2026-07-16
     repo: semiagenticRob/i-am-not-a-trader-bot
     image: images/030.jpg
     timeline:
       - date: 2026-07-15
         event: "Rep conceived — AI and trading intersection project. Repo created at github.com/semiagenticRob/i-am-not-a-trader-bot."
+      - date: 2026-07-15
+        event: "Design spec approved — evidence-gated architecture: STRATEGY.md source of truth, deterministic engine, shadow mode, statistical funding gate, champion/challenger evolution."
+      - date: 2026-07-16
+        event: "Full engine (U1-U11) built, 12-persona code-reviewed, and merged to main via PR #1. Live trading remains gated behind a manual venue-decision step."
