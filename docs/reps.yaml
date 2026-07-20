@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 31
+  total: 30
   target: 100
 
 reps:
@@ -652,18 +652,3 @@ reps:
         event: "Design spec approved — evidence-gated architecture: STRATEGY.md source of truth, deterministic engine, shadow mode, statistical funding gate, champion/challenger evolution."
       - date: 2026-07-16
         event: "Full engine (U1-U11) built, 12-persona code-reviewed, and merged to main via PR #1. Live trading remains gated behind a manual venue-decision step."
-
-  - id: 31
-    name: Sentiment Sniper
-    status: building
-    pita: 2
-    summary: Sentiment production and assessment tool using a feeling wheel. Helps users identify, articulate, and work with emotions using structured frameworks.
-    next_step: Define core use case and initial build direction.
-    due: null
-    blocker: null
-    last_action: 2026-07-20
-    repo: semiagenticRob/sentiment-sniper
-    image: images/031.jpg
-    timeline:
-      - date: 2026-07-20
-        event: "Rep conceived — sentiment production and assessment tool using a feeling wheel. Repo created at github.com/semiagenticRob/sentiment-sniper."
