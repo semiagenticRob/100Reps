@@ -657,13 +657,13 @@ reps:
 
   - id: 31
     name: Sentiment Sniper
-    status: building
+    status: live
     pita: 2
     summary: Sentiment production and assessment tool using a feeling wheel. Helps users identify, articulate, and work with emotions using structured frameworks.
-    next_step: Define core use case and initial build direction.
+    next_step: null
     due: null
     blocker: null
-    last_action: 2026-07-20
+    last_action: 2026-07-31
     repo: semiagenticRob/sentiment-sniper
     image: images/031.jpg
     timeline:
