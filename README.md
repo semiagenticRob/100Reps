@@ -2,7 +2,7 @@
 
 100 product launches. A couple become real businesses. Volume creates the conditions for something to break through.
 
-**Progress: 28 / 100**
+**Progress: 32 / 100**
 
 ## Live
 
@@ -18,6 +18,8 @@
 | 024 | [Day Trip Planner](reps/024-day-trip-planner.md) | Drive early user feedback and promote organically |
 | 026 | [Monetizing the Megawatt](reps/026-monetizing-the-megawatt.md) | Drive early user feedback and share with Bitcoin mining and energy producer communities |
 | 028 | [Voice Profiler Skill](reps/028-voice-profiler-skill.md) | Share and promote the free skill in Claude/AI writing communities |
+| 029 | [Listing Research Skill](https://github.com/semiagenticRob/listing-research-skill) | Share and promote the free skill in resale and thrift communities |
+| 032 | [Seed Safe](https://ismyseedsafe.com) | Drive traffic and organic sharing among Bitcoin educators |
 
 ## Building
 
@@ -29,7 +31,7 @@
 | 019 | [Goose Helper](https://github.com/semiagenticRob/goose-helper) | Connect live data source, replace mock data |
 | 025 | [KaufCare Outreach](reps/025-kaufcare-outreach.md) | Define outreach strategy and initial AI-empowered tactics |
 | 027 | [Digital Siddur](reps/027-digital-siddur.md) | Build the app — implement Feigenbaum Teen Siddur content using DavenAlong as the base |
-| 030 | [I Am Not A Trader, Bot](reps/030-i-am-not-a-trader-bot.md) | Run shadow mode toward the funding gate, then Phase 2 runbook |
+| 031 | [Sentiment Sniper](https://github.com/semiagenticRob/sentiment-sniper) | Define core use case and initial build direction |
 
 ## Assessed
 
@@ -57,6 +59,7 @@
 | 012 | STR Accountable |
 | 017 | Solar Miner |
 | 018 | Stupid Simple Agentic CRM |
+| 030 | [I Am Not A Trader, Bot](reps/030-i-am-not-a-trader-bot.md) |
 
 ---
 

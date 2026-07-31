@@ -2,7 +2,7 @@
 # Statuses: idea → assessed → building → live → pmf → dead
 
 meta:
-  total: 31
+  total: 32
   target: 100
 
 reps:
@@ -669,3 +669,20 @@ reps:
     timeline:
       - date: 2026-07-20
         event: "Rep conceived — sentiment production and assessment tool using a feeling wheel. Repo created at github.com/semiagenticRob/sentiment-sniper."
+
+  - id: 32
+    name: Seed Safe
+    status: live
+    pita: 1
+    summary: Parody Bitcoin security website that teaches users never to enter their seed phrase into unknown websites — presents as a seed-phrase validator but has no input mechanism, making the lesson visceral and impossible to ignore.
+    next_step: null
+    due: null
+    blocker: null
+    last_action: 2026-07-31
+    repo: semiagenticRob/seed-safe
+    image: images/032.jpg
+    links:
+      website: https://ismyseedsafe.com
+    timeline:
+      - date: 2026-07-31
+        event: "Rep conceived and launched live — parody seed phrase security site at ismyseedsafe.com. Built with Next.js 16, React 19, Tailwind CSS v4. No input fields by design."
